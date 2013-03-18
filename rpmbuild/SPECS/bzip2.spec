@@ -1,0 +1,59 @@
+Summary:	Contains programs for compressing and decompressing files
+Name:		bzip2
+Version:	1.0.6
+Release:	1
+License:	BSD
+URL:		http://www.bzip.org/
+Group:		Applications/Archiving
+Vendor:		Bildanet
+Distribution:	Octothorpe
+Source:		http://www.bzip.org/%{version}/%{name}-%{version}.tar.gz
+Patch0:		http://www.linuxfromscratch.org/patches/lfs/7.2/bzip2-1.0.6-install_docs-1.patch
+%description
+The Bzip2 package contains programs for compressing and
+decompressing files.
+Compressing text files with bzip2 yields a much better
+compression percentage than with the traditional gzip.
+%prep
+%setup -q
+%patch0 -p1
+sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile
+sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile
+%build
+CFLAGS="%{optflags}" \
+CXXFLAGS="%{optflags}" \
+make %{?_smp_mflags} -f Makefile-libbz2_so
+make clean
+CFLAGS="%{optflags}" \
+CXXFLAGS="%{optflags}" \
+make %{?_smp_mflags}
+%install
+rm -rf %{buildroot}
+make PREFIX=%{buildroot}/usr install
+install -vdm 0755 %{buildroot}/lib
+install -vdm 0755 %{buildroot}/bin
+cp -v bzip2-shared %{buildroot}/bin/bzip2
+cp -av libbz2.so* %{buildroot}/lib
+ln -sv ../../lib/libbz2.so.1.0 %{buildroot}/usr/lib/libbz2.so
+rm -v %{buildroot}/usr/bin/{bunzip2,bzcat}
+ln -sv bzip2 %{buildroot}/bin/bunzip2
+ln -sv bzip2 %{buildroot}/bin/bzcat
+find %{buildroot} -name '*.a'  -delete
+%check
+make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
+%clean
+rm -rf %{buildroot}
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
+%files
+%defattr(-,root,root)
+/bin/*
+/lib/*
+/usr/bin/*
+/usr/lib/*
+/usr/include/*
+/usr/share/doc/%{name}-%{version}/*
+/usr/share/man/*/*
+%changelog
+*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:1.0.6-0
+-	Initial build.	First version

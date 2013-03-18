@@ -1,0 +1,85 @@
+This build system requires the folowing:
+	Partition for LFS under build,	mounted at /mnt/lfs
+	Fetch build system from https://www.github.com/baho-utot/LFS-RPM
+
+Notes:
+	This build system uses su.
+	If you don't want to enter the root password on every step then you can 
+	temporary modify /etc/passwd and remove the x in the root user entry.
+
+WARNING:
+	This build system can trash your host.  
+	DO NOT install/use rpm to install packages unless you are in the chrooted system.
+	Doing so will install the packages into your host system!
+
+	Always:
+		sudo ./scripts/mount.kernel.filesystem.sh
+		sudo ./scripts/final.chroot.sh
+		pacman -S <package name>
+		exit
+		sudo ./scripts/umount.kernel.filesystem.sh
+	
+Procedure for the setting up of the build:
+	Login as root
+	fdisk /dev/sdxx					- create partition
+	mkfs.ext3 /dev/sdxx				- format partition
+	install -vdm 0777	/mnt/lfs		- create mount point
+	mount /dev/sdxx		/mnt/lfs		- mount work partition
+	install -vdm 0777	/mnt/lfs/rpmbuild	- create mount points
+	ln -sv /mnt/lfs/tools /				- symlink tool directory
+	tar -xf <path-to-tarball>/LFS-RPM-7.2*.tar.gz	- unpack build system
+	vi /mnt/lfs/rpmbuild/complete.sh		- edit build flags/configuration
+	cd /mnt/lfs/rpmbuild/SOURCES			- switch directory
+	wget -i wget-list.lfs 				- fetch packages
+*	wget -i wget-list.rpm				- fetch packages
+	md5sum -c md5sum.lfs				- verify source packages for lfs
+*	md5sum -c md5sum.rpm				- verify source packages for pacman
+	scripts/add.user.lfs.sh				- add lfs user
+
+Procedure to build the tool chain:
+	su - lfs 					- login lfs user
+	cd /mnt/lfs/rpmbuild				- goto build system
+	./complete.sh					- build lfs system and install
+
+Install grub:
+
+Notes:
+	This is one way to install grub,
+	You will need to edit the set root=(hdx,x) and root=/dev/sdxx lines to suit.
+	If you don't have a boot partition you will need to
+	change: linux vmlinux-3.5.2 root=/dev/sdxx ro
+	to : linux /boot/vmlinux-3.5.2 root=/dev/sdxx ro.
+	
+	grub-mkdevicemap --device-map=device.map
+	cat device.map
+	grub-install /dev/sdx
+	cat > /boot/grub/grub.cfg << "EOF"
+	# Begin /boot/grub/grub.cfg
+	set default=0
+	set timeout=5
+
+	menuentry "GNU/Linux Linux from scratch" {
+		insmod ext2
+		set root=(hdx,x)
+		linux vmlinux-3.5.2 root=/dev/sdxx ro
+	 }
+ 	menuentry "Windows" {
+		insmod ntfs
+		set root=(hdx,x)
+		chainloader +1
+	 }
+	# End /boot/grub/grub.cfg
+	 EOF
+
+Post setup:
+	reboot						- reboot and run
+	login root
+	passwd						- set root password
+
+This completes the build.
+
+You should save the *.rpm and *.srpm files for reuse or to install this build on other
+computers.
+
+You can now remove build system if desired. rm -rf /rpmbuild and rm -rf /tools, to
+cleanup the root directory.
