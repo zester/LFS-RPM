@@ -33,9 +33,9 @@ Procedure for the setting up of the build:
 	vi /mnt/lfs/rpmbuild/complete.sh	- edit flags/configuration
 	cd /mnt/lfs/rpmbuild/SOURCES		- switch directory
 	wget -i wget-list.txt 			- fetch packages
-*	wget -i wget-list.rpm			- fetch packages
+	wget -i wget-list.rpm			- fetch packages
 	md5sum -c md5sum.txt			- verify packages for lfs
-*	md5sum -c md5sum.rpm			- verify packages for rpm
+	md5sum -c md5sum.rpm			- verify packages for rpm
 	scripts/add.user.lfs.sh			- add lfs user
 
 Procedure to build the tool chain:

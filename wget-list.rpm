@@ -1,0 +1,14 @@
+http://download.oracle.com/berkeley-db/db-5.3.21.tar.gz
+https://github.com/MagicGroup/MagicSpecA-E/blob/master/elfutils/elfutils-0.154-binutils-pr-ld-13621.patch
+http://pkgs.fedoraproject.org/repo/pkgs/elfutils/elfutils-0.154.tar.bz2
+https://github.com/edubart/archlibs/blob/master/lib64-lua/lua-5.1-cflags.diff
+http://www.lua.org/ftp/lua-5.1.5.tar.gz
+https://github.com/edubart/archlibs/blob/master/lib32-lua/lua-arch.patch
+http://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.9.2/src/nspr-4.9.2.tar.gz
+https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_14_RTM/src/nss-3.14.tar.gz
+http://ftp.osuosl.org/pub/blfs/svn/n/nss-3.14.1-standalone-1.patch
+http://rpm5.org/files/popt/popt-1.16.tar.gz
+http://ftp.gnu.org/gnu/readline/readline-6.2.tar.gz
+http://rpm.org/releases/rpm-4.10.x/rpm-4.10.2.tar.bz2
+http://anduin.linuxfromscratch.org/sources/LFS/lfs-packages/7.2/readline-6.2-fixes-1.patch
+http://zlib.net/zlib-1.2.7.tar.bz2
