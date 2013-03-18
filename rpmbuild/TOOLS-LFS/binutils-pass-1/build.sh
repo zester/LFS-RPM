@@ -4,9 +4,8 @@ set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 shopt -s -o pipefail
 pkgname=binutils
-pkgver=2.22
+pkgver=2.23.1
 srcname=../../SOURCES/${pkgname}-${pkgver}.tar.bz2
-patchname="../../../SOURCES/${pkgname}-${pkgver}-build_fix-1.patch"
 srcdir=${pkgname}-${pkgver}
 
 function unpack() {
@@ -18,7 +17,6 @@ function clean() {
 }
 
 function build() {
-	patch -Np1 -i ${patchname}
 	mkdir -v ../binutils-build
 	cd ../binutils-build
 	../${pkgname}-${pkgver}/configure \

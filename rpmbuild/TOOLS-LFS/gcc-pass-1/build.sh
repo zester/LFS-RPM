@@ -3,7 +3,7 @@ set -o errexit	# exit if error
 set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 pkgname=gcc
-pkgver=4.7.1
+pkgver=4.7.2
 srcname="../../SOURCES/${pkgname}-${pkgver}.tar.bz2"
 srcdir=${pkgname}-${pkgver}
 
@@ -18,13 +18,11 @@ function clean() {
 function build() {
 	tar -Jxf ../../../SOURCES/mpfr-3.1.1.tar.xz
 	mv -v mpfr-3.1.1 mpfr
-	tar -Jxf ../../../SOURCES/gmp-5.0.5.tar.xz
+	tar -Jxf ../../../SOURCES/gmp-5.1.1.tar.xz
 	mv -v gmp-5.0.5 gmp
-	tar -zxf ../../../SOURCES/mpc-1.0.tar.gz
+	tar -zxf ../../../SOURCES/mpc-1.0.1.tar.gz
 	mv -v mpc-1.0 mpc
-#	patch -Np1 -i ../../../SOURCES/${pkgname}-${pkgver}-gengtype.patch
-	for file in $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
-	do
+	for file in $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h); do
 		cp -uv $file{,.orig}
 		sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' \
 		    -e 's@/usr@/tools@g' $file.orig > $file
@@ -34,8 +32,9 @@ echo '
 #define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"
 #define STANDARD_STARTFILE_PREFIX_2 ""' >> $file
 		touch $file.orig
-		done
+	done
 	sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
+	sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
 	mkdir -v ../gcc-build
 	cd ../gcc-build
 	../${pkgname}-${pkgver}/configure \
@@ -56,7 +55,7 @@ echo '
 		--disable-libgomp \
 		--disable-libquadmath \
 		--enable-languages=c \
-		--with-mpfr-include=$(pwd)/../gcc-4.7.1/mpfr/src \
+		--with-mpfr-include=$(pwd)/../gcc-4.7.2/mpfr/src \
 		--with-mpfr-lib=$(pwd)/mpfr/src/.libs
 	make
 	make -j1 install
