@@ -39,14 +39,14 @@ export FAILURE="$(pwd)/FAILURE"
 [ -f ${FAILURE} ] && (printf "FAILURE detected exiting script \n";exit 1)
 printf "Building Tool chain \n"
 pushd TOOLS-LFS > /dev/null 2>&1;./builder.sh;popd > /dev/null 2>&1
-
-exit 0
-
 #	Build the rpm package manager tool chain
 [ -f ${FAILURE} ] && (printf "FAILURE detected exiting script \n";exit 1)
 printf "Building Tool chain package manager\n"
 pushd TOOLS-RPM > /dev/null 2>&1;./builder.sh;popd > /dev/null 2>&1
 printf "Build tool chain package manager completed \n"
+
+exit 0
+
 #	If the symlink for bash is not found then the root filesystem hasn't been installed
 [ -f ${FAILURE} ] && (printf "FAILURE detected exiting script \n";exit 1)
 printf "Building filesystem \n"

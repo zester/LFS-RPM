@@ -1,6 +1,6 @@
 3fda0b004acdaa6fa350bfc41a3b95ca  db-5.3.21.tar.gz
-304e865b2623b04c98f9fcc54f5e15d0  elfutils-0.154-binutils-pr-ld-13621.patch
-bedcae2e341e63027670f28d3eb89c76  elfutils-0.154.tar.bz2
+1d38082bfd0f4a5649bb95b281947660 elfutils-0.154-binutils-pr-ld-13621.patch
+e5b26ceaee67db40e742f13052087354  elfutils-0.154.tar.bz2
 1239310e0c4a581c7831e596f95cc6cd  lua-5.1.4-2.patch
 6fd50782dd59b8b6374099dbacfde69f  lua-5.1.4-autotoolize.patch
 99c2cc4c885a2ea49e5600219194ae9a  lua-5.1.4-idsize.patch
