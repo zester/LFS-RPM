@@ -4,9 +4,10 @@ set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 shopt -s -o pipefail
 pkgname=nspr
-pkgver=4.9.2
-srcname="../../SOURCES/${pkgname}-${pkgver}.tar.gz"
+pkgver=4.9.5
+srcname="../SOURCES/${pkgname}-${pkgver}.tar.gz"
 srcdir=${pkgname}-${pkgver}
+
 function unpack() {
 	tar xf ${srcname}
 }

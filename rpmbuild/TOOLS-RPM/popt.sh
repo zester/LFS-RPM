@@ -5,9 +5,9 @@ set +h		# disable hashall
 shopt -s -o pipefail
 pkgname=popt
 pkgver=1.16
-srcname="../../SOURCES/${pkgname}-${pkgver}.tar.gz"
+srcname="../SOURCES/${pkgname}-${pkgver}.tar.gz"
 srcdir="${pkgname}-${pkgver}"
-pkgdir=$(pwd)/pkg
+
 function unpack() {
 	tar xf ${srcname}
 }

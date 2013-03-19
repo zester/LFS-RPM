@@ -4,10 +4,10 @@ set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 shopt -s -o pipefail
 pkgname=rpm
-pkgver=4.10.2
-srcname="../../SOURCES/${pkgname}-${pkgver}.tar.bz2"
+pkgver=4.10.3.1
+srcname="../SOURCES/${pkgname}-${pkgver}.tar.bz2"
 srcdir=${pkgname}-${pkgver}
-pkgdir=$(pwd)/pkg
+
 function unpack() {
 	tar xf ${srcname}
 }

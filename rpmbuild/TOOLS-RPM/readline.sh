@@ -5,8 +5,9 @@ set +h		# disable hashall
 shopt -s -o pipefail
 pkgname=readline
 pkgver=6.2
-srcname="../../SOURCES/${pkgname}-${pkgver}.tar.gz"
+srcname="../SOURCES/${pkgname}-${pkgver}.tar.gz"
 srcdir=${pkgname}-${pkgver}
+
 function unpack() {
 	tar xf ${srcname}
 }
@@ -16,7 +17,7 @@ function clean() {
 function build() {
 	sed -i '/MV.*old/d' Makefile.in
 	sed -i '/{OLDSUFF}/c:' support/shlib-install
-	patch -Np1 -i../../../SOURCES/$pkgname-$pkgver-fixes-1.patch
+	patch -Np1 -i ../../SOURCES/$pkgname-$pkgver-fixes-1.patch
 	./configure \
 		--prefix=/tools \
 		--libdir=/tools/lib
