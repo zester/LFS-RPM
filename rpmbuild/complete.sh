@@ -39,6 +39,9 @@ export FAILURE="$(pwd)/FAILURE"
 [ -f ${FAILURE} ] && (printf "FAILURE detected exiting script \n";exit 1)
 printf "Building Tool chain \n"
 pushd TOOLS-LFS > /dev/null 2>&1;./builder.sh;popd > /dev/null 2>&1
+
+exit 0
+
 #	Build the rpm package manager tool chain
 [ -f ${FAILURE} ] && (printf "FAILURE detected exiting script \n";exit 1)
 printf "Building Tool chain package manager\n"
