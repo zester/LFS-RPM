@@ -1,6 +1,6 @@
 Summary:	Default file system
 Name:		filesystem
-Version:	7.2
+Version:	7.3
 Release:	1
 License:	GPLv3
 Group:		System Environment/Base
@@ -35,15 +35,13 @@ install -vdm 755 %{buildroot}/var/{opt,cache,lib/{misc,locate},local}
 ln -sv lib %{buildroot}/lib64
 ln -sv lib %{buildroot}/usr/lib64
 %endif
-ln -sv ../run %{buildroot}/var
-ln -sv ../run/lock %{buildroot}/var
-#	Create nodes
-#/bin/mknod -m 600 %{buildroot}/dev/console c 5 1
-#/bin/mknod -m 666 %{buildroot}/dev/null c 1 3
+#	Symlinks
+ln -sv /run %{buildroot}/var/run
+ln -sv /run/lock %{buildroot}/var/lock
 #	install configuration files
-#touch %{buildroot}/var/run/utmp 
+touch %{buildroot}/etc/mtab
 touch %{buildroot}/var/log/{btmp,lastlog,wtmp}
-
+#	Configuration files
 cat > %{buildroot}/etc/passwd <<- "EOF"
 	root::0:0:root:/root:/bin/bash
 	bin:x:1:1:bin:/dev/null:/bin/false
@@ -80,20 +78,20 @@ cat > %{buildroot}/etc/sysconfig/ifconfig.eth0 <<- "EOF"
 	BROADCAST=192.168.1.255
 EOF
 cat > %{buildroot}/etc/resolv.conf <<- "EOF"
-# Begin /etc/resolv.conf
+#	Begin /etc/resolv.conf
 #	search <Your Domain Name>
 #	domain <Your Domain Name>
 #	nameserver <IP address>
-# End /etc/resolv.conf
+#	End /etc/resolv.conf
 EOF
 cat > %{buildroot}/etc/hosts <<- "EOF"
-# Begin /etc/hosts (network card version)
+#	Begin /etc/hosts (network card version)
 	127.0.0.1 localhost
 #<192.168.1.1> <HOSTNAME.example.org> [alias1] [alias2 ...]
-# End /etc/hosts (network card version)
+#	End /etc/hosts (network card version)
 EOF
 cat > %{buildroot}/etc/inittab <<- "EOF"
-# Begin /etc/inittab
+#	Begin /etc/inittab
 	id:3:initdefault:
 	si::sysinit:/etc/rc.d/init.d/rc S
 	l0:0:wait:/etc/rc.d/init.d/rc 0
@@ -111,23 +109,23 @@ cat > %{buildroot}/etc/inittab <<- "EOF"
 	4:2345:respawn:/sbin/agetty tty4 9600
 	5:2345:respawn:/sbin/agetty tty5 9600
 	6:2345:respawn:/sbin/agetty tty6 9600
-# End /etc/inittab
+#	End /etc/inittab
 EOF
 echo "HOSTNAME=lfs" > %{buildroot}/etc/sysconfig/network
 cat > %{buildroot}/etc/sysconfig/clock <<- "EOF"
-# Begin /etc/sysconfig/clock
+#	Begin /etc/sysconfig/clock
 	UTC=1
-# Set this to any options you might need to give to hwclock,
-# such as machine hardware clock type for Alphas.
+#	Set this to any options you might need to give to hwclock,
+#	such as machine hardware clock type for Alphas.
 	CLOCKPARAMS=
-# End /etc/sysconfig/clock
+#	End /etc/sysconfig/clock
 EOF
 cat > %{buildroot}/etc/sysconfig/console <<- "EOF"
-# Begin /etc/sysconfig/console
+#	Begin /etc/sysconfig/console
 #	KEYMAP="us"
 #	FONT="lat1-16 -m utf8"
-#FONT="lat1-16 -m 8859-1"
-#KEYMAP_CORRECTIONS="euro2"
+#	FONT="lat1-16 -m 8859-1"
+#	KEYMAP_CORRECTIONS="euro2"
 #	UNICODE="1"
 #	LEGACY_CHARSET="iso-8859-1"
 # End /etc/sysconfig/console
@@ -135,50 +133,51 @@ EOF
 cat > %{buildroot}/etc/profile <<- "EOF"
 # Begin /etc/profile
 #export LANG=<ll>_<CC>.<charmap><@modifiers>
+#	export LANG=en_US
 #	export LANG=en_US.UTF-8
-	export LANG=C
+#	export LANG=C
 # End /etc/profile
 EOF
 cat > %{buildroot}/etc/inputrc <<- "EOF"
-# Begin /etc/inputrc
-# Modified by Chris Lynn <roryo@roryo.dynup.net>
-# Allow the command prompt to wrap to the next line
+#	Begin /etc/inputrc
+#	Modified by Chris Lynn <roryo@roryo.dynup.net>
+#	Allow the command prompt to wrap to the next line
 	set horizontal-scroll-mode Off
-# Enable 8bit input
+#	Enable 8bit input
 	set meta-flag On
 	set input-meta On
-# Turns off 8th bit stripping
+#	Turns off 8th bit stripping
 	set convert-meta Off
-# Keep the 8th bit for display
+#	Keep the 8th bit for display
 	set output-meta On
-# none, visible or audible
+#	none, visible or audible
 	set bell-style none
-# All of the following map the escape sequence of the value
-# contained in the 1st argument to the readline specific functions
+#	All of the following map the escape sequence of the value
+#	contained in the 1st argument to the readline specific functions
 	"\eOd": backward-word
 	"\eOc": forward-word
-# for linux console
+#	for linux console
 	"\e[1~": beginning-of-line
 	"\e[4~": end-of-line
 	"\e[5~": beginning-of-history
 	"\e[6~": end-of-history
 	"\e[3~": delete-char
 	"\e[2~": quoted-insert
-# for xterm
+#	for xterm
 	"\eOH": beginning-of-line
 	"\eOF": end-of-line
-# for Konsole
+#	for Konsole
 	"\e[H": beginning-of-line
 	"\e[F": end-of-line
-# End /etc/inputrc
+#	End /etc/inputrc
 EOF
 cat > %{buildroot}/etc/fstab <<- "EOF"
-# Begin /etc/fstab
+#	Begin /etc/fstab
 #system    mnt-pt    type       options            dump fsck
 #/dev/sdax  /        /ext3      defaults,noatime,noacl,data=ordered 1 1
 /dev/sdax   /        ext3       defaults            1     1
 /dev/sdax   /boot    ext3       defaults            1     2
-/dev/sdax   swap     swap       pri=1               0     0
+#/dev/sdax   swap     swap       pri=1               0     0
 proc        /proc    proc       nosuid,noexec,nodev 0     0
 sysfs       /sys     sysfs      nosuid,noexec,nodev 0     0
 devpts      /dev/pts devpts     gid=5,mode=620      0     0
@@ -186,12 +185,12 @@ tmpfs       /run     tmpfs      defaults            0     0
 devtmpfs    /dev     devtmpfs   mode=0755,nosuid    0     0
 #	My mount points
 tmpfs     /tmp       tmpfs	defaults            0     0
-# End /etc/fstab
+#	End /etc/fstab
 EOF
 echo 7.2 > %{buildroot}/etc/lfs-release
 cat > %{buildroot}/etc/lsb-release <<- "EOF"
 	DISTRIB_ID="Linux From Scratch"
-	DISTRIB_RELEASE="7.2"
+	DISTRIB_RELEASE=%{version}
 	DISTRIB_CODENAME="<your name here>"
 	DISTRIB_DESCRIPTION="Linux From Scratch"
 EOF
@@ -241,16 +240,18 @@ EOF
 /var/log/wtmp
 #/var/run/utmp
 %attr(664,root,utmp)	/var/log/lastlog
-%attr(600,-,-)		/var/log/btmp
+%attr(600,-,-)			/var/log/btmp
 %ifarch x86_64
 %dir /lib64
 %dir /usr/lib64
 %endif
 %clean
 rm -rf %{buildroot}
-#%post
-#[ -e /dev/console ] || /bin/mknod -m 600 /dev/console c 5 1
-#[ -e /dev/null ]    || /bin/mknod -m 666 /dev/null c 1 3
+%post
+if [ -e /bin/mknod ]; then
+[ -e /dev/console ] || /bin/mknod -m 600 /dev/console c 5 1
+[ -e /dev/null ]    || /bin/mknod -m 666 /dev/null c 1 3
+fi
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:7.2-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:7.3-1
+-	Upgrade version

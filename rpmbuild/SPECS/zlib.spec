@@ -14,17 +14,17 @@ Compression and decompression routines
 %setup -q
 %build
 CFLAGS="%{optflags}" \
-	CXXFLAGS="%{optflags}" \
-	./configure \
-	--prefix=/usr
+CXXFLAGS="%{optflags}" \
+./configure \
+--prefix=/usr
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/lib
 mv -v %{buildroot}/usr/lib/libz.so.* %{buildroot}/lib
 ln -sfv ../../lib/libz.so.1.2.7 %{buildroot}/usr/lib/libz.so
-#find %{buildroot}/usr/lib/ -name '*.a'  -delete
+find %{buildroot}/usr/lib/ -name '*.a'  -delete
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %post	-p /sbin/ldconfig

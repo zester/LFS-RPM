@@ -1,6 +1,6 @@
 Summary:	Linux Api header files
 Name:		linux-api-headers
-Version:	3.5.2
+Version:	3.8.1
 Release:	1
 License:	GPLv2
 URL:		http://www.kernel.org/
@@ -13,15 +13,14 @@ BuildArch: 	noarch
 The Linux API Headers expose the kernel's API for use by Glibc.
 %define pkgdir	%{_builddir}/linux-%{version}
 %prep
-rm -rf %{pkgdir}
-tar xf %{_sourcedir}/linux-%{version}.tar.xz
+tar -xvf %{_sourcedir}/linux-%{version}.tar.xz
 %build
-cd %{pkgdir}
+cd %{_builddir}/linux-%{version}
 make mrproper
 make headers_check
 %install
-rm -rf %{buildroot}
-cd %{pkgdir}
+cd %{_builddir}/linux-%{version}
+rm -rf %{buildroot}/*
 make INSTALL_HDR_PATH=dest headers_install
 find dest/include \( -name .install -o -name ..install.cmd \) -delete
 install -vdm 755 %{buildroot}/usr/include
@@ -32,5 +31,8 @@ rm -rf %{buildroot} %{_builddir}/*
 %defattr(-,root,root)
 /usr/include/*
 %changelog
+*	Sun Mar 24 2013 GangGreene <GangGreene@bildanet.com> 3.8.1-1
+-	Update version
+
 *	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 3.5.2-1
 -	Initial build.	First version

@@ -15,7 +15,7 @@ in a secure way.
 %setup -q
 sed -i 's/groups$(EXEEXT) //' src/Makefile.in
 find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;
-	sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
+sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
 	-e 's@/var/spool/mail@/var/mail@' etc/login.defs
 %build
 ./configure \
@@ -24,12 +24,15 @@ find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;
 	--sysconfdir=/etc
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/bin
 mv -v %{buildroot}/usr/bin/passwd %{buildroot}/bin
 sed -i 's/yes/no/' %{buildroot}/etc/default/useradd
 %find_lang %{name}
+%post
+/usr/sbin/pwconv
+/usr/sbin/grpconv
 %clean
 rm -rf %{buildroot}
 %files -f %{name}.lang

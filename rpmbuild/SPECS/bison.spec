@@ -1,6 +1,6 @@
 Summary:	Contains a parser generator
 Name:		bison
-Version:	2.6.2
+Version:	2.7
 Release:	1
 License:	GPLv3
 URL:		http://www.gnu.org/software/bison
@@ -22,7 +22,6 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}/usr/lib -name '*.a'  -delete
 rm -rf %{buildroot}/usr/share/info
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -31,10 +30,11 @@ rm -rf %{buildroot}
 %files 
 %defattr(-,root,root)
 /usr/bin/*
+/usr/lib/*
 /usr/share/%{name}/*
 /usr/share/aclocal/*
 /usr/share/locale/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:2.6.2-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:2.7-1
+-	Upgrade version

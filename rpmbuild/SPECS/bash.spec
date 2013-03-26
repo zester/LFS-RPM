@@ -8,7 +8,7 @@ Group:		System Environment/Shells
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source0:	http://ftp.gnu.org/gnu/bash/%{name}-%{version}.tar.gz
-Patch0:		http://www.linuxfromscratch.org/patches/lfs/7.2/bash-4.2-fixes-8.patch
+Patch0:		http://www.linuxfromscratch.org/patches/lfs/7.3/bash-4.2-fixes-11.patch
 Provides:	/bin/sh
 Provides:	/bin/bash
 %description
@@ -29,7 +29,6 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-ln -vs bash %{buildroot}/bin/sh
 %find_lang %{name}
 rm -rf %{buildroot}/usr/share/info
 %clean
@@ -40,5 +39,5 @@ rm -rf %{buildroot}
 /usr/share/doc/%{name}-%{version}/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:4.2-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:4.2-1
+-	Upgrade version

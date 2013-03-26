@@ -1,6 +1,6 @@
 Summary:	Contains the GNU compiler collection
 Name:		gcc
-Version:	4.7.1
+Version:	4.7.2
 Release:	1
 License:	GPLv2
 URL:		http://gcc.gnu.org
@@ -14,6 +14,7 @@ which includes the C and C++ compilers.
 %prep
 %setup -q
 sed -i 's/install_to_$(INSTALL_DEST) //' libiberty/Makefile.in
+sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
 case `uname -m` in
 	i?86) sed -i 's/^T_CFLAGS =$/& -fomit-frame-pointer/' gcc/Makefile.in ;;
 esac
@@ -21,8 +22,8 @@ sed -i -e /autogen/d -e /check.sh/d fixincludes/Makefile.in
 install -vdm 755 ../gcc-build
 %build
 cd ../gcc-build
-export   CFLAGS="%{optflags}" 
-export CXXFLAGS="%{optflags}"
+CFLAGS="%{optflags}" \
+CXXFLAGS="%{optflags}" \
 ../%{name}-%{version}/configure \
 	--prefix=/usr \
 	--libexecdir=/usr/lib \
@@ -36,16 +37,16 @@ export CXXFLAGS="%{optflags}"
 	--with-system-zlib
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+rm -rf %{buildroot}/*
 cd ../gcc-build
 make DESTDIR=%{buildroot} install
-find %{buildroot}/usr/lib -name '*.la' -delete
-#find %{buildroot}/usr/lib -name '*.a' -delete
 install -vdm 755 %{buildroot}/lib
 ln -sv ../usr/bin/cpp %{buildroot}/lib
 ln -sv gcc %{buildroot}/usr/bin/cc
 install -vdm 755 %{buildroot}/usr/share/gdb/auto-load/usr/lib
 mv -v %{buildroot}/usr/lib/*gdb.py %{buildroot}/usr/share/gdb/auto-load/usr/lib
+find %{buildroot}/usr/lib -name '*.la' -delete
+#find %{buildroot}/usr/lib -name '*.a' -delete
 rm -rf %{buildroot}/usr/share/info
 %check
 cd ../gcc-build
@@ -66,5 +67,5 @@ rm -rf %{buildroot}
 /usr/share/locale/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 4.7.1-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:4.7.2-1
+-	Upgrade version

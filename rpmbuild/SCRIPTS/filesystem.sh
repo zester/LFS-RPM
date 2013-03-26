@@ -6,6 +6,7 @@ shopt -s -o pipefail
 trap 'echo Filesystem build failed...;touch ${FAILURE};exit 1' ERR
 [ -e $LFS/dev/console ] && exit 0
 #	this is for kernel filesystem
+export LFS=/mnt/lfs
 install -vdm 755 $LFS/{dev,proc,sys}
 su -c "mknod	-m 600 $LFS/dev/console c 5 1"
 su -c "mknod	-m 600 $LFS/dev/null c 1 3"

@@ -4,7 +4,6 @@ set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 shopt -s -o pipefail
 function adjust() {
-#	filespec=`dirname $(gcc --print-libgcc-file-name)`/specs
 	mv -v /tools/bin/{ld,ld-old}
 	mv -v /tools/$(gcc -dumpmachine)/bin/{ld,ld-old}
 	mv -v /tools/bin/{ld-new,ld}
@@ -31,5 +30,5 @@ if [ -e /tools/TOOL.CHAIN.ADJ ]; then
 else
 	printf "Adjusting tool chain\n"
 	adjust		|& tee "adjust.log"
-	test.tool.chain	|& tee "test.log"
+	test.tool.chain	|& tee "adjust.test.log"
 fi

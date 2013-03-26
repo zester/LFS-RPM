@@ -35,8 +35,6 @@ ln -sfv ../../lib/libhistory.so.6	%{buildroot}/usr/lib/libhistory.so
 install -vdm 755 %{buildroot}/usr/share/doc/%{name}-%{version}
 install -v -m644 doc/*.{ps,pdf,html,dvi} \
 		 %{buildroot}/usr/share/doc/%{name}-%{version}
-find %{buildroot}/lib		-name '*.a' -delete
-find %{buildroot}/usr/lib	-name '*.a' -delete
 rm -rf %{buildroot}/usr/share/info
 %clean
 rm -rf %{buildroot}

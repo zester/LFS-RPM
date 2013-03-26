@@ -16,16 +16,19 @@ applications for database related functions.
 %setup -q
 %build
 cd build_unix
-../dist/configure CFLAGS="%{optflags}" CXXFLAGS="%{optflags}" \
+export CFLAGS="%{optflags} -fno-strict-aliasing " CXXFLAGS="%{optflags}"
+../dist/configure \
 	--prefix=/usr \
 	--docdir=/usr/share/doc/%{name}-%{version} \
 	--enable-compat185 \
 	--enable-dbm \
 	--disable-static \
 	--enable-cxx \
-	--with-posixmutexes
-	sed -i 's|emode=\t555|emode=\t644|' Makefile
-make %{?_smp_mflags}
+	--disable-atomicsupport
+#	--enable-shared
+#	--with-posixmutexes \
+#	sed -i 's|emode=\t555|emode=\t644|' Makefile
+make %{?_smp_mflags} LIB=-lpthread
 %install
 rm -rf %{buildroot}
 cd build_unix

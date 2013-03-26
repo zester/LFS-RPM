@@ -24,7 +24,6 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} pkgconfigdir=/usr/lib/pkgconfig install
-find %{buildroot}/usr/lib -name '*.a'  -delete
 find %{buildroot}/usr/lib -name '*.la' -delete
 %find_lang %{name}
 %check

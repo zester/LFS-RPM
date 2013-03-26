@@ -1,6 +1,6 @@
 Summary:	Library for the arithmetic of complex numbers
 Name:		mpc
-Version:	1.0
+Version:	1.0.1
 Release:	1
 License:	LGPLv3
 URL:		http://www.multiprecision.org
@@ -23,7 +23,7 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-#find %{buildroot}/usr/lib -name '*.a'  -delete
+find %{buildroot}/usr/lib -name '*.a'  -delete
 find %{buildroot}/usr/lib -name '*.la' -delete
 rm -rf %{buildroot}//usr/share/info
 %check
@@ -37,5 +37,5 @@ rm -rf %{buildroot}
 /usr/include/*
 /usr/lib/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 1.0-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:1.0.1-1
+-	Upgrade version

@@ -1,6 +1,6 @@
 Summary:	Math libraries
 Name:		gmp
-Version:	5.0.5
+Version:	5.1.1
 Release:	1
 License:	GPLv3
 URL:		http://www.gnu.org/software/gmp
@@ -31,12 +31,12 @@ for arbitrary precision arithmetic.
 %endif
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/usr/share/doc/%{name}-%{version}
 cp    -v doc/{isa_abi_headache,configuration} doc/*.html \
 	%{buildroot}/usr/share/doc/%{name}-%{version}
-#find %{buildroot}/usr/lib -name '*.a'  -delete
+find %{buildroot}/usr/lib -name '*.a'  -delete
 find %{buildroot}/usr/lib -name '*.la' -delete
 rm -rf %{buildroot}/usr/share/info
 %check
@@ -51,5 +51,5 @@ rm -rf %{buildroot}
 /usr/include/*
 /usr/share/doc/%{name}-%{version}/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 5.0.5-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:5.1.1-1
+-	Upgrade version

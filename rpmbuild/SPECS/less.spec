@@ -1,6 +1,6 @@
 Summary:	Text file viewer
 Name:		less
-Version:	444
+Version:	451
 Release:	1
 License:	GPLv3
 URL:		http://www.greenwoodsoftware.com/less
@@ -29,5 +29,5 @@ rm -rf %{buildroot}
 /usr/bin/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:444-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:451-1
+-	Upgrade version

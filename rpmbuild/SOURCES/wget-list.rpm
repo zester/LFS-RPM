@@ -1,8 +1,7 @@
 http://download.oracle.com/berkeley-db/db-5.3.21.tar.gz
-https://github.com/MagicGroup/MagicSpecA-E/blob/master/elfutils/elfutils-0.154-binutils-pr-ld-13621.patch
-https://fedorahosted.org/releases/e/l/elfutils/0.154/elfutils-0.154.tar.bz2
+https://fedorahosted.org/releases/e/l/elfutils/0.155/elfutils-0.155.tar.bz2
 http://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.9.5/src/nspr-4.9.5.tar.gz
 http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_14_3_RTM/src/nss-3.14.3.tar.gz
 http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.14.3-standalone-1.patch
 http://rpm5.org/files/popt/popt-1.16.tar.gz
-http://rpm.org/releases/rpm-4.10.x/rpm-4.10.3.1.tar.bz2
+http://rpm.org/releases/rpm-4.10.x/rpm-4.10.3.3.tar.bz2

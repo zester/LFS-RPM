@@ -1,6 +1,6 @@
 Summary:	Main C library
 Name:		glibc
-Version:	2.16.0
+Version:	2.17
 Release:	1
 License:	GPLv3
 URL:		http://www.gnu.org/software/libc
@@ -8,7 +8,6 @@ Group:		Applications/System
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://ftp.gnu.org/gnu/glibc/%{name}-%{version}.tar.xz
-Patch:		http://www.linuxfromscratch.org/patches/lfs/7.2/glibc-2.16.0-res_query_fix-1.patch
 %description
 This library provides the basic routines for allocating memory,
 searching directories, opening and closing files, reading and
@@ -16,38 +15,39 @@ writing files, string handling, pattern matching, arithmetic,
 and so on.
 %prep
 %setup -q
-sed -i 's#<rpc/types.h>#"rpc/types.h"#' sunrpc/rpc_clntout.c
-sed -i '/test-installation.pl/d' Makefile
-sed -i 's|@BASH@|/bin/bash|' elf/ldd.bash.in
-%patch -p1
 %build
 install -vdm 755 %{_builddir}/%{name}-build
 cd %{_builddir}/%{name}-build
-../glibc-2.16.0/configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
+	../%{name}-%{version}/configure \
 	--prefix=/usr \
-	--libexecdir=/usr/lib/glibc \
 	--disable-profile \
-	--enable-add-ons \
-	--enable-kernel=2.6.25
+	--enable-kernel=2.6.25 \
+	--libexecdir=/usr/lib/glibc
 make %{?_smp_mflags}
 %check
 cd %{_builddir}/glibc-build
 make -k check |& tee %{_specdir}/%{name}-check-log || true
 %install
-rm -rf %{_buildrootdir}/%{name}*
+rm -rf %{_buildrootdir}/*
 cd %{_builddir}/glibc-build
+#	Create directories
 install -vdm 755 %{buildroot}/usr/lib/locale
+install -vdm 755 %{buildroot}/etc/ld.so.conf.d
 make install_root=%{buildroot} install
-#find %{buildroot}/usr/lib -name '*.a'  -delete
-find %{buildroot}/usr/lib -name '*.la' -delete
+cp -v %{_builddir}/%{name}-%{version}/sunrpc/rpc/*.h	%{buildroot}/usr/include/rpc
+cp -v %{_builddir}/%{name}-%{version}/sunrpc/rpcsvc/*.h	%{buildroot}/usr/include/rpcsvc
+cp -v %{_builddir}/%{name}-%{version}/nis/rpcsvc/*.h	%{buildroot}/usr/include/rpcsvc
+#	Install locale generation script and config file
+cp -v %{_sourcedir}/locale-gen.conf		%{buildroot}/etc
+cp -v %{_sourcedir}/locale-gen.sh		%{buildroot}/sbin
+#	Remove unwanted cruft
 rm -rf %{buildroot}/usr/share/info
-cp -v ../glibc-2.16.0/sunrpc/rpc/*.h %{buildroot}/usr/include/rpc
-cp -v ../glibc-2.16.0/sunrpc/rpcsvc/*.h %{buildroot}/usr/include/rpcsvc
-cp -v ../glibc-2.16.0/nis/rpcsvc/*.h %{buildroot}/usr/include/rpcsvc
+find %{buildroot}/usr/lib -name '*.la' -delete
+#	Install configuration files
 cat > %{buildroot}/etc/nsswitch.conf <<- "EOF"
-	#Begin /etc/nsswitch.conf
+#	Begin /etc/nsswitch.conf
 	passwd: files
 	group: files
 	shadow: files
@@ -59,22 +59,23 @@ cat > %{buildroot}/etc/nsswitch.conf <<- "EOF"
 	services: files
 	ethers: files
 	rpc: files
-	# End /etc/nsswitch.conf
+#	End /etc/nsswitch.conf
 EOF
 cat > %{buildroot}/etc/ld.so.conf <<- "EOF"
-# Begin /etc/ld.so.conf
-	/lib
-	/usr/lib
+#	Begin /etc/ld.so.conf
 	/usr/local/lib
 	include /etc/ld.so.conf.d/*.conf
 EOF
-install -vdm 755 %{buildroot}/etc/ld.so.conf.d
+%post
+printf "Creating ldconfig cache\n";/sbin/ldconfig
+printf "Creating locale files\n";/sbin/locale-gen.sh
 %clean
-rm -rf %{buildroot} %{_builddir}/* %{builddir}/glibc-build
+rm -rf %{buildroot}/* %{_builddir}/*
 %files
 %defattr(-,root,root)
 %config(noreplace) /etc/ld.so.conf
-%config(noreplace) /etc/nsswitch.conf
+%config(noreplace) /etc/locale-gen.conf
+%config /etc/nsswitch.conf
 %dir /etc/ld.so.conf.d
 /etc/rpc
 /etc/ld.so.cache
@@ -88,5 +89,8 @@ rm -rf %{buildroot} %{_builddir}/* %{builddir}/glibc-build
 /usr/share/locale/*
 /var/db/Makefile
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:2.16.0-0
--	Initial build.:	First version
+*	Sun Mar 24 2013 GangGreene <GangGreene@bildanet.com> 2.17-1
+-	Update version
+
+*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 2.16-1
+-	Initial build.	First version

@@ -1,6 +1,6 @@
 Summary:	Library for manipulating pipelines
 Name:		libpipeline
-Version:	1.2.1
+Version:	1.2.2
 Release:	1
 License:	GPLv3
 URL:		http://libpipeline.nongnu.org
@@ -15,7 +15,8 @@ in a flexible and convenient way.
 %setup -q
 sed -i -e '/gets is a/d' gnulib/lib/stdio.in.h
 %build
-./configure \
+PKG_CONFIG_PATH=/tools/lib/pkgconfig \
+	./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
 	--prefix=/usr
@@ -36,5 +37,5 @@ rm -rf %{buildroot}
 /usr/lib/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:1.2.1-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:1.2.2-1
+-	Upgrade version

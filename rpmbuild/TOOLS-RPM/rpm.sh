@@ -17,6 +17,7 @@ function clean() {
 function build() {
 	export LIBS=-'L/tools/lib'
 	export CPPFLAGS='-I/tools/include/nspr'
+	./autogen.sh --noconfigure
 	./configure \
 		--prefix=/tools \
 		--disable-static \

@@ -14,9 +14,8 @@ shutdown of the system
 %prep
 %setup -q
 sed -i 's@Sending processes@& configured via /etc/inittab@g' src/init.c
-sed -i -e 's/utmpdump wall/utmpdump/' \
-       -e '/= mountpoint/d' \
-       -e 's/mountpoint.1 wall.1//' src/Makefile
+sed -i -e '/mountpoint/d' \
+       -e '/utmpdump/d' src/Makefile
 %build
 make %{?_smp_mflags} CC="%{__cc}" CFLAGS="%{optflags} -D_GNU_SOURCE" LDFLAGS="-lcrypt" -C src
 %install

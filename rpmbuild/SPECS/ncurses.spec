@@ -27,13 +27,14 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-install -vdm 755 %{buildroot}/lib
+install -vdm 755 %{buildroot}/lib/pkgconfig
 mv -v %{buildroot}/usr/lib/libncursesw.so.5* %{buildroot}/lib
 ln -sfv ../../lib/libncursesw.so.5 %{buildroot}/usr/lib/libncursesw.so
 for lib in ncurses form panel menu ; do \
     rm -vf %{buildroot}/usr/lib/lib${lib}.so ; \
     echo "INPUT(-l${lib}w)" > %{buildroot}/usr/lib/lib${lib}.so ; \
     ln -sfv lib${lib}w.a %{buildroot}/usr/lib/lib${lib}.a ; \
+    ln -sfv ${lib}w.pc %{buildroot}/usr/lib/pkgconfig/${lib}.pc
 done
 ln -sfv libncurses++w.a %{buildroot}/usr/lib/libncurses++.a
 rm -vf %{buildroot}/usr/lib/libcursesw.so
@@ -43,7 +44,7 @@ ln -sfv libncursesw.a %{buildroot}/usr/lib/libcursesw.a
 ln -sfv libncurses.a %{buildroot}/usr/lib/libcurses.a
 install -vdm 755  %{buildroot}/usr/share/doc/%{name}-%{version}
 cp -v -R doc/* %{buildroot}/usr/share/doc/%{name}-%{version}
-find %{buildroot}/usr/lib -name '*.a'  -delete
+#find %{buildroot}/usr/lib -name '*.a'  -delete
 %clean
 rm -rf %{buildroot}
 %post	-p /sbin/ldconfig

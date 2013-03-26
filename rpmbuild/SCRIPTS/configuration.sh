@@ -32,6 +32,7 @@ printf "%s\n" "Creating locale files"
 /usr/sbin/grpconv
 #	udev script
 source /lib/udev/init-net-rules.sh
+/sbin/udevadm hwdb --update
 #	Configuration
 LIST="/etc/sysconfig/clock /etc/sysconfig/console /etc/profile /etc/sysconfig/network /etc/hosts /etc/fstab /etc/sysconfig/ifconfig.eth0 /etc/resolv.conf /etc/passwd /etc/lsb-release /etc/sysconfig/rc.site"
 for i in ${LIST}; do

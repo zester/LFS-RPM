@@ -29,13 +29,8 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-make -C doc html
-install -vdm 755 %{buildroot}/usr/share/doc/%{name}-%{version}
-make -C doc install-html docdir=%{buildroot}/usr/share/doc/%{name}-%{version}
 install -vdm 755 %{buildroot}/bin
-install -vdm 755 %{buildroot}/sbin
-mv -v %{buildroot}/usr/bin/{hostname,ping,ping6} %{buildroot}/bin
-mv -v %{buildroot}/usr/bin/traceroute %{buildroot}/sbin
+mv -v %{buildroot}/usr/bin/{hostname,ping,ping6,traceroute} %{buildroot}/bin
 rm -rf %{buildroot}/usr/share/info
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -44,9 +39,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 /bin/*
-/sbin/*
 /usr/bin/*
-/usr/share/doc/%{name}-%{version}/*
 /usr/share/man/*/*
 %changelog
 *	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:1.9.1-0

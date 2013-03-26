@@ -44,6 +44,7 @@ cat > /mnt/finish.sh <<- "EOF"
 	/usr/sbin/grpconv
 	#	udev script
 	source	/lib/udev/init-net-rules.sh
+	/sbin/udevadm hwdb --update
 EOF
 chmod +x /mnt/finish.sh
 su -c 'chroot "/mnt" /usr/bin/env -i \

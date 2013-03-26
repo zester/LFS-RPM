@@ -1,6 +1,6 @@
 Summary:	Scripts for booting system
 Name:		bootscripts
-Version:	20120901
+Version:	20130123
 Release:	1
 License:	GPLv3
 URL:		http://www.linuxfromscratch.org/lfs
@@ -43,5 +43,5 @@ rm -rf %{buildroot}
 /sbin/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:20120901-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:20130123-1
+-	Upgrade version

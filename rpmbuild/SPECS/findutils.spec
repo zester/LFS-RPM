@@ -19,7 +19,6 @@ database has not been recently updated).
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
 	--prefix=/usr \
-	--bindir=/usr/bin \
 	--libexecdir=/usr/lib \
 	--localstatedir=/var/lib/locate
 make %{?_smp_mflags}

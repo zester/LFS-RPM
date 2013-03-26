@@ -1,6 +1,6 @@
 Summary:	Utilities for internationalization and localization
 Name:		gettext
-Version:	0.18.1.1
+Version:	0.18.2
 Release:	1
 License:	GPLv3
 URL:		http://www.gnu.org/software/gettext
@@ -25,7 +25,6 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}/usr/lib -name '*.a' -delete
 find %{buildroot}/usr/lib -name '*.la' -delete
 rm -rf %{buildroot}/usr/share/info
 %check
@@ -45,5 +44,5 @@ rm -rf %{buildroot}
 /usr/share/locale/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:0.18.1.1-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:0.18.2-1
+-	Upgrade version

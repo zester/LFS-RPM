@@ -15,11 +15,11 @@ that recognize patterns in text.
 %prep
 %setup -q
 %patch -p1
+
 %build
-./configure \
-	CFLAGS="%{optflags}" \
-	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+export CFLAGS="%{optflags}" CXXFLAGS="%{optflags}"
+./configure --prefix=/usr \
+	--docdir=/usr/share/doc/%{name}-%{version} \
 	--mandir=/usr/share/man \
 	--infodir=/usr/share/info
 make %{?_smp_mflags}
@@ -52,7 +52,7 @@ rm -rf %{buildroot}
 %attr(755,root,root) /usr/bin/lex
 /usr/lib/*
 /usr/include/*
-/usr/share/doc/%{name}/*
+/usr/share/doc/%{name}*
 /usr/share/man/*/*
 %changelog
 *	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:2.5.37-0

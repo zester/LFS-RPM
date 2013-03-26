@@ -19,7 +19,7 @@ The Procps package contains programs for monitoring processes.
 	--prefix=/usr \
 	--exec-prefix= \
 	--libdir=/usr/lib \
-	--docdir=/usr/share/doc/procps-ng-3.3.6 \
+	--docdir=/usr/share/doc/%{name}-%{version} \
 	--disable-static \
 	--disable-skill \
 	--disable-kill
@@ -30,7 +30,6 @@ make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/lib
 mv -v %{buildroot}/usr/lib/libprocps.so.* %{buildroot}/lib
 ln -sfv ../../lib/libprocps.so.1.1.0 %{buildroot}/usr/lib/libprocps.so
-find %{buildroot}/usr/lib -name '*.a' -delete
 find %{buildroot}/usr/lib -name '*.la' -delete
 %clean
 rm -rf %{buildroot}

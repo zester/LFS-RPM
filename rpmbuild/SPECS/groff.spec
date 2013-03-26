@@ -1,6 +1,6 @@
 Summary:	Programs for processing and formatting text
 Name:		groff
-Version:	1.21
+Version:	1.22.2
 Release:	1
 License:	GPLv3
 URL:		http://www.gnu.org/software/groff
@@ -37,5 +37,5 @@ rm -rf %{buildroot}
 /usr/share/%{name}/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:1.21-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:1.22.2-1
+-	Upgrade version

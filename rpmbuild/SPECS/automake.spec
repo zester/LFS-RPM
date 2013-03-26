@@ -1,6 +1,6 @@
 Summary:	Programs for generating Makefiles
 Name:		automake
-Version:	1.12.3
+Version:	1.13.1
 Release:	1
 License:	GPLv2
 URL:		http://www.gnu.org/software/automake/
@@ -29,10 +29,10 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 /usr/bin/*
 /usr/share/aclocal/README
-/usr/share/aclocal-1.12/*
+/usr/share/%{name}-1.13/*
+/usr/share/aclocal-1.13/*
 /usr/share/doc/%{name}-%{version}/*
-/usr/share/%{name}-1.12/*
 /usr/share/man/man1/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 1.12.3-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:1.13.1-1
+-	Upgrade version

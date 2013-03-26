@@ -25,7 +25,7 @@ make %{?_smp_mflags}
 rm -rf %{buildroot}
 install -vdm 755 %{buildroot}/usr/sbin
 make DESTDIR=%{buildroot} install
-make DESTDIR=%{buildroot} -C doc install-html docdir=/usr/share/doc/tar-1.26
+make DESTDIR=%{buildroot} -C doc install-html docdir=/usr/share/doc/%{name}-%{version}
 rm -rf %{buildroot}/usr/share/info
 %find_lang %{name}
 %check

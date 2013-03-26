@@ -1,6 +1,6 @@
 Summary:	Package manager
 Name:		rpm
-Version:	4.10.2
+Version:	4.10.3.1
 Release:	1
 License:	GPLv2
 URL:		http://rpm.org
@@ -22,6 +22,7 @@ RPM package manager
 	--bindir=/usr/bin \
 	--libdir=/usr/lib \
 	--disable-static \
+	--without-lua \
 	--with-external-db
 make %{?_smp_mflags}
 %install
@@ -38,8 +39,7 @@ sed -i 's|optflags: i686 -O2 -g -march=i686|optflags: i686 -O2 -march=i486 -mtun
 sed -i 's|optflags: x86_64 -O2 -g|optflags: x86_64 -O2 -march=x86_64 -mtune=generic -pipe|'    %{buildroot}/usr/lib/rpm/rpmrc
 sed -i 's|optflags: athlon -O2 -g -march=athlon|optflags: athlon -O2 -march=athlon -mtune=generic -pipe|' %{buildroot}/usr/lib/rpm/rpmrc
 sed -i 's|\${prefix}||' %{buildroot}/usr/lib/rpm/macros
-%post
-/sbin/ldconfig
+%post -p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 %clean
 rm -rf %{buildroot}
@@ -52,5 +52,5 @@ rm -rf %{buildroot}
 /usr/lib/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:4.10.2-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:4.10.3.1-1
+-	Upgrade version

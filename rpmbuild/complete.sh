@@ -10,8 +10,7 @@ PATH=/tools/bin:/bin:/usr/bin
 export LFS LC_ALL LFS_TGT PATH
 #	These are the build environment flags for the tool chain
 MAKEFLAGS="-j2"
-CARCH=$(uname -m)
-case $CARCH in
+case $(uname -m) in
 	i686)
 		CFLAGS="-march=i486 -mtune=i686 -O2 -pipe"
 		CXXFLAGS="-march=i486 -mtune=i686 -O2 -pipe"
@@ -44,24 +43,19 @@ pushd TOOLS-LFS > /dev/null 2>&1;./builder.sh;popd > /dev/null 2>&1
 printf "Building Tool chain package manager\n"
 pushd TOOLS-RPM > /dev/null 2>&1;./builder.sh;popd > /dev/null 2>&1
 printf "Build tool chain package manager completed \n"
-
-exit 0
-
 #	If the symlink for bash is not found then the root filesystem hasn't been installed
 [ -f ${FAILURE} ] && (printf "FAILURE detected exiting script \n";exit 1)
 printf "Building filesystem \n"
-pushd SCRIPTS > /dev/null 2>&1;./filesystem.sh;popd > /dev/null 2>&1
+pushd SCRIPTS > /dev/null;./filesystem.sh;popd > /dev/null
 printf "Build filesystem completed \n"
 #	Mount the kernel filesystems for the chroot
-[ -f ${FAILURE} ] && (printf "FAILURE detected exiting script \n";exit 1)
 su -c 'SCRIPTS/mount.kernel.filesystem.sh'
 #	Build the base system Chapter 6
-[ -f ${FAILURE} ] && (printf "FAILURE detected exiting script \n";exit 1)
 printf "Building base system \n"
 su -c 'chroot "$LFS" /tools/bin/env -i \
 	HOME=/root TERM="$TERM" PS1="\u:\w\$ " \
 	PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
-	/tools/bin/bash --login +h -c "pushd /rpmbuild/SPECS;./builder.sh;popd" ' root
+	/tools/bin/bash --login +h -c "pushd /rpmbuild/SPECS>/dev/null;./builder.sh;popd>/dev/null" ' root
 #	Configure the newly installed LFS system
 [ -f ${FAILURE} ] && (printf "FAILURE detected exiting script \n";exit 1)
 printf "Configuring finished system \n"

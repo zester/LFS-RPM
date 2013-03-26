@@ -1,6 +1,6 @@
 Summary:	Security client
 Name:		nss
-Version:	3.14
+Version:	3.14.3
 Release:	1
 License:	MPLv2.0
 URL:		http://ftp.mozilla.org/pub/mozilla.org/security/nss
@@ -8,7 +8,7 @@ Group:		Applications/System
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_14_RTM/src/%{name}-%{version}.tar.gz
-Patch:		http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.14-standalone-1.patch
+Patch:		http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.14.3-standalone-1.patch
 %description
  The Network Security Services (NSS) package is a set of libraries
  designed to support cross-platform development of security-enabled
@@ -20,7 +20,8 @@ Patch:		http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.14-standalone-1.p
 %prep
 rm -rf %{_builddir}/*
 %setup -q
-patch -Np1 -i %{_sourcedir}/nss-3.14-standalone-1.patch
+%patch -p1
+#patch -Np1 -i %{_sourcedir}/nss-3.14.3-standalone-1.patch
 %build
 cd mozilla/security/nss
 export CFLAGS="%{optflags}"
@@ -55,5 +56,5 @@ rm -rf %{buildroot}
 /usr/include/*
 /usr/lib/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:3.14-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:3.14.3-1
+-	Upgrade version

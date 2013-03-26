@@ -1,6 +1,6 @@
 Summary:	Displays information about running processes
 Name:		psmisc
-Version:	22.19
+Version:	22.20
 Release:	1
 License:	GPLv2
 URL:		http://psmisc.sourceforge.net/
@@ -36,5 +36,5 @@ rm -rf %{buildroot}
 /usr/bin/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:22.19-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:22.20-1
+-	Upgrade version

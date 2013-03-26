@@ -8,7 +8,7 @@ Group:		Development/Tools
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://ftp.gnu.org/gnu/make/%{name}-%{version}.tar.bz2
-Patch:		http://www.linuxfromscratch.org/patches/lfs/7.2/make-3.82-upstream_fixes-2.patch
+Patch:		http://www.linuxfromscratch.org/patches/lfs/7.2/make-3.82-upstream_fixes-3.patch
 %description
 The Make package contains a program for compiling packages.
 %prep

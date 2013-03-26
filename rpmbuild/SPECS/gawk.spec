@@ -1,6 +1,6 @@
 Summary:	Contains programs for manipulating text files
 Name:		gawk
-Version:	4.0.1
+Version:	4.0.2
 Release:	1
 License:	GPLv3
 URL:		http://www.gnu.org/software/gawk
@@ -40,5 +40,5 @@ rm -rf %{buildroot}
 /usr/share/doc/%{name}-%{version}/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:4.0.1-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:4.0.2-1
+-	Upgrade version

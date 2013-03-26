@@ -1,6 +1,6 @@
 Summary:	Programs for finding and viewing man pages
 Name:		man-db
-Version:	2.6.2
+Version:	2.6.3
 Release:	1
 License:	GPLv2
 URL:		http://www.nongnu.org/man-db
@@ -12,14 +12,13 @@ Source:		http://download.savannah.gnu.org/releases/man-db/%{name}-%{version}.tar
 The Man-DB package contains programs for finding and viewing man pages.
 %prep
 %setup -q
-sed -i -e '/gets is a/d' gnulib/lib/stdio.in.h
 %build
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
 	--prefix=/usr \
 	--libexecdir=/usr/lib \
-	--docdir=/usr/share/doc/man-db-2.6.2 \
+	--docdir=/usr/share/doc/%{name}-%{version} \
 	--sysconfdir=/etc \
 	--disable-setuid \
 	--with-browser=/usr/bin/lynx \
@@ -47,5 +46,5 @@ rm -rf %{buildroot}
 /usr/share/man/*/*
 /usr/share/locale/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:2.6.2-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:2.6.3-1
+-	Upgrade version

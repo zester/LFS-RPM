@@ -21,7 +21,6 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}/usr/lib -name '*.a'  -delete
 find %{buildroot}/usr/lib -name '*.la' -delete
 rm -rf %{buildroot}/usr/share/info
 %check

@@ -1,6 +1,6 @@
 Summary:	Platform-neutral API
 Name:		nspr
-Version:	4.9.2
+Version:	4.9.5
 Release:	1
 License:	MPLv2.0
 URL:		http://ftp.mozilla.org/pub/mozilla.org
@@ -43,5 +43,5 @@ rm -rf %{buildroot}
 /usr/lib/*
 /usr/share/aclocal/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:4.9.2-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:4.9.5-1
+-	Upgrade version

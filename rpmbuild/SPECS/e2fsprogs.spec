@@ -1,6 +1,6 @@
 Summary:	Contains the utilities for the ext2 file system
 Name:		e2fsprogs
-Version:	1.42.5
+Version:	1.42.7
 Release:	1
 License:	GPLv2
 URL:		http://e2fsprogs.sourceforge.net
@@ -17,22 +17,21 @@ install -vdm 755 build
 %build
 cd build
 CFLAGS="%{optflags}" \
-	CXXFLAGS="%{optflags}" \
-	../configure \
-	--prefix=/usr \
-	--with-root-prefix='' \
-	--enable-elf-shlibs \
-	--disable-libblkid \
-	--disable-libuuid \
-	--disable-uuidd \
-	--disable-fsck
+CXXFLAGS="%{optflags}" \
+../configure \
+--prefix=/usr \
+--with-root-prefix='' \
+--enable-elf-shlibs \
+--disable-libblkid \
+--disable-libuuid \
+--disable-uuidd \
+--disable-fsck
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 cd build
 make DESTDIR=%{buildroot} install
 make DESTDIR=%{buildroot} install-libs
-find %{buildroot}/ -name '*.a' -delete
 rm -rf %{buildroot}/usr/share/info
 %check
 cd build
@@ -55,5 +54,5 @@ rm -rf %{buildroot}
 /usr/share/ss/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:1.42.5-0
--	Initial build.	First 
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:1.42.7-1
+-	Upgrade version

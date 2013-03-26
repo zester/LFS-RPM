@@ -1,6 +1,6 @@
 Summary:	Key table files, console fonts, and keyboard utilities
 Name:		kbd
-Version:	1.15.3
+Version:	1.15.5
 Release:	1
 License:	GPLv2
 URL:		http://ftp.altlinux.org/pub/people/legion/kbd
@@ -8,24 +8,22 @@ Group:		Applications/System
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://ftp.altlinux.org/pub/people/legion/kbd/%{name}-%{version}.tar.gz
-Patch0:		kbd-1.15.3-upstream_fixes-1.patch
-Patch1:		kbd-1.15.3-backspace-1.patch
+Patch0:		kbd-1.15.5-backspace-1.patch
 %description
 The Kbd package contains key-table files, console fonts, and keyboard utilities.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-sed -i '/guardado\ el/s/\(^.*en\ %\)\(.*\)/\14\$\2/' po/es.po
-sed -i 's/\(RESIZECONS_PROGS=\)yes/\1no/' configure
+sed -i -e '326 s/if/while/' src/loadkeys.analyze.l
+sed -i 's/\(RESIZECONS_PROGS=\)yes/\1no/g' configure
 sed -i 's/resizecons.8 //' man/man8/Makefile.in
-touch -d '2011-05-07 08:30' configure.ac
 %build
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
 	--prefix=/usr \
-	--datadir=/lib/kbd
+	--datadir=/lib/kbd \
+	--disable-vlock
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
@@ -53,5 +51,5 @@ rm -rf %{buildroot}
 /usr/share/doc/%{name}-%{version}/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:1.15.3-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:1.15.5-1
+-	Upgrade version

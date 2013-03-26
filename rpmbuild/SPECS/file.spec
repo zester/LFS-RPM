@@ -1,6 +1,6 @@
 Summary:	Contains a utility for determining file types
 Name:		file
-Version:	5.11
+Version:	5.13
 Release:	1
 License:	BSD
 URL:		http://www.darwinsys.com/file
@@ -14,16 +14,15 @@ given file or files
 %prep
 %setup -q
 %build
-./configure \
-	CFLAGS="%{optflags}" \
-	CXXFLAGS="%{optflags}" \
-	--prefix=/usr
+CFLAGS="%{optflags}" \
+CXXFLAGS="%{optflags}" \
+./configure --prefix=/usr
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
 find %{buildroot}/usr/lib -name '*.la' -delete
-#find %{buildroot}/usr/lib -name '*.a' -delete
+find %{buildroot}/usr/lib -name '*.a' -delete
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
@@ -38,5 +37,8 @@ rm -rf %{buildroot}
 /usr/share/man/*/*
 /usr/share/misc/magic.mgc
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 5.11-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 5.13-1
+-	Upgrade version
+
+*	Wed Mar 19 2013 GangGreene <GangGreene@bildanet.com> 5.12-1
+-	Initial version

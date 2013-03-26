@@ -1,20 +1,18 @@
 Summary:	Program for modifying or creating files
 Name:		patch
-Version:	2.6.1
+Version:	2.7.1
 Release:	1
 License:	GPLv3
 URL:		http://savannah.gnu.org/projects/patch
+Source		http://ftp.gnu.org/gnu/patch/%{name}-%{version}.tar.xz
 Group:		Development/Tools
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source0:	http://ftp.gnu.org/gnu/patch/patch-2.6.1.tar.bz2
-Patch0:		http://www.linuxfromscratch.org/patches/lfs/7.2/patch-2.6.1-test_fix-1.patch
 %description
 Program for modifying or creating files by applying a patch
 file typically created by the diff program.
 %prep
 %setup -q
-%patch0 -p1
 %build
 ./configure \
 	CFLAGS="%{optflags}" \
@@ -33,5 +31,5 @@ rm -rf %{buildroot}
 /usr/bin/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:2.6.1-0
--	Initial build.	First version
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:2.7.1-1
+-	Upgrade version
