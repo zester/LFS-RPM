@@ -1,14 +1,12 @@
 3fda0b004acdaa6fa350bfc41a3b95ca  db-5.3.21.tar.gz
-1d38082bfd0f4a5649bb95b281947660 elfutils-0.154-binutils-pr-ld-13621.patch
-e5b26ceaee67db40e742f13052087354  elfutils-0.154.tar.bz2
-1239310e0c4a581c7831e596f95cc6cd  lua-5.1.4-2.patch
-6fd50782dd59b8b6374099dbacfde69f  lua-5.1.4-autotoolize.patch
-99c2cc4c885a2ea49e5600219194ae9a  lua-5.1.4-idsize.patch
-f5c77b165c8d641859998fe14e72c2f6  lua-5.1.4-lunatic.patch
-d0870f2de55d59c1c8419f36e8fac150  lua-5.1.4.tar.gz
+e5b26ceaee67db40e742f13052087354  elfutils-0.155.tar.bz2
 b6ccfa8fcbbeb17ebeb19a3edff612bd  nspr-4.9.5.tar.gz
 d6f6e8c3bb23a60fab81244ac0461d01  nss-3.14.3-standalone-1.patch
 b326c2be8df277f62fb9c65fb3428148  nss-3.14.3.tar.gz
 3743beefa3dd6247a73f8f7a32c14c33  popt-1.16.tar.gz
 7be152323885f6e558bd581f021e5add  rpm-4.10.3.1.tar.bz2
-21cfb941801888598fb807c54e0cb24b  wget-list.rpm
+15dd444a27ac8d5a228ddde79ad6f760  config-3.8.1-i686
+e1291ec862a014e31e98e68c954f82da  config-3.8.1-x86_64
+394627c1464498aabab007e4ddf5c168  locale-gen.conf
+523753afe26ea0cc1ca8fcdb8033104c  locale-gen.sh
+

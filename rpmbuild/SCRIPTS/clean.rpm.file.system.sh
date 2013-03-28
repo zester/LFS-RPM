@@ -9,4 +9,4 @@ LIST=('bin' 'boot' 'dev' 'etc' 'home' 'lib' 'lib64' 'media' 'mnt' 'opt' 'proc' '
 for i in ${LIST[@]}; do
 	 rm -vrf "${LFS}/${i}" || true
 done
-rm -vrf RPMS/* BUILD/*
+rm -vrf "RPMS/*" "BUILD/*"
