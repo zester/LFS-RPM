@@ -3,7 +3,7 @@ set -o errexit	# exit if error
 set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 pkgname=perl
-pkgver=5.16.2
+pkgver=5.16.3
 srcname="../SOURCES/${pkgname}-${pkgver}.tar.bz2"
 srcdir=${pkgname}-${pkgver}
 

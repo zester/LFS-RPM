@@ -32,6 +32,7 @@ rm -rf %{buildroot}
 cd build
 make DESTDIR=%{buildroot} install
 make DESTDIR=%{buildroot} install-libs
+find %{buildroot}/usr/lib -name '*.a' -delete
 rm -rf %{buildroot}/usr/share/info
 %check
 cd build

@@ -28,7 +28,7 @@ cd %{_builddir}/%{name}-build
 make %{?_smp_mflags}
 %check
 cd %{_builddir}/glibc-build
-make -k check |& tee %{_specdir}/%{name}-check-log || true
+make -k check |& tee %{_specdir}/%{name}-check.log || true
 %install
 rm -rf %{_buildrootdir}/*
 cd %{_builddir}/glibc-build

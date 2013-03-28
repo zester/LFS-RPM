@@ -1,6 +1,6 @@
 Summary:	Practical Extraction and Report Language
 Name:		perl
-Version:	5.16.2
+Version:	5.16.3
 Release:	1
 License:	GPLv1
 URL:		http://www.perl.org/
@@ -42,5 +42,7 @@ rm -rf %{buildroot}
 /usr/lib/*
 /usr/share/man/*/*
 %changelog
+*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 5.16.3-1
+-	Upgrade version 5.16.3
 *	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:5.16.2-1
 -	Upgrade version

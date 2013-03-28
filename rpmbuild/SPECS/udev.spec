@@ -1,29 +1,29 @@
 Summary:	Programs for dynamic creation of device nodes
 Name:		udev
-Version:	197
+Version:	198
 Release:	1
 License:	GPLv2
 URL:		http://www.freedesktop.org/wiki/Software/systemd/
 Group:		Applications/System
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source0:	http://www.freedesktop.org/software/systemd/systemd-197.tar.xz
+Source0:	http://www.freedesktop.org/software/systemd/systemd-198.tar.xz
 %description
 The Udev package contains programs for dynamic creation of device nodes.
 %prep
 rm -rf %{_builddir}/*
 cd %{_builddir}
-tar xvf %{_sourcedir}/systemd-197.tar.xz
-tar xvf %{_sourcedir}/udev-lfs-197-2.tar.bz2
+tar xvf %{_sourcedir}/systemd-198.tar.xz
+tar xvf %{_sourcedir}/udev-lfs-198-3.tar.bz2
 cd %{_builddir}/systemd-%{version}
 mv ../udev-lfs-%{version}-2 .
 %build
 cd %{_builddir}/systemd-%{version}
-make %{?_smp_mflags} -f udev-lfs-197-2/Makefile.lfs
+make %{?_smp_mflags} -f udev-lfs-198-3/Makefile.lfs
 %install
 rm -rf %{buildroot}
 cd %{_builddir}/systemd-%{version}
-make -f udev-lfs-197-2/Makefile.lfs DESTDIR=%{buildroot} install
+make -f udev-lfs-198-3/Makefile.lfs DESTDIR=%{buildroot} install
 %clean
 rm -rf %{buildroot}
 %post

@@ -1,6 +1,6 @@
 Summary:	Reading, writing, and converting info pages
 Name:		texinfo
-Version:	5.0
+Version:	5.1
 Release:	1
 License:	GPLv3
 URL:		http://www.gnu.org/software/texinfo/

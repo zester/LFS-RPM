@@ -31,7 +31,7 @@ echo '
 #define STANDARD_STARTFILE_PREFIX_2 ""' >> $file
 		touch $file.orig
 	done
-	tar -Jxf ../../SOURCES/mpfr-3.1.1.tar.xz
+	tar -Jxf ../../SOURCES/mpfr-3.1.2.tar.xz
 	mv -v mpfr-3.1.1 mpfr
 	tar -Jxf ../../SOURCES/gmp-5.1.1.tar.xz
 	mv -v gmp-5.1.1 gmp

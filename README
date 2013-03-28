@@ -34,7 +34,7 @@ Procedure for the setting up of the build:
 	cd /mnt/lfs/rpmbuild/SOURCES		- switch directory
 	wget -i wget-list 			- fetch packages
 	wget -i wget-list.rpm			- fetch packages
-	md5sum -c md5sum			- verify packages for lfs
+	md5sum -c md5sums			- verify packages for lfs
 	md5sum -c md5sum.rpm			- verify packages for rpm
 	scripts/add.user.lfs.sh			- add lfs user
 

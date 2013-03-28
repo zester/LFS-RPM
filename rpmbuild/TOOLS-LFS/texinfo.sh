@@ -3,7 +3,7 @@ set -o errexit	# exit if error
 set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 pkgname=texinfo
-pkgver=5.0
+pkgver=5.1
 srcname="../SOURCES/${pkgname}-${pkgver}.tar.xz"
 srcdir=${pkgname}-${pkgver}
 

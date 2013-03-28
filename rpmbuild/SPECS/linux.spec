@@ -1,6 +1,6 @@
 Summary:	Kernel
 Name:		linux
-Version:	3.8.1
+Version:	3.8.3
 Release:	1
 License:	GPLv2
 URL:		http://www.kernel.org/
@@ -15,10 +15,10 @@ The Linux package contains the Linux kernel.
 %build
 make mrproper
 %ifarch i386 i486 i586 i686
-cp %{_sourcedir}/config-3.8.1-i686 .config
+cp %{_sourcedir}/config-3.8.3-i686 .config
 %endif
 %ifarch x86_64
-cp %{_sourcedir}/config-3.8.1-x86_64 .config
+cp %{_sourcedir}/config-3.8.3-x86_64 .config
 %endif
 make LC_ALL= silentoldconfig
 make %{?_smp_mflags}

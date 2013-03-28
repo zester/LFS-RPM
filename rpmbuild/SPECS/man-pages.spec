@@ -1,6 +1,6 @@
 Summary:	Man pages
 Name:		man-pages
-Version:	3.47
+Version:	3.50
 Release:	1
 License:	GPL
 URL:		http://www.kernel.org/doc/man-pages
@@ -24,6 +24,9 @@ rm -rf %{buildroot} %{_builddir}/*
 %defattr(-,root,root)
 /usr/share/man/*/*
 %changelog
+*	Sun Mar 24 2013 GangGreene <GangGreene@bildanet.com> 3.50-1
+-	Update version to 3.50
+
 *	Sun Mar 24 2013 GangGreene <GangGreene@bildanet.com> 3.47-1
 -	Update version
 

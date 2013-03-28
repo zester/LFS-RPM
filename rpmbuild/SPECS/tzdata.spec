@@ -1,6 +1,6 @@
 Summary:	Time zone data
 Name:		tzdata
-Version:	2012j
+Version:	2013b
 Release:	1
 URL:		http://www.iana.org/time-zones
 License:	GPLv3
@@ -41,6 +41,9 @@ rm -rf %{buildroot} %{_builddir}/*
 /etc/localtime
 /usr/share/zoneinfo/*
 %changelog
+*	Sun Mar 24 2013 GangGreene <GangGreene@bildanet.com> 2013b-1
+-	Update version to 2013b
+
 *	Sun Mar 24 2013 GangGreene <GangGreene@bildanet.com> 2012j-1
 -	Update version
 

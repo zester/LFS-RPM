@@ -8,7 +8,7 @@ Group:		System Environment/Shells
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source0:	http://ftp.gnu.org/gnu/bash/%{name}-%{version}.tar.gz
-Patch0:		http://www.linuxfromscratch.org/patches/lfs/7.3/bash-4.2-fixes-11.patch
+Patch0:		http://www.linuxfromscratch.org/patches/lfs/7.3/bash-4.2-fixes-12.patch
 Provides:	/bin/sh
 Provides:	/bin/bash
 %description
