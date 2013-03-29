@@ -20,7 +20,7 @@ that recognize patterns in text.
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
 	--prefix=/usr \
-	--docdir=/usr/share/doc/%{name}-%{version \
+	--docdir=/usr/share/doc/%{name}-%{version} \
 	--mandir=/usr/share/man \
 	--infodir=/usr/share/info
 make %{?_smp_mflags}
@@ -54,6 +54,7 @@ rm -rf %{buildroot}
 /usr/lib/*
 /usr/include/*
 /usr/share/doc/%{name}/*
+/usr/share/doc/%{name}-%{version}/*
 /usr/share/man/*/*
 %changelog
 *	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:2.5.37-0

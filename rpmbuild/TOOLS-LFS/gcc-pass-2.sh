@@ -32,7 +32,7 @@ echo '
 		touch $file.orig
 	done
 	tar -Jxf ../../SOURCES/mpfr-3.1.2.tar.xz
-	mv -v mpfr-3.1.1 mpfr
+	mv -v mpfr-3.1.2 mpfr
 	tar -Jxf ../../SOURCES/gmp-5.1.1.tar.xz
 	mv -v gmp-5.1.1 gmp
 	tar -zxf ../../SOURCES/mpc-1.0.1.tar.gz

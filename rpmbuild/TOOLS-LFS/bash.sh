@@ -17,7 +17,7 @@ function clean() {
 }
 
 function build() {
-	patch -Np1 -i ../../SOURCES/${pkgname}-${pkgver}-fixes-11.patch
+	patch -Np1 -i ../../SOURCES/${pkgname}-${pkgver}-fixes-12.patch
 	./configure \
 		--prefix=/tools \
 		--without-bash-malloc

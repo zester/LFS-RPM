@@ -13,11 +13,13 @@ BuildArch: 	noarch
 The Linux API Headers expose the kernel's API for use by Glibc.
 %define pkgdir	%{_builddir}/linux-%{version}
 %prep
-setup -q
+tar xf %{_sourcedir}/linux-%{version}.tar.xz
 %build
+cd %{_builddir}/linux-%{version}
 make mrproper
 make headers_check
 %install
+cd %{_builddir}/linux-%{version}
 rm -rf %{buildroot}/*
 make INSTALL_HDR_PATH=dest headers_install
 find dest/include \( -name .install -o -name ..install.cmd \) -delete

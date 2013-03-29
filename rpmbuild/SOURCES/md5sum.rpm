@@ -1,6 +1,6 @@
 3fda0b004acdaa6fa350bfc41a3b95ca  db-5.3.21.tar.gz
-e5b26ceaee67db40e742f13052087354  elfutils-0.155.tar.bz2
-62b1e9d376d503d972f90c3c0031d879  nspr-4.9.5.tar.gz
+163a5712b86f6bdfebdf233cc6e2192d  elfutils-0.155.tar.bz2
+62b1e9d376d503d972f90c3c0031d879  nspr-4.9.6.tar.gz
 d6f6e8c3bb23a60fab81244ac0461d01  nss-3.14.3-standalone-1.patch
 b326c2be8df277f62fb9c65fb3428148  nss-3.14.3.tar.gz
 3743beefa3dd6247a73f8f7a32c14c33  popt-1.16.tar.gz
@@ -9,4 +9,3 @@ b326c2be8df277f62fb9c65fb3428148  nss-3.14.3.tar.gz
 e1291ec862a014e31e98e68c954f82da  config-3.8.1-x86_64
 394627c1464498aabab007e4ddf5c168  locale-gen.conf
 523753afe26ea0cc1ca8fcdb8033104c  locale-gen.sh
-

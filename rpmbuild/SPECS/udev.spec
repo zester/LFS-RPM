@@ -16,7 +16,7 @@ cd %{_builddir}
 tar xvf %{_sourcedir}/systemd-198.tar.xz
 tar xvf %{_sourcedir}/udev-lfs-198-3.tar.bz2
 cd %{_builddir}/systemd-%{version}
-mv ../udev-lfs-%{version}-2 .
+mv ../udev-lfs-%{version}-3 .
 %build
 cd %{_builddir}/systemd-%{version}
 make %{?_smp_mflags} -f udev-lfs-198-3/Makefile.lfs

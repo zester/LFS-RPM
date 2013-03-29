@@ -1,6 +1,6 @@
 Summary:	Functions for multiple precision math
 Name:		mpfr
-Version:	3.1.1
+Version:	3.1.2
 Release:	1
 License:	GPLv3
 URL:		http://www.mpfr.org
