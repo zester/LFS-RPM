@@ -8,13 +8,11 @@ Group:		System Environment/Base
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source0:	http://ftp.gnu.org/gnu/binutils/%{name}-%{version}.tar.bz2
-Patch0:		http://www.linuxfromscratch.org/patches/lfs/7.3/binutils-2.23.1-testsuite_fix-1.patch
 %description
 The Binutils package contains a linker, an assembler,
 and other tools for handling object files.
 %prep
 %setup -q
-%patch0 -p1
 rm -fv etc/standards.info
 sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in
 sed -i -e 's/@colophon/@@colophon/' \
