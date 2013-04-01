@@ -1,6 +1,6 @@
 Summary:	Linux Api header files
 Name:		linux-api-headers
-Version:	3.8.3
+Version:	3.8.4
 Release:	1
 License:	GPLv2
 URL:		http://www.kernel.org/
@@ -31,6 +31,9 @@ rm -rf %{buildroot} %{_builddir}/*
 %defattr(-,root,root)
 /usr/include/*
 %changelog
+*	Mon Apr  1 2013 GangGreene <GangGreene@bildanet.com> 3.8.4-1
+-	Update version to 3.8.4
+
 *	Sun Mar 24 2013 GangGreene <GangGreene@bildanet.com> 3.8.3-1
 -	Update version to 3.8.3
 

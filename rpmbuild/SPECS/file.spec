@@ -1,6 +1,6 @@
 Summary:	Contains a utility for determining file types
 Name:		file
-Version:	5.13
+Version:	5.14
 Release:	1
 License:	BSD
 URL:		http://www.darwinsys.com/file
@@ -37,6 +37,9 @@ rm -rf %{buildroot}
 /usr/share/man/*/*
 /usr/share/misc/magic.mgc
 %changelog
+*	Mon Apr  1 2013 GangGreene <GangGreene@bildanet.com> 5.14-1
+-	Upgrade version 5.14
+
 *	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 5.13-1
 -	Upgrade version
 

@@ -3,7 +3,7 @@ set -o errexit	# exit if error
 set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 pkgname=gcc
-pkgver=4.7.2
+pkgver=4.8.0
 srcname="../SOURCES/${pkgname}-${pkgver}.tar.bz2"
 srcdir=${pkgname}-${pkgver}
 
@@ -34,7 +34,7 @@ echo '
 		touch $file.orig
 	done
 	sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
-	sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
+#	sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
 	mkdir -v ../gcc-build
 	cd ../gcc-build
 	../${pkgname}-${pkgver}/configure \

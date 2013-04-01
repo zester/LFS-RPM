@@ -4,7 +4,7 @@ set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 shopt -s -o pipefail
 pkgname=binutils
-pkgver=2.23.1
+pkgver=2.23.2
 srcname=../SOURCES/${pkgname}-${pkgver}.tar.bz2
 srcdir=${pkgname}-${pkgver}
 
@@ -17,6 +17,8 @@ function clean() {
 }
 
 function build() {
+	sed -i -e 's/@colophon/@@colophon/' \
+		-e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
 	mkdir -v ../binutils-build
 	cd ../binutils-build
 	CC=$LFS_TGT-gcc \

@@ -1,6 +1,6 @@
 Summary:	Contains a linker, an assembler, and other tools
 Name:		binutils
-Version:	2.23.1
+Version:	2.23.2
 Release:	1
 License:	GPLv2
 URL:		http://www.gnu.org/software/binutils
@@ -17,6 +17,8 @@ and other tools for handling object files.
 %patch0 -p1
 rm -fv etc/standards.info
 sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in
+sed -i -e 's/@colophon/@@colophon/' \
+       -e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
 %build
 install -vdm 755 ../binutils-build
 cd ../binutils-build
@@ -32,8 +34,7 @@ cd ../binutils-build
 make DESTDIR=%{buildroot} tooldir=/usr install
 cp -v ../%{name}-%{version}/include/libiberty.h %{buildroot}/usr/include
 find %{buildroot}/usr/lib -name '*.la' -delete
-# Don't remove libiberity.a
-#find %{buildroot}/usr/lib -name '*.a' -delete
+# Don't remove libiberity.a find %{buildroot}/usr/lib -name '*.a' -delete
 rm -rf %{buildroot}/usr/share/info
 %check
 cd ../binutils-build
@@ -50,5 +51,8 @@ rm -rf %{buildroot}/*
 /usr/share/locale/*
 /usr/share/man/*/*
 %changelog
+*	Mon Apr  1 2013 GangGreene <GangGreene@bildanet.com> 2.23.1-1
+-	Upgrade version
+
 *	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 2.23.1-1
 -	Upgrade version

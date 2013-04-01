@@ -3,7 +3,7 @@ set -o errexit	# exit if error
 set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 pkgname=file
-pkgver=5.13
+pkgver=5.14
 srcname="../SOURCES/${pkgname}-${pkgver}.tar.gz"
 srcdir=${pkgname}-${pkgver}
 

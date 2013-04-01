@@ -3,7 +3,7 @@ set -o errexit	# exit if error
 set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 pkgname=diffutils
-pkgver=3.2
+pkgver=3.3
 srcname="../SOURCES/${pkgname}-${pkgver}.tar.gz"
 srcdir=${pkgname}-${pkgver}
 

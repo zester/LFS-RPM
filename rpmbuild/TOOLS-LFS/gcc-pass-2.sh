@@ -3,7 +3,7 @@ set -o errexit	# exit if error
 set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 pkgname=gcc
-pkgver=4.7.2
+pkgver=4.8.0
 srcname="../SOURCES/${pkgname}-${pkgver}.tar.bz2"
 srcdir=${pkgname}-${pkgver}
 
@@ -37,7 +37,7 @@ echo '
 	mv -v gmp-5.1.1 gmp
 	tar -zxf ../../SOURCES/mpc-1.0.1.tar.gz
 	mv -v mpc-1.0.1 mpc	
-	sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure	
+#	sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure	
 	mkdir -v ../gcc-build
 	cd ../gcc-build
 	CC=$LFS_TGT-gcc \

@@ -1,6 +1,6 @@
 Summary:	Programs that show the differences between files or directories
 Name:		diffutils
-Version:	3.2
+Version:	3.3
 Release:	1
 License:	GPLv3
 URL:		http://www.gnu.org/software/diffutils
@@ -34,5 +34,8 @@ rm -rf %{buildroot}
 /usr/bin/*
 /usr/share/man/*/*
 %changelog
+*	Mon Apr  1 2013 GangGreene <GangGreene@bildanet.com> 0:2.6.1-0
+-	Initial build.	First version
+
 *	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:2.6.1-0
 -	Initial build.	First version

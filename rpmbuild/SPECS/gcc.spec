@@ -1,6 +1,6 @@
 Summary:	Contains the GNU compiler collection
 Name:		gcc
-Version:	4.7.2
+Version:	4.8.0
 Release:	1
 License:	GPLv2
 URL:		http://gcc.gnu.org
@@ -13,12 +13,12 @@ The GCC package contains the GNU compiler collection,
 which includes the C and C++ compilers.
 %prep
 %setup -q
-sed -i 's/install_to_$(INSTALL_DEST) //' libiberty/Makefile.in
-sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
 case `uname -m` in
 	i?86) sed -i 's/^T_CFLAGS =$/& -fomit-frame-pointer/' gcc/Makefile.in ;;
 esac
+sed -i 's/install_to_$(INSTALL_DEST) //' libiberty/Makefile.in
 sed -i -e /autogen/d -e /check.sh/d fixincludes/Makefile.in
+#sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
 install -vdm 755 ../gcc-build
 %build
 cd ../gcc-build
@@ -34,6 +34,7 @@ CXXFLAGS="%{optflags}" \
 	--enable-languages=c,c++ \
 	--disable-multilib \
 	--disable-bootstrap \
+	--disable-install-libiberty \
 	--with-system-zlib
 make %{?_smp_mflags}
 %install
@@ -46,7 +47,6 @@ ln -sv gcc %{buildroot}/usr/bin/cc
 install -vdm 755 %{buildroot}/usr/share/gdb/auto-load/usr/lib
 mv -v %{buildroot}/usr/lib/*gdb.py %{buildroot}/usr/share/gdb/auto-load/usr/lib
 find %{buildroot}/usr/lib -name '*.la' -delete
-#find %{buildroot}/usr/lib -name '*.a' -delete
 rm -rf %{buildroot}/usr/share/info
 %check
 cd ../gcc-build
@@ -67,5 +67,8 @@ rm -rf %{buildroot}
 /usr/share/locale/*
 /usr/share/man/*/*
 %changelog
+*	Mon Apr  1 2013 GangGreene <GangGreene@bildanet.com> 4.8.0-1
+-	Upgrade version 4.8.0
+
 *	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:4.7.2-1
 -	Upgrade version
