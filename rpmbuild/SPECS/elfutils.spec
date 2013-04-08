@@ -8,7 +8,6 @@ Group:		Development/Tools
 Source:		http://fedorahosted.org/releases/e/l/elfutils/%{version}/%{name}-%{version}.tar.bz2
 Patch0:		elfutils-portability.patch
 Patch1:		elfutils-robustify.patch
-		
 #BuildRequires: bison >= 1.875
 #BuildRequires: flex >= 2.5.4a
 #BuildRequires: bzip2
@@ -31,6 +30,7 @@ symbols), readelf (to see the raw ELF file structures), and elflint
 	--prefix=/usr \
 	--bindir=/usr/bin \
 	--libdir=/usr/lib \
+	--disable-werror \
 	--program-prefix="eu-" || {
 	cat config.log
 	exit 2

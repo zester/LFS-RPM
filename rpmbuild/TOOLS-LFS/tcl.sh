@@ -16,6 +16,7 @@ function clean() {
 }
 
 function build() {
+	sed -i s/500/5000/ generic/regc_nfa.c
 	cd unix
 	./configure --prefix=/tools
 	make

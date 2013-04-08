@@ -18,6 +18,7 @@ case `uname -m` in
 esac
 sed -i 's/install_to_$(INSTALL_DEST) //' libiberty/Makefile.in
 sed -i -e /autogen/d -e /check.sh/d fixincludes/Makefile.in
+mv -v libmudflap/testsuite/libmudflap.c++/pass41-frag.cxx{,.disable}
 #sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
 install -vdm 755 ../gcc-build
 %build
@@ -63,7 +64,7 @@ rm -rf %{buildroot}
 /usr/lib/*
 /usr/include/*
 /usr/share/%{name}-%{version}/*
-/usr/share/gdb/auto-load/usr/lib/libstdc++.so.6.0.17-gdb.py
+/usr/share/gdb/auto-load/usr/lib/libstdc++.so.6.0.18-gdb.py
 /usr/share/locale/*
 /usr/share/man/*/*
 %changelog

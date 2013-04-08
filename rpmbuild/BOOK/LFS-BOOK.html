@@ -548,18 +548,18 @@
     /*]]>*/
     </style>
   </head>
-  <body class="lfs" id="lfs-SVN-20130331">
+  <body class="lfs" id="lfs-SVN-20130401">
     <div class="book" lang="en" xml:lang="en">
       <div class="titlepage">
         <div>
           <div>
             <h1 class="title">
-              <a id="idp24985696" name="idp24985696"></a>Linux From Scratch
+              <a id="idp128864" name="idp128864"></a>Linux From Scratch
             </h1>
           </div>
           <div>
             <h2 class="subtitle">
-              Version SVN-20130331
+              Version SVN-20130401
             </h2>
           </div>
           <div>
@@ -585,7 +585,7 @@
           </div>
           <div>
             <div class="legalnotice">
-              <a id="idp27833760" name="idp27833760"></a>
+              <a id="idp2854400" name="idp2854400"></a>
               <p>
                 Copyright © 1999-2013, Gerard Beekmans
               </p>
@@ -777,7 +777,7 @@
                     <a href="#ch-tools-gcc-pass1">GCC-4.8.0 - Pass 1</a>
                   </li>
                   <li class="sect1">
-                    <a href="#ch-tools-linux-headers">Linux-3.8.4 API
+                    <a href="#ch-tools-linux-headers">Linux-3.8.5 API
                     Headers</a>
                   </li>
                   <li class="sect1">
@@ -905,7 +905,7 @@
                     and Symlinks</a>
                   </li>
                   <li class="sect1">
-                    <a href="#ch-system-linux-headers">Linux-3.8.4 API
+                    <a href="#ch-system-linux-headers">Linux-3.8.5 API
                     Headers</a>
                   </li>
                   <li class="sect1">
@@ -1069,8 +1069,8 @@
                     <a href="#ch-system-texinfo">Texinfo-5.1</a>
                   </li>
                   <li class="sect1">
-                    <a href="#ch-system-udev">Udev-199 (Extracted from
-                    systemd-199)</a>
+                    <a href="#ch-system-udev">Udev-200 (Extracted from
+                    systemd-200)</a>
                   </li>
                   <li class="sect1">
                     <a href="#ch-system-vim">Vim-7.3</a>
@@ -1161,7 +1161,7 @@
                     File</a>
                   </li>
                   <li class="sect1">
-                    <a href="#ch-bootable-kernel">Linux-3.8.4</a>
+                    <a href="#ch-bootable-kernel">Linux-3.8.5</a>
                   </li>
                   <li class="sect1">
                     <a href="#ch-bootable-grub">Using GRUB to Set Up the Boot
@@ -1318,7 +1318,7 @@
           </li>
           <li class="index">
             <h3>
-              <a href="#idp39994112">Index</a>
+              <a href="#idp15101056">Index</a>
             </h3>
           </li>
         </ul>
@@ -1623,8 +1623,8 @@
           </p>
           <div class="variablelist">
             <h4>
-              <a id="idp24918480" name="idp24918480"></a>Packages supplied by
-              LFS needed to satisfy the LSB Requirements
+              <a id="idp55504" name="idp55504"></a>Packages supplied by LFS
+              needed to satisfy the LSB Requirements
             </h4>
             <table border="0">
               <col align="left" valign="top" />
@@ -1714,8 +1714,8 @@
           </div>
           <div class="variablelist">
             <h4>
-              <a id="idp24930784" name="idp24930784"></a>Packages supplied by
-              BLFS needed to satisfy the LSB Requirements
+              <a id="idp67904" name="idp67904"></a>Packages supplied by BLFS
+              needed to satisfy the LSB Requirements
             </h4>
             <table border="0">
               <col align="left" valign="top" />
@@ -1807,8 +1807,8 @@
           </div>
           <div class="variablelist">
             <h4>
-              <a id="idp30419088" name="idp30419088"></a>Packages not
-              supplied by LFS or BLFS needed to satisfy the LSB Requirements
+              <a id="idp5562848" name="idp5562848"></a>Packages not supplied
+              by LFS or BLFS needed to satisfy the LSB Requirements
             </h4>
             <table border="0">
               <col align="left" valign="top" />
@@ -3201,7 +3201,7 @@ EOF</kbd>
                 </li>
                 <li>
                   <p>
-                    Linux 3.8.4
+                    Linux 3.8.5
                   </p>
                 </li>
                 <li>
@@ -3236,7 +3236,7 @@ EOF</kbd>
                 </li>
                 <li>
                   <p>
-                    Udev 199 (extracted from systemd-199)
+                    Udev 200 (extracted from systemd-200)
                   </p>
                 </li>
               </ul>
@@ -3293,8 +3293,8 @@ EOF</kbd>
               </div>
             </div>
             <p>
-              This is version SVN-20130331 of the Linux From Scratch book,
-              dated March 31, 2013. If this book is more than six months old,
+              This is version SVN-20130401 of the Linux From Scratch book,
+              dated April 1, 2013. If this book is more than six months old,
               a newer and better version is probably already available. To
               find out, please check one of the mirrors via <a class="ulink"
               href=
@@ -3309,6 +3309,43 @@ EOF</kbd>
                 <b>Changelog Entries:</b>
               </p>
               <ul>
+                <li>
+                  <p>
+                    2013-04-01
+                  </p>
+                  <div class="itemizedlist">
+                    <ul>
+                      <li>
+                        <p>
+                          [bdubbs] - Upgrade to Linux-3.8.5. Fixes <a class=
+                          "ulink" href=
+                          "http://wiki.linuxfromscratch.org/lfs/ticket/3320">#3320</a>.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          [bdubbs] - Upgrade to Systemd-200. Fixes <a class=
+                          "ulink" href=
+                          "http://wiki.linuxfromscratch.org/lfs/ticket/3317">#3317</a>
+                          and <a class="ulink" href=
+                          "http://wiki.linuxfromscratch.org/lfs/ticket/3321">#3321</a>.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          [bdubbs] - Expand tcl space for regular expressions
+                          needed for some tests.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          [bdubbs] - Disable a g++ libmudflap test that
+                          always fails.
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
                 <li>
                   <p>
                     2013-03-29
@@ -3702,7 +3739,7 @@ EOF</kbd>
                   <li>
                     <p>
                       The version of the book being used (in this case
-                      SVN-20130331)
+                      SVN-20130401)
                     </p>
                   </li>
                   <li>
@@ -3965,8 +4002,8 @@ make: *** [all-recursive-am] Error 2</code>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp30775360" name=
-                        "idp30775360"></a>2.2.1.1.&nbsp;The Root Partition
+                        <a id="idp5924800" name=
+                        "idp5924800"></a>2.2.1.1.&nbsp;The Root Partition
                       </h4>
                     </div>
                   </div>
@@ -3985,8 +4022,8 @@ make: *** [all-recursive-am] Error 2</code>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp30777616" name=
-                        "idp30777616"></a>2.2.1.2.&nbsp;The Swap Partition
+                        <a id="idp5927056" name=
+                        "idp5927056"></a>2.2.1.2.&nbsp;The Swap Partition
                       </h4>
                     </div>
                   </div>
@@ -4014,9 +4051,8 @@ make: *** [all-recursive-am] Error 2</code>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp30779888" name=
-                        "idp30779888"></a>2.2.1.3.&nbsp;Convenience
-                        Partitions
+                        <a id="idp5929328" name=
+                        "idp5929328"></a>2.2.1.3.&nbsp;Convenience Partitions
                       </h4>
                     </div>
                   </div>
@@ -4988,7 +5024,7 @@ popd</kbd>
                   </dd>
                   <dt>
                     <span class="term">LFS-Bootscripts (20130123) -
-                    <span class="token">33750 KB</span>:</span>
+                    <span class="token">33778 KB</span>:</span>
                   </dt>
                   <dd>
                     <p>
@@ -4998,7 +5034,7 @@ popd</kbd>
                     </p>
                     <p>
                       MD5 sum: <code class=
-                      "literal">df08d6b8b0be952a551a98386b8713a9</code>
+                      "literal">7290c5c4a15ceaf3ac8d6fa7e08937b4</code>
                     </p>
                   </dd>
                   <dt>
@@ -5039,22 +5075,22 @@ popd</kbd>
                     </p>
                   </dd>
                   <dt>
-                    <span class="term">Linux (3.8.4) - <span class=
-                    "token">69,334 KB</span>:</span>
+                    <span class="term">Linux (3.8.5) - <span class=
+                    "token">69,404 KB</span>:</span>
                   </dt>
                   <dd>
                     <p>
                       Home page: <a class="ulink" href=
-                      "http://www.kernel.org/">http://www.kernel.org/</a>
+                      "http://www.dfaad4ced830akernel.org/">http://www.dfaad4ced830akernel.org/</a>
                     </p>
                     <p>
                       Download: <a class="ulink" href=
-                      "http://www.kernel.org/pub/linux/kernel/v3.x/linux-3.8.4.tar.xz">
-                      http://www.kernel.org/pub/linux/kernel/v3.x/linux-3.8.4.tar.xz</a>
+                      "http://www.kernel.org/pub/linux/kernel/v3.x/linux-3.8.5.tar.xz">
+                      http://www.kernel.org/pub/linux/kernel/v3.x/linux-3.8.5.tar.xz</a>
                     </p>
                     <p>
                       MD5 sum: <code class=
-                      "literal">ad19f1be181408124a7f9d8cf57b97b4</code>
+                      "literal">55e77da0eef1f348b4adfaad4ced830a</code>
                     </p>
                     <div class="admon note">
                       <h3>
@@ -5467,8 +5503,8 @@ popd</kbd>
                     </p>
                   </dd>
                   <dt>
-                    <span class="term">Systemd (199) - <span class=
-                    "token">2,052 KB</span>:</span>
+                    <span class="term">Systemd (200) - <span class=
+                    "token">2,068 KB</span>:</span>
                   </dt>
                   <dd>
                     <p>
@@ -5477,27 +5513,27 @@ popd</kbd>
                     </p>
                     <p>
                       Download: <a class="ulink" href=
-                      "http://www.freedesktop.org/software/systemd/systemd-199.tar.xz">
-                      http://www.freedesktop.org/software/systemd/systemd-199.tar.xz</a>
+                      "http://www.freedesktop.org/software/systemd/systemd-200.tar.xz">
+                      http://www.freedesktop.org/software/systemd/systemd-200.tar.xz</a>
                     </p>
                     <p>
                       MD5 sum: <code class=
-                      "literal">4bb13f84ce211e93f0141774a90a2322</code>
+                      "literal">5584b96e55c46217dab4c1768d10a472</code>
                     </p>
                   </dd>
                   <dt>
-                    <span class="term">Udev-lfs Tarball (199) - <span class=
+                    <span class="term">Udev-lfs Tarball (200) - <span class=
                     "token">40 KB</span>:</span>
                   </dt>
                   <dd>
                     <p>
                       Download: <a class="ulink" href=
-                      "http://anduin.linuxfromscratch.org/sources/other/udev-lfs-199-2.tar.bz2">
-                      http://anduin.linuxfromscratch.org/sources/other/udev-lfs-199-2.tar.bz2</a>
+                      "http://anduin.linuxfromscratch.org/sources/other/udev-lfs-200-1.tar.bz2">
+                      http://anduin.linuxfromscratch.org/sources/other/udev-lfs-200-1.tar.bz2</a>
                     </p>
                     <p>
                       MD5 sum: <code class=
-                      "literal">87536271791ab27100e8f44f4f76b434</code>
+                      "literal">657d8c08a9e5ec1b9119d2a480ca0e94</code>
                     </p>
                   </dd>
                   <dt>
@@ -7292,7 +7328,7 @@ cd ../gcc-build</kbd>
                 <div>
                   <h2 class="title">
                     <a id="ch-tools-linux-headers" name=
-                    "ch-tools-linux-headers"></a>5.6.&nbsp;Linux-3.8.4 API
+                    "ch-tools-linux-headers"></a>5.6.&nbsp;Linux-3.8.5 API
                     Headers
                   </h2>
                 </div>
@@ -7300,7 +7336,7 @@ cd ../gcc-build</kbd>
             </div>
             <div class="package" lang="en" xml:lang="en">
               <p>
-                The Linux API Headers (in linux-3.8.4.tar.xz) expose the
+                The Linux API Headers (in linux-3.8.5.tar.xz) expose the
                 kernel's API for use by Glibc.
               </p>
               <div class="segmentedlist">
@@ -8325,6 +8361,13 @@ readelf -l a.out | grep ': /tools'</kbd>
                 6</a>.
               </p>
               <p>
+                First increase the amount of space needed by some regular
+                expressions in regression tests.
+              </p>
+              <pre class="userinput">
+<kbd class="command">sed -i s/500/5000/ generic/regc_nfa.c</kbd>
+</pre>
+              <p>
                 Prepare Tcl for compilation:
               </p>
               <pre class="userinput">
@@ -8409,8 +8452,7 @@ readelf -l a.out | grep ': /tools'</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp31679584" name="idp31679584"></a>Short
-                  Descriptions
+                  <a id="idp6832960" name="idp6832960"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -8624,8 +8666,7 @@ sed 's:/usr/local/bin:/bin:' configure.orig &gt; configure</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp31726368" name="idp31726368"></a>Short
-                  Descriptions
+                  <a id="idp6879744" name="idp6879744"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -8733,8 +8774,7 @@ sed 's:/usr/local/bin:/bin:' configure.orig &gt; configure</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp31750928" name="idp31750928"></a>Short
-                  Descriptions
+                  <a id="idp6904304" name="idp6904304"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -8844,8 +8884,7 @@ sed 's:/usr/local/bin:/bin:' configure.orig &gt; configure</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp31774992" name="idp31774992"></a>Short
-                  Descriptions
+                  <a id="idp6928368" name="idp6928368"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -10796,8 +10835,8 @@ fi</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp32215472" name=
-                        "idp32215472"></a>6.3.2.1.&nbsp;It is All in My Head!
+                        <a id="idp7367568" name=
+                        "idp7367568"></a>6.3.2.1.&nbsp;It is All in My Head!
                       </h4>
                     </div>
                   </div>
@@ -10816,8 +10855,8 @@ fi</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp32216976" name=
-                        "idp32216976"></a>6.3.2.2.&nbsp;Install in Separate
+                        <a id="idp7369072" name=
+                        "idp7369072"></a>6.3.2.2.&nbsp;Install in Separate
                         Directories
                       </h4>
                     </div>
@@ -10851,8 +10890,8 @@ fi</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp32224784" name=
-                        "idp32224784"></a>6.3.2.3.&nbsp;Symlink Style Package
+                        <a id="idp7376880" name=
+                        "idp7376880"></a>6.3.2.3.&nbsp;Symlink Style Package
                         Management
                       </h4>
                     </div>
@@ -10915,8 +10954,8 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp32236832" name=
-                        "idp32236832"></a>6.3.2.4.&nbsp;Timestamp Based
+                        <a id="idp7388928" name=
+                        "idp7388928"></a>6.3.2.4.&nbsp;Timestamp Based
                       </h4>
                     </div>
                   </div>
@@ -10945,8 +10984,8 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp32239792" name=
-                        "idp32239792"></a>6.3.2.5.&nbsp;Tracing Installation
+                        <a id="idp7391888" name=
+                        "idp7391888"></a>6.3.2.5.&nbsp;Tracing Installation
                         Scripts
                       </h4>
                     </div>
@@ -10986,8 +11025,8 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp32245552" name=
-                        "idp32245552"></a>6.3.2.6.&nbsp;Creating Package
+                        <a id="idp7397648" name=
+                        "idp7397648"></a>6.3.2.6.&nbsp;Creating Package
                         Archives
                       </h4>
                     </div>
@@ -11033,8 +11072,8 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp32251680" name=
-                        "idp32251680"></a>6.3.2.7.&nbsp;User Based Management
+                        <a id="idp7403408" name=
+                        "idp7403408"></a>6.3.2.7.&nbsp;User Based Management
                       </h4>
                     </div>
                   </div>
@@ -11431,7 +11470,7 @@ chmod -v 600  /var/log/btmp</kbd>
                 <div>
                   <h2 class="title">
                     <a id="ch-system-linux-headers" name=
-                    "ch-system-linux-headers"></a>6.7.&nbsp;Linux-3.8.4 API
+                    "ch-system-linux-headers"></a>6.7.&nbsp;Linux-3.8.5 API
                     Headers
                   </h2>
                 </div>
@@ -11439,7 +11478,7 @@ chmod -v 600  /var/log/btmp</kbd>
             </div>
             <div class="package" lang="en" xml:lang="en">
               <p>
-                The Linux API Headers (in linux-3.8.4.tar.xz) expose the
+                The Linux API Headers (in linux-3.8.5.tar.xz) expose the
                 kernel's API for use by Glibc.
               </p>
               <div class="segmentedlist">
@@ -11517,8 +11556,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp32366128" name="idp32366128"></a>Short
-                  Descriptions
+                  <a id="idp7517856" name="idp7517856"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -11722,8 +11760,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp32418336" name="idp32418336"></a>Short
-                  Descriptions
+                  <a id="idp7573040" name="idp7573040"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -12271,8 +12308,7 @@ mkdir /etc/ld.so.conf.d</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp32540208" name="idp32540208"></a>Short
-                  Descriptions
+                  <a id="idp7695392" name="idp7695392"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -13238,8 +13274,7 @@ ln -sfv ../../lib/libz.so.1.2.7 /usr/lib/libz.so</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp32825616" name="idp32825616"></a>Short
-                  Descriptions
+                  <a id="idp7981184" name="idp7981184"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -13340,8 +13375,7 @@ ln -sfv ../../lib/libz.so.1.2.7 /usr/lib/libz.so</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp32851520" name="idp32851520"></a>Short
-                  Descriptions
+                  <a id="idp8007104" name="idp8007104"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -13564,8 +13598,7 @@ cd ../binutils-build</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp32906848" name="idp32906848"></a>Short
-                  Descriptions
+                  <a id="idp8062080" name="idp8062080"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -14016,8 +14049,7 @@ cp    -v doc/{isa_abi_headache,configuration} doc/*.html \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp33029088" name="idp33029088"></a>Short
-                  Descriptions
+                  <a id="idp8184576" name="idp8184576"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -14162,8 +14194,7 @@ cp    -v doc/{isa_abi_headache,configuration} doc/*.html \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp33068032" name="idp33068032"></a>Short
-                  Descriptions
+                  <a id="idp8223280" name="idp8223280"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -14260,8 +14291,7 @@ cp    -v doc/{isa_abi_headache,configuration} doc/*.html \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp33093216" name="idp33093216"></a>Short
-                  Descriptions
+                  <a id="idp8248368" name="idp8248368"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -14341,11 +14371,13 @@ esac</kbd>
 "command">sed -i 's/install_to_$(INSTALL_DEST) //' libiberty/Makefile.in</kbd>
 </pre>
               <p>
-                Also fix an error in one of the check Makefiles:
+                Also fix an error in one of the check Makefiles and disable
+                one test in the g++ libmudflap test suite:
               </p>
               <pre class="userinput">
 <kbd class=
-"command">sed -i -e /autogen/d -e /check.sh/d fixincludes/Makefile.in</kbd>
+"command">sed -i -e /autogen/d -e /check.sh/d fixincludes/Makefile.in 
+mv -v libmudflap/testsuite/libmudflap.c++/pass41-frag.cxx{,.disable}</kbd>
 </pre>
               <p>
                 The GCC documentation recommends building GCC outside of the
@@ -14682,8 +14714,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp33191184" name="idp33191184"></a>Short
-                  Descriptions
+                  <a id="idp8346528" name="idp8346528"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -15087,8 +15118,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp33306544" name="idp33306544"></a>Short
-                  Descriptions
+                  <a id="idp8461792" name="idp8461792"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -15253,8 +15283,7 @@ ln -sv bzip2 /bin/bzcat</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp33347488" name="idp33347488"></a>Short
-                  Descriptions
+                  <a id="idp8502688" name="idp8502688"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -15563,8 +15592,7 @@ ln -sv bzip2 /bin/bzcat</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp33432656" name="idp33432656"></a>Short
-                  Descriptions
+                  <a id="idp8587536" name="idp8587536"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -15791,8 +15819,7 @@ cp -av lib/lib*.so.5* /usr/lib</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp33484128" name="idp33484128"></a>Short
-                  Descriptions
+                  <a id="idp8638960" name="idp8638960"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -16180,8 +16207,7 @@ mkdir -pv /var/lib/hwclock</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp33589472" name="idp33589472"></a>Short
-                  Descriptions
+                  <a id="idp8744592" name="idp8744592"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -17657,8 +17683,7 @@ mv -v /usr/bin/killall /bin</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp34031536" name="idp34031536"></a>Short
-                  Descriptions
+                  <a id="idp9186320" name="idp9186320"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -17885,8 +17910,7 @@ ln -sfv ../../lib/libprocps.so.1.1.1 /usr/lib/libprocps.so</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp34089984" name="idp34089984"></a>Short
-                  Descriptions
+                  <a id="idp9244688" name="idp9244688"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -18320,8 +18344,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp34212272" name="idp34212272"></a>Short
-                  Descriptions
+                  <a id="idp9367056" name="idp9367056"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -19111,8 +19134,7 @@ find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp34459488" name="idp34459488"></a>Short
-                  Descriptions
+                  <a id="idp9613952" name="idp9613952"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -19797,8 +19819,7 @@ sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp34657296" name="idp34657296"></a>Short
-                  Descriptions
+                  <a id="idp9812608" name="idp9812608"></a>Short Descriptions
                 </h4>
                 <table border="0">
                   <col align="left" valign="top" />
@@ -21350,7 +21371,7 @@ sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35120144" name="idp35120144"></a>Short
+                  <a id="idp10274432" name="idp10274432"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -21473,7 +21494,7 @@ make check</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35151552" name="idp35151552"></a>Short
+                  <a id="idp10305904" name="idp10305904"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -21598,7 +21619,7 @@ make check</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35182864" name="idp35182864"></a>Short
+                  <a id="idp10337328" name="idp10337328"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -21738,7 +21759,7 @@ make check</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35222096" name="idp35222096"></a>Short
+                  <a id="idp10376464" name="idp10376464"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -21928,7 +21949,7 @@ install -v -m644 doc/*.{ps,pdf,html,dvi} \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35273616" name="idp35273616"></a>Short
+                  <a id="idp10427920" name="idp10427920"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -22119,7 +22140,7 @@ install -v -m644 doc/*.{ps,pdf,html,dvi} \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35321520" name="idp35321520"></a>Short
+                  <a id="idp10475680" name="idp10475680"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -22268,7 +22289,7 @@ install -v -m644 doc/*.{ps,pdf,html,dvi} \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35360512" name="idp35360512"></a>Short
+                  <a id="idp10514752" name="idp10514752"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -22423,7 +22444,7 @@ install -v -m644 doc/*.{ps,pdf,html,dvi} \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35398832" name="idp35398832"></a>Short
+                  <a id="idp10553216" name="idp10553216"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -22632,7 +22653,7 @@ install -v -m644 doc/*.{ps,pdf,html,dvi} \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35449696" name="idp35449696"></a>Short
+                  <a id="idp10604128" name="idp10604128"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -22992,7 +23013,7 @@ install -v -m644 doc/*.{ps,pdf,html,dvi} \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35543344" name="idp35543344"></a>Short
+                  <a id="idp10697728" name="idp10697728"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -23701,7 +23722,7 @@ install -v -m644 doc/*.{ps,pdf,html,dvi} \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35758576" name="idp35758576"></a>Short
+                  <a id="idp10913296" name="idp10913296"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -23949,7 +23970,7 @@ install -v -m644 doc/*.{ps,pdf,html,dvi} \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35826320" name="idp35826320"></a>Short
+                  <a id="idp10980816" name="idp10980816"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -24297,7 +24318,7 @@ install -v -m644 doc/*.{ps,pdf,html,dvi} \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35930288" name="idp35930288"></a>Short
+                  <a id="idp11084976" name="idp11084976"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -24453,7 +24474,7 @@ cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-4.0.2</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp35971184" name="idp35971184"></a>Short
+                  <a id="idp11125824" name="idp11125824"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -24715,7 +24736,7 @@ sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp36045664" name="idp36045664"></a>Short
+                  <a id="idp11200464" name="idp11200464"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -24974,7 +24995,7 @@ chmod -v 755 /usr/bin/lex</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp36118944" name="idp36118944"></a>Short
+                  <a id="idp11273536" name="idp11273536"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -25141,7 +25162,7 @@ chmod -v 755 /usr/bin/lex</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp36162576" name="idp36162576"></a>Short
+                  <a id="idp11317136" name="idp11317136"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -25732,7 +25753,7 @@ ln -sv tbl /usr/bin/gtbl</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp36335440" name="idp36335440"></a>Short
+                  <a id="idp11489936" name="idp11489936"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -26533,7 +26554,7 @@ ln -sv tbl /usr/bin/gtbl</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp36576576" name="idp36576576"></a>Short
+                  <a id="idp11731680" name="idp11731680"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -27017,7 +27038,7 @@ ln -sv tbl /usr/bin/gtbl</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp36715712" name="idp36715712"></a>Short
+                  <a id="idp11871072" name="idp11871072"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -27410,7 +27431,7 @@ ln -sv tbl /usr/bin/gtbl</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp36905808" name="idp36905808"></a>Short
+                  <a id="idp11983776" name="idp11983776"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -27552,7 +27573,7 @@ mv -v /bin/{zfgrep,zforce,zgrep,zless,zmore,znew} /usr/bin</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp36938496" name="idp36938496"></a>Short
+                  <a id="idp12021040" name="idp12021040"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -27909,7 +27930,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37115440" name="idp37115440"></a>Short
+                  <a id="idp12124464" name="idp12124464"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -28417,7 +28438,7 @@ cp -R -v doc/* \
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37243216" name="idp37243216"></a>Short
+                  <a id="idp12259744" name="idp12259744"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -28901,7 +28922,7 @@ ln -sv kmod /bin/lsmod</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37358768" name="idp37358768"></a>Short
+                  <a id="idp12395456" name="idp12395456"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -29126,7 +29147,7 @@ ln -sv kmod /bin/lsmod</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37417552" name="idp37417552"></a>Short
+                  <a id="idp12456512" name="idp12456512"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -29230,7 +29251,7 @@ ln -sv kmod /bin/lsmod</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37444256" name="idp37444256"></a>Short
+                  <a id="idp12483392" name="idp12483392"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -29374,7 +29395,7 @@ ln -sv kmod /bin/lsmod</kbd>
                 manual pages installed in that directory are UTF-8 encoded.
               </p>
               <div class="table">
-                <a id="idp37479504" name="idp37479504"></a>
+                <a id="idp12518704" name="idp12518704"></a>
                 <p class="title">
                   <b>Table&nbsp;6.1.&nbsp;Expected character encoding of
                   legacy 8-bit manual pages</b>
@@ -29754,7 +29775,7 @@ ln -sv kmod /bin/lsmod</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37538016" name="idp37538016"></a>Short
+                  <a id="idp12577264" name="idp12577264"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -30011,7 +30032,7 @@ ln -sv kmod /bin/lsmod</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37612320" name="idp37612320"></a>Short
+                  <a id="idp12652784" name="idp12652784"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -30132,7 +30153,7 @@ EOF</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37644368" name="idp37644368"></a>Short
+                  <a id="idp12685088" name="idp12685088"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -30277,7 +30298,7 @@ EOF</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37680384" name="idp37680384"></a>Short
+                  <a id="idp12721232" name="idp12721232"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -30631,7 +30652,7 @@ make -C doc install-html docdir=/usr/share/doc/tar-1.26</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37780576" name="idp37780576"></a>Short
+                  <a id="idp12822672" name="idp12822672"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -30794,7 +30815,7 @@ done</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37819776" name="idp37819776"></a>Short
+                  <a id="idp12862080" name="idp12862080"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -30965,8 +30986,8 @@ done</kbd>
                 <div>
                   <h2 class="title">
                     <a id="ch-system-udev" name=
-                    "ch-system-udev"></a>6.61.&nbsp;Udev-199 (Extracted from
-                    systemd-199)
+                    "ch-system-udev"></a>6.61.&nbsp;Udev-200 (Extracted from
+                    systemd-200)
                   </h2>
                 </div>
               </div>
@@ -30986,7 +31007,7 @@ done</kbd>
                   </div>
                   <div class="seg">
                     <strong class="segtitle">Required disk space:</strong>
-                    <span class="segbody">23 MB</span>
+                    <span class="segbody">35 MB</span>
                   </div>
                 </div>
               </div>
@@ -31002,7 +31023,7 @@ done</kbd>
                 <p>
                   This package is a little different from other packages. The
                   initial package that is extracted is <code class=
-                  "filename">systemd-199.tar.xz</code> even though the
+                  "filename">systemd-200.tar.xz</code> even though the
                   application we are installing is udev. After changing to
                   the systemd directory, follow the instructions below.
                 </p>
@@ -31012,19 +31033,19 @@ done</kbd>
                 build Udev. Unpack it into the systemd source directory:
               </p>
               <pre class="userinput">
-<kbd class="command">tar -xvf ../udev-lfs-199-2.tar.bz2</kbd>
+<kbd class="command">tar -xvf ../udev-lfs-200-1.tar.bz2</kbd>
 </pre>
               <p>
                 Compile the package:
               </p>
               <pre class="userinput">
-<kbd class="command">make -f udev-lfs-199-2/Makefile.lfs</kbd>
+<kbd class="command">make -f udev-lfs-200-1/Makefile.lfs</kbd>
 </pre>
               <p>
                 Install the package:
               </p>
               <pre class="userinput">
-<kbd class="command">make -f udev-lfs-199-2/Makefile.lfs install</kbd>
+<kbd class="command">make -f udev-lfs-200-1/Makefile.lfs install</kbd>
 </pre>
               <div class="admon caution">
                 <h3>
@@ -31059,7 +31080,7 @@ done</kbd>
                 chapter for the following script to work.
               </p>
               <pre class="userinput">
-<kbd class="command">bash udev-lfs-199-2/init-net-rules.sh</kbd>
+<kbd class="command">bash udev-lfs-200-1/init-net-rules.sh</kbd>
 </pre>
             </div>
             <div class="content" lang="en" xml:lang="en">
@@ -31088,7 +31109,7 @@ done</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37896416" name="idp37896416"></a>Short
+                  <a id="idp12939872" name="idp12939872"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -31476,7 +31497,7 @@ set spell</code>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp37996960" name="idp37996960"></a>Short
+                  <a id="idp13040928" name="idp13040928"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -32465,8 +32486,8 @@ EOF</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp38210480" name=
-                        "idp38210480"></a>7.4.2.1.&nbsp;Sysfs
+                        <a id="idp13256672" name=
+                        "idp13256672"></a>7.4.2.1.&nbsp;Sysfs
                       </h4>
                     </div>
                   </div>
@@ -32493,8 +32514,8 @@ EOF</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp38217216" name=
-                        "idp38217216"></a>7.4.2.2.&nbsp;Device Node Creation
+                        <a id="idp13263408" name=
+                        "idp13263408"></a>7.4.2.2.&nbsp;Device Node Creation
                       </h4>
                     </div>
                   </div>
@@ -32538,8 +32559,8 @@ EOF</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp38230720" name=
-                        "idp38230720"></a>7.4.2.3.&nbsp;Udev Bootscripts
+                        <a id="idp13276912" name=
+                        "idp13276912"></a>7.4.2.3.&nbsp;Udev Bootscripts
                       </h4>
                     </div>
                   </div>
@@ -32599,8 +32620,8 @@ EOF</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp38247120" name=
-                        "idp38247120"></a>7.4.2.4.&nbsp;Module Loading
+                        <a id="idp13293312" name=
+                        "idp13293312"></a>7.4.2.4.&nbsp;Module Loading
                       </h4>
                     </div>
                   </div>
@@ -32649,8 +32670,8 @@ EOF</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp38257440" name=
-                        "idp38257440"></a>7.4.2.5.&nbsp;Handling
+                        <a id="idp13303632" name=
+                        "idp13303632"></a>7.4.2.5.&nbsp;Handling
                         Hotpluggable/Dynamic Devices
                       </h4>
                     </div>
@@ -32678,8 +32699,8 @@ EOF</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp38260912" name=
-                        "idp38260912"></a>7.4.3.1.&nbsp;A kernel module is
+                        <a id="idp13307104" name=
+                        "idp13307104"></a>7.4.3.1.&nbsp;A kernel module is
                         not loaded automatically
                       </h4>
                     </div>
@@ -32690,7 +32711,7 @@ EOF</kbd>
                   and the bus driver properly exports the necessary aliases
                   to <code class="systemitem">sysfs</code>. In other cases,
                   one should arrange module loading by other means. With
-                  Linux-3.8.4, Udev is known to load properly-written drivers
+                  Linux-3.8.5, Udev is known to load properly-written drivers
                   for INPUT, IDE, PCI, USB, SCSI, SERIO, and FireWire
                   devices.
                 </p>
@@ -32716,7 +32737,7 @@ EOF</kbd>
                   in the relevant directory under <code class=
                   "filename">/sys/bus</code>, this means that the kernel
                   developers have not yet added modalias support to this bus
-                  type. With Linux-3.8.4, this is the case with ISA busses.
+                  type. With Linux-3.8.5, this is the case with ISA busses.
                   Expect this issue to be fixed in later kernel versions.
                 </p>
                 <p>
@@ -32732,8 +32753,8 @@ EOF</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp38272992" name=
-                        "idp38272992"></a>7.4.3.2.&nbsp;A kernel module is
+                        <a id="idp13319184" name=
+                        "idp13319184"></a>7.4.3.2.&nbsp;A kernel module is
                         not loaded automatically, and Udev is not intended to
                         load it
                       </h4>
@@ -32785,8 +32806,8 @@ EOF</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp38285936" name=
-                        "idp38285936"></a>7.4.3.3.&nbsp;Udev loads some
+                        <a id="idp13332128" name=
+                        "idp13332128"></a>7.4.3.3.&nbsp;Udev loads some
                         unwanted module
                       </h4>
                     </div>
@@ -32813,8 +32834,8 @@ EOF</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp38290992" name=
-                        "idp38290992"></a>7.4.3.4.&nbsp;Udev creates a device
+                        <a id="idp13337184" name=
+                        "idp13337184"></a>7.4.3.4.&nbsp;Udev creates a device
                         incorrectly, or makes a wrong symlink
                       </h4>
                     </div>
@@ -32834,8 +32855,8 @@ EOF</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp38293264" name=
-                        "idp38293264"></a>7.4.3.5.&nbsp;Udev rule works
+                        <a id="idp13339456" name=
+                        "idp13339456"></a>7.4.3.5.&nbsp;Udev rule works
                         unreliably
                       </h4>
                     </div>
@@ -32859,8 +32880,8 @@ EOF</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp38297616" name=
-                        "idp38297616"></a>7.4.3.6.&nbsp;Udev does not create
+                        <a id="idp13343808" name=
+                        "idp13343808"></a>7.4.3.6.&nbsp;Udev does not create
                         a device
                       </h4>
                     </div>
@@ -32892,8 +32913,8 @@ EOF</kbd>
                   <div>
                     <div>
                       <h4 class="title">
-                        <a id="idp38303984" name=
-                        "idp38303984"></a>7.4.3.7.&nbsp;Device naming order
+                        <a id="idp13350176" name=
+                        "idp13350176"></a>7.4.3.7.&nbsp;Device naming order
                         changes randomly after rebooting
                       </h4>
                     </div>
@@ -33213,7 +33234,7 @@ EOF</kbd>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp38374048" name="idp38374048"></a>Short
+                  <a id="idp13420000" name="idp13420000"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -34217,7 +34238,7 @@ EOF</kbd>
                     the character produced by the next key) or define
                     composition rules (such as: &ldquo;<span class=
                     "quote">press Ctrl+. A E to get Æ</span>&rdquo; in the
-                    default keymap). Linux-3.8.4 interprets dead keys and
+                    default keymap). Linux-3.8.5 interprets dead keys and
                     composition rules in the keymap correctly only when the
                     source characters to be composed together are not
                     multibyte. This deficiency doesn't affect keymaps for
@@ -35013,7 +35034,7 @@ EOF</kbd>
                 <div>
                   <h2 class="title">
                     <a id="ch-bootable-kernel" name=
-                    "ch-bootable-kernel"></a>8.3.&nbsp;Linux-3.8.4
+                    "ch-bootable-kernel"></a>8.3.&nbsp;Linux-3.8.5
                   </h2>
                 </div>
               </div>
@@ -35126,7 +35147,7 @@ Device Drivers  ---&gt;
                 If desired, skip kernel configuration by copying the kernel
                 config file, <code class="filename">.config</code>, from the
                 host system (assuming it is available) to the unpacked
-                <code class="filename">linux-3.8.4</code> directory. However,
+                <code class="filename">linux-3.8.5</code> directory. However,
                 we do not recommend this option. It is often better to
                 explore all the configuration menus and create the kernel
                 configuration from scratch.
@@ -35145,7 +35166,7 @@ Device Drivers  ---&gt;
                 "7.4.&nbsp;Device and Module Handling on an LFS System">Section&nbsp;7.4,
                 &ldquo;Device and Module Handling on an LFS System&rdquo;</a>
                 and in the kernel documentation in the <code class=
-                "filename">linux-3.8.4/Documentation</code> directory. Also,
+                "filename">linux-3.8.5/Documentation</code> directory. Also,
                 <code class="filename">modprobe.conf(5)</code> may be of
                 interest.
               </p>
@@ -35171,7 +35192,7 @@ Device Drivers  ---&gt;
               </p>
               <pre class="userinput">
 <kbd class=
-"command">cp -v arch/x86/boot/bzImage /boot/vmlinuz-3.8.4-lfs-SVN-20130331</kbd>
+"command">cp -v arch/x86/boot/bzImage /boot/vmlinuz-3.8.5-lfs-SVN-20130401</kbd>
 </pre>
               <p>
                 <code class="filename">System.map</code> is a symbol file for
@@ -35182,7 +35203,7 @@ Device Drivers  ---&gt;
                 following command to install the map file:
               </p>
               <pre class="userinput">
-<kbd class="command">cp -v System.map /boot/System.map-3.8.4</kbd>
+<kbd class="command">cp -v System.map /boot/System.map-3.8.5</kbd>
 </pre>
               <p>
                 The kernel configuration file <code class=
@@ -35193,14 +35214,14 @@ Device Drivers  ---&gt;
                 future reference:
               </p>
               <pre class="userinput">
-<kbd class="command">cp -v .config /boot/config-3.8.4</kbd>
+<kbd class="command">cp -v .config /boot/config-3.8.5</kbd>
 </pre>
               <p>
                 Install the documentation for the Linux kernel:
               </p>
               <pre class="userinput">
-<kbd class="command">install -d /usr/share/doc/linux-3.8.4
-cp -r Documentation/* /usr/share/doc/linux-3.8.4</kbd>
+<kbd class="command">install -d /usr/share/doc/linux-3.8.5
+cp -r Documentation/* /usr/share/doc/linux-3.8.5</kbd>
 </pre>
               <p>
                 It is important to note that the files in the kernel source
@@ -35220,7 +35241,7 @@ cp -r Documentation/* /usr/share/doc/linux-3.8.4</kbd>
               <p>
                 If the kernel source tree is going to be retained, run
                 <span class="command"><strong>chown -R 0:0</strong></span> on
-                the <code class="filename">linux-3.8.4</code> directory to
+                the <code class="filename">linux-3.8.5</code> directory to
                 ensure all files are owned by user <span class=
                 "emphasis"><em>root</em></span>.
               </p>
@@ -35298,20 +35319,20 @@ EOF</kbd>
                 <div class="seglistitem">
                   <div class="seg">
                     <strong class="segtitle">Installed files:</strong>
-                    <span class="segbody">config-3.8.4,
-                    vmlinux-3.8.4-lfs-SVN-20130331-3.8.4, and
-                    System.map-3.8.4</span>
+                    <span class="segbody">config-3.8.5,
+                    vmlinux-3.8.5-lfs-SVN-20130401-3.8.5, and
+                    System.map-3.8.5</span>
                   </div>
                   <div class="seg">
                     <strong class="segtitle">Installed directories:</strong>
                     <span class="segbody">/lib/modules,
-                    /usr/share/doc/linux-3.8.4</span>
+                    /usr/share/doc/linux-3.8.5</span>
                   </div>
                 </div>
               </div>
               <div class="variablelist">
                 <h4>
-                  <a id="idp38862352" name="idp38862352"></a>Short
+                  <a id="idp13961776" name="idp13961776"></a>Short
                   Descriptions
                 </h4>
                 <table border="0">
@@ -35322,7 +35343,7 @@ EOF</kbd>
                         <p>
                           <a id="config" name="config"></a><span class=
                           "term"><code class=
-                          "filename">config-3.8.4</code></span>
+                          "filename">config-3.8.5</code></span>
                         </p>
                       </td>
                       <td>
@@ -35337,7 +35358,7 @@ EOF</kbd>
                         <p>
                           <a id="lfskernel" name="lfskernel"></a><span class=
                           "term"><code class=
-                          "filename">vmlinux-3.8.4-lfs-SVN-20130331</code></span>
+                          "filename">vmlinux-3.8.5-lfs-SVN-20130401</code></span>
                         </p>
                       </td>
                       <td>
@@ -35358,7 +35379,7 @@ EOF</kbd>
                         <p>
                           <a id="System.map" name=
                           "System.map"></a><span class="term"><code class=
-                          "filename">System.map-3.8.4</code></span>
+                          "filename">System.map-3.8.5</code></span>
                         </p>
                       </td>
                       <td>
@@ -35516,8 +35537,8 @@ set timeout=5
 insmod ext2
 set root=(hd0,2)
 
-menuentry "GNU/Linux, Linux 3.8.4-lfs-SVN-20130331" {
-        linux   /boot/vmlinuz-3.8.4-lfs-SVN-20130331 root=/dev/sda2 ro
+menuentry "GNU/Linux, Linux 3.8.5-lfs-SVN-20130401" {
+        linux   /boot/vmlinuz-3.8.5-lfs-SVN-20130401 root=/dev/sda2 ro
 }</code>
 EOF</kbd>
 </pre>
@@ -35596,7 +35617,7 @@ EOF</kbd>
               the system. Create this file by running:
             </p>
             <pre class="userinput">
-<kbd class="command">echo SVN-20130331 &gt; /etc/lfs-release</kbd>
+<kbd class="command">echo SVN-20130401 &gt; /etc/lfs-release</kbd>
 </pre>
             <p>
               It is also a good idea to create a file to show the status of
@@ -35606,7 +35627,7 @@ EOF</kbd>
             <pre class="userinput">
 <kbd class="command">cat &gt; /etc/lsb-release &lt;&lt; "EOF"
 DISTRIB_ID="Linux From Scratch"
-DISTRIB_RELEASE="SVN-20130331"
+DISTRIB_RELEASE="SVN-20130401"
 DISTRIB_CODENAME="&lt;your name here&gt;"
 DISTRIB_DESCRIPTION="Linux From Scratch"
 EOF</kbd>
@@ -35849,7 +35870,7 @@ umount -v $LFS</kbd>
             <p>
               Assuming the GRUB boot loader was set up as outlined earlier,
               the menu is set to boot <span class="emphasis"><em>LFS
-              SVN-20130331</em></span> automatically.
+              SVN-20130401</em></span> automatically.
             </p>
             <p>
               When the reboot is complete, the LFS system is ready for use
@@ -37074,7 +37095,7 @@ umount -v $LFS</kbd>
             </ul>
           </div>
           <h3>
-            <a id="idp39152016" name="idp39152016"></a>Translators
+            <a id="idp14252032" name="idp14252032"></a>Translators
           </h3>
           <div class="itemizedlist">
             <ul>
@@ -37111,10 +37132,10 @@ umount -v $LFS</kbd>
             </ul>
           </div>
           <h3>
-            <a id="idp39159360" name="idp39159360"></a>Mirror Maintainers
+            <a id="idp14259376" name="idp14259376"></a>Mirror Maintainers
           </h3>
           <h4>
-            <a id="idp39160048" name="idp39160048"></a>North American Mirrors
+            <a id="idp14260064" name="idp14260064"></a>North American Mirrors
           </h4>
           <div class="itemizedlist">
             <ul>
@@ -37150,7 +37171,7 @@ umount -v $LFS</kbd>
             </ul>
           </div>
           <h4>
-            <a id="idp39166800" name="idp39166800"></a>South American Mirrors
+            <a id="idp14266816" name="idp14266816"></a>South American Mirrors
           </h4>
           <div class="itemizedlist">
             <ul>
@@ -37172,7 +37193,7 @@ umount -v $LFS</kbd>
             </ul>
           </div>
           <h4>
-            <a id="idp39170880" name="idp39170880"></a>European Mirrors
+            <a id="idp14270896" name="idp14270896"></a>European Mirrors
           </h4>
           <div class="itemizedlist">
             <ul>
@@ -37270,7 +37291,7 @@ umount -v $LFS</kbd>
             </ul>
           </div>
           <h4>
-            <a id="idp39190224" name="idp39190224"></a>Asian Mirrors
+            <a id="idp14290240" name="idp14290240"></a>Asian Mirrors
           </h4>
           <div class="itemizedlist">
             <ul>
@@ -37298,7 +37319,7 @@ umount -v $LFS</kbd>
             </ul>
           </div>
           <h4>
-            <a id="idp39195568" name="idp39195568"></a>Australian Mirrors
+            <a id="idp14295584" name="idp14295584"></a>Australian Mirrors
           </h4>
           <div class="itemizedlist">
             <ul>
@@ -37312,7 +37333,7 @@ umount -v $LFS</kbd>
             </ul>
           </div>
           <h3>
-            <a id="idp39198064" name="idp39198064"></a>Former Project Team
+            <a id="idp14298080" name="idp14298080"></a>Former Project Team
             Members
           </h3>
           <div class="itemizedlist">
@@ -43797,11 +43818,11 @@ esac
             </div>
           </div>
           <p>
-            The rules from udev-lfs-199-2.tar.bz2 in this appendix are listed
+            The rules from udev-lfs-200-1.tar.bz2 in this appendix are listed
             for convenience. Installation is normally done via instructions
             in <a class="xref" href="#ch-system-udev" title=
-            "6.61.&nbsp;Udev-199 (Extracted from systemd-199)">Section&nbsp;6.61,
-            &ldquo;Udev-199 (Extracted from systemd-199)&rdquo;</a>.
+            "6.61.&nbsp;Udev-200 (Extracted from systemd-200)">Section&nbsp;6.61,
+            &ldquo;Udev-200 (Extracted from systemd-200)&rdquo;</a>.
           </p>
           <div class="wrap" lang="en" xml:lang="en">
             <div class="titlepage">
@@ -44698,17 +44719,17 @@ KERNEL=="dcbri[0-9]*",      GROUP="dialout"
             </li>
             <li>
               <strong class="item">Linux:</strong> <span class=
-              "indexref"><a href="#ch-bootable-kernel">Linux-3.8.4</a></span>
+              "indexref"><a href="#ch-bootable-kernel">Linux-3.8.5</a></span>
               <ul>
                 <li>
                   <strong class="secitem">API headers:</strong> <span class=
-                  "indexref"><a href="#ch-system-linux-headers">Linux-3.8.4
+                  "indexref"><a href="#ch-system-linux-headers">Linux-3.8.5
                   API Headers</a></span>
                 </li>
                 <li>
                   <strong class="secitem">tools, API headers:</strong>
                   <span class="indexref"><a href=
-                  "#ch-tools-linux-headers">Linux-3.8.4 API
+                  "#ch-tools-linux-headers">Linux-3.8.5 API
                   Headers</a></span>
                 </li>
               </ul>
@@ -44878,8 +44899,8 @@ KERNEL=="dcbri[0-9]*",      GROUP="dialout"
             </li>
             <li>
               <strong class="item">Udev:</strong> <span class=
-              "indexref"><a href="#ch-system-udev">Udev-199 (Extracted from
-              systemd-199)</a></span>
+              "indexref"><a href="#ch-system-udev">Udev-200 (Extracted from
+              systemd-200)</a></span>
               <ul>
                 <li>
                   <strong class="secitem">usage:</strong> <span class=
@@ -44985,8 +45006,8 @@ KERNEL=="dcbri[0-9]*",      GROUP="dialout"
             </li>
             <li>
               <strong class="item">ata_id:</strong> <span class=
-              "indexref"><a href="#ch-system-udev">Udev-199 (Extracted from
-              systemd-199)</a> -- <a href=
+              "indexref"><a href="#ch-system-udev">Udev-200 (Extracted from
+              systemd-200)</a> -- <a href=
               "#ata_id">description</a><br /></span>
             </li>
             <li>
@@ -45199,8 +45220,8 @@ KERNEL=="dcbri[0-9]*",      GROUP="dialout"
             </li>
             <li>
               <strong class="item">cdrom_id:</strong> <span class=
-              "indexref"><a href="#ch-system-udev">Udev-199 (Extracted from
-              systemd-199)</a> -- <a href=
+              "indexref"><a href="#ch-system-udev">Udev-200 (Extracted from
+              systemd-200)</a> -- <a href=
               "#cdrom_id">description</a><br /></span>
             </li>
             <li>
@@ -45325,8 +45346,8 @@ KERNEL=="dcbri[0-9]*",      GROUP="dialout"
             </li>
             <li>
               <strong class="item">collect:</strong> <span class=
-              "indexref"><a href="#ch-system-udev">Udev-199 (Extracted from
-              systemd-199)</a> -- <a href=
+              "indexref"><a href="#ch-system-udev">Udev-200 (Extracted from
+              systemd-200)</a> -- <a href=
               "#collect">description</a><br /></span>
             </li>
             <li>
@@ -46459,8 +46480,8 @@ KERNEL=="dcbri[0-9]*",      GROUP="dialout"
               <a href="#lexgrog">description</a><br /></span>
             </li>
             <li>
-              <strong class="item">lfskernel-3.8.4:</strong> <span class=
-              "indexref"><a href="#ch-bootable-kernel">Linux-3.8.4</a> --
+              <strong class="item">lfskernel-3.8.5:</strong> <span class=
+              "indexref"><a href="#ch-bootable-kernel">Linux-3.8.5</a> --
               <a href="#lfskernel">description</a><br /></span>
             </li>
             <li>
@@ -47636,8 +47657,8 @@ KERNEL=="dcbri[0-9]*",      GROUP="dialout"
             </li>
             <li>
               <strong class="item">scsi_id:</strong> <span class=
-              "indexref"><a href="#ch-system-udev">Udev-199 (Extracted from
-              systemd-199)</a> -- <a href=
+              "indexref"><a href="#ch-system-udev">Udev-200 (Extracted from
+              systemd-200)</a> -- <a href=
               "#scsi_id">description</a><br /></span>
             </li>
             <li>
@@ -48108,14 +48129,14 @@ KERNEL=="dcbri[0-9]*",      GROUP="dialout"
             </li>
             <li>
               <strong class="item">udevadm:</strong> <span class=
-              "indexref"><a href="#ch-system-udev">Udev-199 (Extracted from
-              systemd-199)</a> -- <a href=
+              "indexref"><a href="#ch-system-udev">Udev-200 (Extracted from
+              systemd-200)</a> -- <a href=
               "#udevadm">description</a><br /></span>
             </li>
             <li>
               <strong class="item">udevd:</strong> <span class=
-              "indexref"><a href="#ch-system-udev">Udev-199 (Extracted from
-              systemd-199)</a> -- <a href=
+              "indexref"><a href="#ch-system-udev">Udev-200 (Extracted from
+              systemd-200)</a> -- <a href=
               "#udevd">description</a><br /></span>
             </li>
             <li>
@@ -48867,8 +48888,8 @@ KERNEL=="dcbri[0-9]*",      GROUP="dialout"
             </li>
             <li>
               <strong class="item">libudev:</strong> <span class=
-              "indexref"><a href="#ch-system-udev">Udev-199 (Extracted from
-              systemd-199)</a> -- <a href=
+              "indexref"><a href="#ch-system-udev">Udev-200 (Extracted from
+              systemd-200)</a> -- <a href=
               "#libudev">description</a><br /></span>
             </li>
             <li>
@@ -49096,14 +49117,14 @@ KERNEL=="dcbri[0-9]*",      GROUP="dialout"
           </h2>
           <ul>
             <li>
-              <strong class="item">/boot/config-3.8.4:</strong> <span class=
-              "indexref"><a href="#ch-bootable-kernel">Linux-3.8.4</a> --
+              <strong class="item">/boot/config-3.8.5:</strong> <span class=
+              "indexref"><a href="#ch-bootable-kernel">Linux-3.8.5</a> --
               <a href="#config">description</a><br /></span>
             </li>
             <li>
-              <strong class="item">/boot/System.map-3.8.4:</strong>
+              <strong class="item">/boot/System.map-3.8.5:</strong>
               <span class="indexref"><a href=
-              "#ch-bootable-kernel">Linux-3.8.4</a> -- <a href=
+              "#ch-bootable-kernel">Linux-3.8.5</a> -- <a href=
               "#System.map">description</a><br /></span>
             </li>
             <li>
@@ -49190,8 +49211,8 @@ KERNEL=="dcbri[0-9]*",      GROUP="dialout"
             </li>
             <li>
               <strong class="item">/etc/udev:</strong> <span class=
-              "indexref"><a href="#ch-system-udev">Udev-199 (Extracted from
-              systemd-199)</a> -- <a href=
+              "indexref"><a href="#ch-system-udev">Udev-200 (Extracted from
+              systemd-200)</a> -- <a href=
               "#etc-udev">description</a><br /></span>
             </li>
             <li>
@@ -49201,61 +49222,61 @@ KERNEL=="dcbri[0-9]*",      GROUP="dialout"
             <li>
               <strong class="item">/usr/include/asm-generic/*.h:</strong>
               <span class="indexref"><a href=
-              "#ch-system-linux-headers">Linux-3.8.4 API Headers</a> --
+              "#ch-system-linux-headers">Linux-3.8.5 API Headers</a> --
               <a href="#asm-generic">description</a><br /></span>
             </li>
             <li>
               <strong class="item">/usr/include/asm/*.h:</strong>
               <span class="indexref"><a href=
-              "#ch-system-linux-headers">Linux-3.8.4 API Headers</a> --
+              "#ch-system-linux-headers">Linux-3.8.5 API Headers</a> --
               <a href="#asm">description</a><br /></span>
             </li>
             <li>
               <strong class="item">/usr/include/drm/*.h:</strong>
               <span class="indexref"><a href=
-              "#ch-system-linux-headers">Linux-3.8.4 API Headers</a> --
+              "#ch-system-linux-headers">Linux-3.8.5 API Headers</a> --
               <a href="#drm">description</a><br /></span>
             </li>
             <li>
               <strong class="item">/usr/include/linux/*.h:</strong>
               <span class="indexref"><a href=
-              "#ch-system-linux-headers">Linux-3.8.4 API Headers</a> --
+              "#ch-system-linux-headers">Linux-3.8.5 API Headers</a> --
               <a href="#linux">description</a><br /></span>
             </li>
             <li>
               <strong class="item">/usr/include/mtd/*.h:</strong>
               <span class="indexref"><a href=
-              "#ch-system-linux-headers">Linux-3.8.4 API Headers</a> --
+              "#ch-system-linux-headers">Linux-3.8.5 API Headers</a> --
               <a href="#mtd">description</a><br /></span>
             </li>
             <li>
               <strong class="item">/usr/include/rdma/*.h:</strong>
               <span class="indexref"><a href=
-              "#ch-system-linux-headers">Linux-3.8.4 API Headers</a> --
+              "#ch-system-linux-headers">Linux-3.8.5 API Headers</a> --
               <a href="#rdma">description</a><br /></span>
             </li>
             <li>
               <strong class="item">/usr/include/scsi/*.h:</strong>
               <span class="indexref"><a href=
-              "#ch-system-linux-headers">Linux-3.8.4 API Headers</a> --
+              "#ch-system-linux-headers">Linux-3.8.5 API Headers</a> --
               <a href="#scsi">description</a><br /></span>
             </li>
             <li>
               <strong class="item">/usr/include/sound/*.h:</strong>
               <span class="indexref"><a href=
-              "#ch-system-linux-headers">Linux-3.8.4 API Headers</a> --
+              "#ch-system-linux-headers">Linux-3.8.5 API Headers</a> --
               <a href="#sound">description</a><br /></span>
             </li>
             <li>
               <strong class="item">/usr/include/video/*.h:</strong>
               <span class="indexref"><a href=
-              "#ch-system-linux-headers">Linux-3.8.4 API Headers</a> --
+              "#ch-system-linux-headers">Linux-3.8.5 API Headers</a> --
               <a href="#video">description</a><br /></span>
             </li>
             <li>
               <strong class="item">/usr/include/xen/*.h:</strong>
               <span class="indexref"><a href=
-              "#ch-system-linux-headers">Linux-3.8.4 API Headers</a> --
+              "#ch-system-linux-headers">Linux-3.8.5 API Headers</a> --
               <a href="#xen">description</a><br /></span>
             </li>
             <li>

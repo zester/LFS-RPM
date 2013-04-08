@@ -1,6 +1,6 @@
 Summary:	Kernel
 Name:		linux
-Version:	3.8.4
+Version:	3.8.5
 Release:	1
 License:	GPLv2
 URL:		http://www.kernel.org/
@@ -21,6 +21,7 @@ cp %{_sourcedir}/config-%{version}-i686 .config
 cp %{_sourcedir}/config-%{version}-x86_64 .config
 %endif
 make LC_ALL= silentoldconfig
+#make LC=ALL= oldconfig
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}

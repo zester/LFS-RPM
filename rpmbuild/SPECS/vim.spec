@@ -35,6 +35,7 @@ cat > %{buildroot}/etc/vimrc << "EOF"
 
 set nocompatible
 set backspace=2
+set ruler
 syntax on
 if (&term == "iterm") || (&term == "putty")
   set background=dark

@@ -4,7 +4,7 @@ set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 pkgname=diffutils
 pkgver=3.3
-srcname="../SOURCES/${pkgname}-${pkgver}.tar.gz"
+srcname="../SOURCES/${pkgname}-${pkgver}.tar.xz"
 srcdir=${pkgname}-${pkgver}
 
 function unpack() {
@@ -16,7 +16,6 @@ function clean() {
 }
 
 function build() {
-	sed -i -e '/gets is a/d' lib/stdio.in.h
 	./configure \
 		--prefix=/tools
 	make

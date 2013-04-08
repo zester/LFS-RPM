@@ -3,17 +3,22 @@ set -o errexit	# exit if error
 set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 shopt -s -o pipefail
-_list=(zlib berkeley-db nspr nss popt readline elfutils rpm) # lua
+list="zlib berkeley-db nspr nss popt readline elfutils rpm"
 trap 'echo Toolchain build failed...;touch ${FAILURE};exit 1' ERR
-for i in ${_list[@]}; do
-	[ -f ${FAILURE} ] && (printf "Tool chain: Error exiting script \n";exit 0)
-	if [ -e ${i}.done ]; then
+die(){
+	touch ${FAILURE}
+	printf "Tool chain: die: exiting script \n"
+	exit 1
+}
+for i in ${list}; do
+	[ -f ${FAILURE} ] && die
+	if [ -e DONE/${i} ]; then
 		echo "${i} --> Already Built"
 	else
-		[ -e ${i}.log ] && unlink ${i}.log
+		[ -e LOGS/${i} ] && unlink LOGS/${i}
 		echo "Building---> ${i}"
-		( ./${i}.sh |& tee "${i}.log" ) || false
+		( ./${i}.sh |& tee LOGS/${i} ) || die 
 		echo "Build ---> ${i} completed"
-		touch ${i}.done
+		touch DONE/${i}
 	fi
 done

@@ -29,10 +29,10 @@ a1043102fbc7bcedbf53e7ee3d17ab91  grub-2.00.tar.xz
 34c71feead8ab9c01ec638acea8cd877  kbd-1.15.5.tar.gz
 3d63b146c8ee5a04dfbef4be97f8226b  kmod-12.tar.xz
 765f082658002b2b46b86af4a0da1842  less-451.tar.gz
-df08d6b8b0be952a551a98386b8713a9  lfs-bootscripts-20130123.tar.bz2
+3a68566488ceaaf95cc4fe7a247ed29e  lfs-bootscripts-20130123.tar.bz2
 4367a3f598d171fd43dfa8620ed16d55  libpipeline-1.2.2.tar.gz
 d2f3b7d4627e69e13514a40e72a24d50  libtool-2.4.2.tar.gz
-ad19f1be181408124a7f9d8cf57b97b4  linux-3.8.4.tar.xz
+55e77da0eef1f348b4adfaad4ced830a  linux-3.8.5.tar.xz
 8a7cef47fecab6272eb86a6be6363b2f  m4-1.4.16.tar.bz2
 1a11100f3c63fcf5753818e59d63088f  make-3.82.tar.bz2
 a593a095599ae97bcacf8d038659a146  man-db-2.6.3.tar.xz
@@ -54,8 +54,8 @@ e053094e8103165f98ddafe828f6ae4b  sysklogd-1.5.tar.gz
 573aa5fe678e9185ef2b3c56b24658d3  tcl8.6.0-src.tar.gz
 489dbca77d1f2e287a3987ca047bb246  tzdata2013b.tar.gz
 52ee905a3b705020d2a1b6ec36d53ca6  texinfo-5.1.tar.xz
-4bb13f84ce211e93f0141774a90a2322  systemd-199.tar.xz
-87536271791ab27100e8f44f4f76b434  udev-lfs-199-2.tar.bz2
+5584b96e55c46217dab4c1768d10a472  systemd-200.tar.xz
+657d8c08a9e5ec1b9119d2a480ca0e94  udev-lfs-200-1.tar.bz2
 eeacbfdd2556acd899a2d0ffdb446185  util-linux-2.22.2.tar.xz
 5b9510a17074e2b37d8bb38ae09edbf2  vim-7.3.tar.bz2
 161015c4a65b1f293d31810e1df93090  xz-5.0.4.tar.xz

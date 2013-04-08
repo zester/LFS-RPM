@@ -41,6 +41,7 @@ echo '
 	mkdir -v ../gcc-build
 	cd ../gcc-build
 	CC=$LFS_TGT-gcc \
+	CXX=$LFS_TGT-g++ \
 	AR=$LFS_TGT-ar \
 	RANLIB=$LFS_TGT-ranlib \
 	../${pkgname}-${pkgver}/configure \
@@ -63,7 +64,7 @@ echo '
 	ln -vs gcc /tools/bin/cc
 	echo 'main(){}' > dummy.c
 	cc dummy.c
-	readelf -l a.out | grep ': /tools' |& tee ../${pkgname}-${pkgver}-pass-2-test.log
+	readelf -l a.out | grep ': /tools' |& tee ../LOGS/${pkgname}-${pkgver}-pass-2-test.log
 	rm -v dummy.c a.out
 }
 clean;unpack;pushd ${srcdir};build;popd;clean

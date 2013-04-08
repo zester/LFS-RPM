@@ -34,7 +34,7 @@ echo '
 		touch $file.orig
 	done
 	sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
-#	sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
+	sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
 	mkdir -v ../gcc-build
 	cd ../gcc-build
 	../${pkgname}-${pkgver}/configure \
@@ -50,12 +50,16 @@ echo '
 		--disable-multilib \
 		--disable-decimal-float \
 		--disable-threads \
-		--disable-libmudflap \
-		--disable-libssp \
+		--disable-libatomic \
 		--disable-libgomp \
+		--disable-libitm \
+		--disable-libmudflap \
 		--disable-libquadmath \
-		--enable-languages=c \
-		--with-mpfr-include=$(pwd)/../gcc-4.7.2/mpfr/src \
+		--disable-libsanitizer \
+		--disable-libssp \
+		--disable-libstdc++-v3 \
+		--enable-languages=c,c++ \
+		--with-mpfr-include=$(pwd)/../${pkgname}-${pkgver}/mpfr/src \
 		--with-mpfr-lib=$(pwd)/mpfr/src/.libs
 	make
 	make -j1 install

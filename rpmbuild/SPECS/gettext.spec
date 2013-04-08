@@ -14,7 +14,6 @@ These allow programs to be compiled with NLS
 messages in the user's native language.
 %prep
 %setup -q
-sed -i -e '/gets is a/d' gettext-*/*/stdio.in.h
 %build
 ./configure \
 	CFLAGS="%{optflags}" \

@@ -25,9 +25,6 @@ export CFLAGS="%{optflags} -fno-strict-aliasing " CXXFLAGS="%{optflags}"
 	--disable-static \
 	--enable-cxx \
 	--disable-atomicsupport
-#	--enable-shared
-#	--with-posixmutexes \
-#	sed -i 's|emode=\t555|emode=\t644|' Makefile
 make %{?_smp_mflags} LIB=-lpthread
 %install
 rm -rf %{buildroot}

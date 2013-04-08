@@ -7,6 +7,7 @@ trap 'echo Filesystem build failed...;touch ${FAILURE};exit 1' ERR
 [ -e $LFS/dev/console ] && exit 0
 #	this is for kernel filesystem
 export LFS=/mnt/lfs
+su -c "chown lfs.lfs $LFS"
 install -vdm 755 $LFS/{dev,proc,sys}
 su -c "mknod	-m 600 $LFS/dev/console c 5 1"
 su -c "mknod	-m 600 $LFS/dev/null c 1 3"
@@ -27,23 +28,18 @@ esac
 #	Set symlinks
 ln 	-fsv /run	$LFS/var/run
 ln 	-fsv /run/lock	$LFS/var/lock
-#	Screw up
-#ln	-fsv /usr/bin	$LFS/
-#ln	-fsv /usr/lib	$LFS/
 #	symlinks needed for installation
 ln 	-fsv /tools/bin/{bash,cat,echo,pwd,stty}	$LFS/bin
-ln	-fsv /tools/bin/{perl,du,strip}			$LFS/usr/bin
+ln	-fsv /tools/bin/{env,perl,du,strip}		$LFS/usr/bin
 ln	-fsv /tools/lib/libgcc_s.so{,.1}		$LFS/usr/lib
 ln 	-fsv /tools/lib/libstdc++.so{,.6}		$LFS/usr/lib
 ln	-fsv bash					$LFS/bin/sh
 #	Needed for rpm
 ln	-fsv /tools/bin/getconf				$LFS/usr/bin
-#
 #	Setup needed files
-#
 touch $LFS/etc/mtab
 cat > $LFS/etc/passwd <<- "EOF"
-	root:x:0:0:root:/root:/bin/bash
+	root::0:0:root:/root:/bin/bash
 	bin:x:1:1:bin:/dev/null:/bin/false
 	nobody:x:99:99:Unprivileged User:/dev/null:/bin/false
 EOF

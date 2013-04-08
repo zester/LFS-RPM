@@ -17,7 +17,7 @@ This package contains a parser generator
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
 	--prefix=/usr 
-	echo '#define YYENABLE_NLS 1' >> lib/config.h
+echo '#define YYENABLE_NLS 1' >> lib/config.h
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}

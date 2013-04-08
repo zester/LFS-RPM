@@ -21,6 +21,7 @@ PAGE=letter ./configure \
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
+install -vdm 755 /usr/share/doc/%{name}-1.22/pdf
 make DESTDIR=%{buildroot} install
 ln -sv eqn %{buildroot}/usr/bin/geqn
 ln -sv tbl %{buildroot}/usr/bin/gtbl

@@ -9,7 +9,7 @@ LFS_TGT=$(uname -m)-lfs-linux-gnu
 PATH=/tools/bin:/bin:/usr/bin
 export LFS LC_ALL LFS_TGT PATH
 #	These are the build environment flags for the tool chain
-MAKEFLAGS="-j2"
+MAKEFLAGS="-j4"
 case $(uname -m) in
 	i686)
 		CFLAGS="-march=i486 -mtune=i686 -O2 -pipe"
@@ -50,7 +50,7 @@ pushd SCRIPTS > /dev/null;./filesystem.sh;popd > /dev/null
 printf "Build filesystem completed \n"
 #	Mount the kernel filesystems for the chroot
 su -c 'SCRIPTS/mount.kernel.filesystem.sh'
-#	Build the base system Chapter 6
+#Build the base system Chapter 6
 printf "Building base system \n"
 su -c 'chroot "$LFS" /tools/bin/env -i \
 	HOME=/root TERM="$TERM" PS1="\u:\w\$ " \

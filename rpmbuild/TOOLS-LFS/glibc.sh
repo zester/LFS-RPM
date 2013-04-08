@@ -36,7 +36,7 @@ function build() {
 	make -j1 install
 	echo 'main(){}' > dummy.c
 	$LFS_TGT-gcc dummy.c
-	readelf -l a.out | grep ': /tools' |& tee ../${pkgname}-${pkgver}-test.log
+	readelf -l a.out | grep ': /tools' |& tee ../LOGS/${pkgname}-${pkgver}-test.log
 	rm -v dummy.c a.out
 }
 clean;unpack;pushd ${srcdir};build;popd;clean

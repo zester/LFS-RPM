@@ -1,6 +1,6 @@
 Summary:	Default file system
 Name:		filesystem
-Version:	7.3
+Version:	20130401
 Release:	1
 License:	GPLv3
 Group:		System Environment/Base
@@ -79,7 +79,6 @@ cat > %{buildroot}/etc/sysconfig/ifconfig.eth0 <<- "EOF"
 EOF
 cat > %{buildroot}/etc/resolv.conf <<- "EOF"
 #	Begin /etc/resolv.conf
-#	search <Your Domain Name>
 #	domain <Your Domain Name>
 #	nameserver <IP address>
 #	End /etc/resolv.conf
@@ -173,11 +172,12 @@ cat > %{buildroot}/etc/inputrc <<- "EOF"
 EOF
 cat > %{buildroot}/etc/fstab <<- "EOF"
 #	Begin /etc/fstab
+#	hdparm -I /dev/sda | grep NCQ --> can use barrier
 #system    mnt-pt    type       options            dump fsck
-#/dev/sdax  /        /ext3      defaults,noatime,noacl,data=ordered 1 1
-/dev/sdax   /        ext3       defaults            1     1
-/dev/sdax   /boot    ext3       defaults            1     2
-#/dev/sdax   swap     swap       pri=1               0     0
+#/dev/sdax  /        /ext3      defaults,barrier,noatime,noacl,data=ordered 1 1
+/dev/sdxx   /        ext3       defaults            1     1
+/dev/sdxx   /boot    ext3       defaults            1     2
+#/dev/sdax  swap     swap       pri=1               0     0
 proc        /proc    proc       nosuid,noexec,nodev 0     0
 sysfs       /sys     sysfs      nosuid,noexec,nodev 0     0
 devpts      /dev/pts devpts     gid=5,mode=620      0     0
@@ -187,7 +187,7 @@ devtmpfs    /dev     devtmpfs   mode=0755,nosuid    0     0
 tmpfs     /tmp       tmpfs	defaults            0     0
 #	End /etc/fstab
 EOF
-echo 7.2 > %{buildroot}/etc/lfs-release
+echo %{version} > %{buildroot}/etc/lfs-release
 cat > %{buildroot}/etc/lsb-release <<- "EOF"
 	DISTRIB_ID="Linux From Scratch"
 	DISTRIB_RELEASE=%{version}

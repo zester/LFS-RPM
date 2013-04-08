@@ -17,7 +17,7 @@ WARNING:
 	Always:
 		sudo ./scripts/mount.kernel.filesystem.sh
 		sudo ./scripts/final.chroot.sh
-		pacman -S <package name>
+		rpm -Uvh <package name>
 		exit
 		sudo ./scripts/umount.kernel.filesystem.sh
 	

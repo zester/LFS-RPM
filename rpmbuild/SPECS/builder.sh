@@ -13,33 +13,33 @@ list="filesystem linux-api-headers man-pages glibc tzdata adjust-tool-chain zlib
  
 die() {
 	local msg=$1
-	printf "Base build failed: ${PKG}: ${msg}\n"
+	printf "Base build failed: ${msg}\n"
 	touch ${FAILURE}
 	exit 1
 }
 findpkg() {
-	local PKG=$1
-	RPM=$(find ../RPMS -name "${PKG}-[0-9]*.rpm" -print)
+	local pkg=$1
+	RPM=$(find ../RPMS -name "${pkg}-[0-9]*.rpm" -print)
 }
 buildpkg() {
-	local PKG=$1
+	local pkg=$1
 	rm -rf ../BUILD/*
-	rpmbuild -ba --target ${build} --nocheck ${PKG}.spec |& tee ${PKG}.log || die "buildpkg: rpmbuild failure"
-	rm -rf ../BUILD/* ../BUILDROOT/*
+	rpmbuild -ba --target ${build} --nocheck ${pkg}.spec |& tee LOGS/${pkg} || die "buildpkg: ${pkg}: rpmbuild failure"
+	rm -rf ../BUILD/* ../BUILDROOT/* > /dev/null 2>&1
 }
 installpkg() {
 	# --noscripts - add to rpm to disable %post scripts
-	local PKG=$1
-	findpkg ${PKG}
+	local pkg=$1
+	findpkg ${pkg}
 	printf "installpkg: $RPM\n"
 	[ -z $RPM ] && die "installation error: rpm package not found\n"
-	case ${PKG} in
-		glibc)	rpm -Uvh --nodeps ${RPM} || die "installation error: ${PKG} rpm barfed\n" ;;
-		    *)	rpm -Uvh --nodeps ${RPM} || die "installation error: ${PKG} rpm barfed\n" ;;
+	case ${pkg} in
+		glibc)	rpm -Uvh --nodeps ${RPM} || die "installation error: ${pkg} rpm barfed\n" ;;
+		    *)	rpm -Uvh --nodeps ${RPM} || die "installation error: ${pkg} rpm barfed\n" ;;
 	esac
 }
 for i in ${list}; do
-	[ -f ${FAILURE} ] && die "FAILURE: detected exiting script\n"
+	[ -f ${FAILURE} ] && die "FAILURE: ${i}: detected exiting script\n"
 	RPM=""
 	case ${i} in
 		adjust-tool-chain) ./adjust-tool-chain.sh ;;
@@ -51,3 +51,4 @@ for i in ${list}; do
 		;;
 	esac
 done
+rm -rf ../BUILD/*
