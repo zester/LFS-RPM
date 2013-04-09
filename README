@@ -29,7 +29,7 @@ Procedure for the setting up of the build:
 	mount /dev/sdxx	 /mnt/lfs		- mount work partition
 	install -vdm 777 /mnt/lfs/rpmbuild	- create mount points
 	ln -sv /mnt/lfs/tools /			- symlink tool directory
-	tar -xf <path>/LFS-RPM-7.2*.tar.gz	- unpack build system
+	unzip <path>/LFS-RPM-master.zip		- unpack build system
 	vi /mnt/lfs/rpmbuild/complete.sh	- edit flags/configuration
 	cd /mnt/lfs/rpmbuild/SOURCES		- switch directory
 	wget -i wget-list 			- fetch packages
@@ -51,7 +51,7 @@ Notes:
 	root=/dev/sdxx lines to suit.
 	If you don't have a boot partition you will need to
 	change: linux vmlinux-3.5.2 root=/dev/sdxx ro
-	to : linux /boot/vmlinux-3.5.2 root=/dev/sdxx ro.
+	to:	linux /boot/vmlinux-3.5.2 root=/dev/sdxx ro
 	
 	grub-mkdevicemap --device-map=device.map
 	cat device.map
