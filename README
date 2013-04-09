@@ -1,4 +1,4 @@
-This build system requires the folowing:
+This build system requires the following:
 	Partition for LFS under build,	mounted at /mnt/lfs
 	Fetch build system from https://www.github.com/baho-utot/LFS-RPM
 
