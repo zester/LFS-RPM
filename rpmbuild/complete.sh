@@ -9,7 +9,7 @@ LFS_TGT=$(uname -m)-lfs-linux-gnu
 PATH=/tools/bin:/bin:/usr/bin
 export LFS LC_ALL LFS_TGT PATH
 #	These are the build environment flags for the tool chain
-MAKEFLAGS="-j4"
+MAKEFLAGS="-j"$(/usr/bin/getconf _NPROCESSORS_ONLN)
 case $(uname -m) in
 	i686)
 		CFLAGS="-march=i486 -mtune=i686 -O2 -pipe"

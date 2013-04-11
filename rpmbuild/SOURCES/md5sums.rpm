@@ -1,0 +1,9 @@
+3fda0b004acdaa6fa350bfc41a3b95ca  db-5.3.21.tar.gz
+163a5712b86f6bdfebdf233cc6e2192d  elfutils-0.155.tar.bz2
+f51905350ed67b5d963e31da64f87908  elfutils-portability.patch
+5d4bdb4c1612e6f14971fee777a9e63c  elfutils-robustify.patch
+62b1e9d376d503d972f90c3c0031d879  nspr-4.9.6.tar.gz
+d6f6e8c3bb23a60fab81244ac0461d01  nss-3.14.3-standalone-1.patch
+b326c2be8df277f62fb9c65fb3428148  nss-3.14.3.tar.gz
+3743beefa3dd6247a73f8f7a32c14c33  popt-1.16.tar.gz
+7be152323885f6e558bd581f021e5add  rpm-4.10.3.1.tar.bz2
