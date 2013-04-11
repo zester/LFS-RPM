@@ -5,6 +5,7 @@ set +h			# disable hashall
 shopt -s -o pipefail
 
 LFS=/mnt/lfs
+[ -d /home/lfs ] && { printf "User lfs exists\n";exit 0;}
 groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 passwd lfs
