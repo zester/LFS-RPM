@@ -42,7 +42,7 @@ for i in ${list}; do
 	[ -f ${FAILURE} ] && die "FAILURE: ${i}: detected exiting script\n"
 	RPM=""
 	case ${i} in
-		adjust-tool-chain) ./adjust-tool-chain.sh ;;
+		adjust-tool-chain) ./adjust-tool-chain.sh || die "Toolchain adjustment error";;
 		*)
 			findpkg ${i}
 			[ -z $RPM ] && printf "Building --> ${i}\n" || printf "Skipping --> ${i}\n"
