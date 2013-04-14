@@ -3,10 +3,12 @@ set -o errexit
 set -o nounset
 set +h
 LFS=/mnt/lfs
-
+PART=/dev/sda7
+fsck.ext4 ${PART}
 install -vdm 777 ${LFS}
+mount ${PART} ${LFS}
 install -vdm 777 ${LFS}/tools
-pushd /;ln -vfs ${LFS}/tools;popd
+pushd /;ln -vs ${LFS}/tools;popd
 pushd ${LFS}
 	[ -d LFS-RPM ] || git clone git://github.com/baho-utot/LFS-RPM.git
 	[ -d rpmbuild ] || ln -vfs LFS-RPM/rpmbuild
@@ -17,15 +19,8 @@ pushd ${LFS}
 		md5sum -c md5sums || true
 		md5sum -c md5sums.rpm || true
 	popd
-	#install -vdm 777 rpmbuild/TOOLS-LFS/{DONE,LOGS}
-	#install -vdm 777 rpmbuild/TOOLS-RPM/{DONE,LOGS}
-	#install -vdm 777 rpmbuild/SPECS/LOGS
-	#install -vdm 777 rpmbuild/{BUILD,BUILDROOT,RPMS}
-	chown -R lfs.lfs rpmbuild/TOOLS-RPM
-	chown -R lfs.lfs rpmbuild/TOOLS-LFS
+	chown -R lfs.lfs rpmbuild/*
 	find . -name '*.sh' -exec chmod +x '{}' \;
 	
 popd
 printf "Setup completed\n"
-
-
