@@ -24,19 +24,25 @@ WARNING:
 Procedure for the setting up of the build:
 	Login as root
 	fdisk /dev/sdxx				- create partition
-	mkfs.ext3 /dev/sdxx			- format partition
+	mkfs.ext4 /dev/sdxx			- format partition
 	install -vdm 777 /mnt/lfs		- create mount point
 	mount /dev/sdxx	 /mnt/lfs		- mount work partition
-	install -vdm 777 /mnt/lfs/rpmbuild	- create mount points
+	install -vdm 777 /mnt/lfs/tools		- create tools directory
 	ln -sv /mnt/lfs/tools /			- symlink tool directory
-	unzip <path>/LFS-RPM-master.zip		- unpack build system
+	cd /mnt/lfs
+	git clone https://github.com/baho-utot/LFS-RPM.git
+						- clone repository
+	ln -vfs LFS-RPM/rpmbuild		- create symlink
 	vi /mnt/lfs/rpmbuild/complete.sh	- edit flags/configuration
-	cd /mnt/lfs/rpmbuild/SOURCES		- switch directory
-	wget -i wget-list 			- fetch packages
-	wget -i wget-list.rpm			- fetch packages
+	cd rpmbuild/SOURCES			- switch directory
+	wget -nc -i wget-list 			- fetch packages
+	wget -nc -i wget-list.rpm		- fetch packages
 	md5sum -c md5sums			- verify packages for lfs
 	md5sum -c md5sum.rpm			- verify packages for rpm
 	scripts/add.user.lfs.sh			- add lfs user
+	chown -R lfs.lfs rpmbuild/*		- fix perms
+	find . -name '*.sh' -exec chmod +x '{}' \;
+						- add execute perms
 
 Procedure to build the tool chain:
 	su - lfs 				- login lfs user
@@ -53,8 +59,6 @@ Notes:
 	change: linux vmlinux-3.5.2 root=/dev/sdxx ro
 	to:	linux /boot/vmlinux-3.5.2 root=/dev/sdxx ro
 	
-	grub-mkdevicemap --device-map=device.map
-	cat device.map
 	grub-install /dev/sdx
 	cat > /boot/grub/grub.cfg << "EOF"
 	# Begin /boot/grub/grub.cfg
@@ -64,7 +68,7 @@ Notes:
 	menuentry "GNU/Linux Linux from scratch" {
 		insmod ext2
 		set root=(hdx,x)
-		linux vmlinux-3.5.2 root=/dev/sdxx ro
+		linux vmlinux-3.5.8 root=/dev/sdxx ro
 	 }
  	menuentry "Windows" {
 		insmod ntfs

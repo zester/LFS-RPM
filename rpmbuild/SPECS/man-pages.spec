@@ -24,13 +24,13 @@ rm -rf %{buildroot} %{_builddir}/*
 %defattr(-,root,root)
 /usr/share/man/*/*
 %changelog
-*	Sun Mar 24 2013 GangGreene <GangGreene@bildanet.com> 3.50-1
+*	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 3.50-1
 -	Update version to 3.50
 
-*	Sun Mar 24 2013 GangGreene <GangGreene@bildanet.com> 3.47-1
+*	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 3.47-1
 -	Update version
 
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 3.42-1
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 3.42-1
 -	Initial build.	First version
 
 

@@ -34,5 +34,5 @@ rm -rf %{buildroot}
 /usr/bin/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:3.82-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:3.82-0
 -	Initial build.	First version

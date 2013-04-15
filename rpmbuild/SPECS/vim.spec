@@ -52,5 +52,5 @@ rm -rf %{buildroot}
 /usr/share/man/*/*
 /usr/share/vim
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:73-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:73-0
 -	Initial build.	First version

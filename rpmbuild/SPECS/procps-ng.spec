@@ -46,8 +46,8 @@ rm -rf %{buildroot}
 /usr/share/doc/*
 /usr/share/man/*/*
 %changelog
-*	Mon Apr  1 2013 GangGreene <GangGreene@bildanet.com> 0:3.3.6-1
+*	Mon Apr  1 2013 baho-utot <baho-utot@columbus.rr.com> 0:3.3.6-1
 -	Upgrade version
 
-*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:3.3.6-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:3.3.6-1
 -	Upgrade version

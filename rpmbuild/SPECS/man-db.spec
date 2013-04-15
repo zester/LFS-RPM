@@ -46,5 +46,5 @@ rm -rf %{buildroot}
 /usr/share/man/*/*
 /usr/share/locale/*
 %changelog
-*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:2.6.3-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.6.3-1
 -	Upgrade version

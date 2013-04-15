@@ -38,5 +38,5 @@ rm -rf %{buildroot}
 /usr/sbin/rmt
 /usr/share/doc/%{name}-%{version}/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 1.26-1
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 1.26-1
 -	Initial build.	First version

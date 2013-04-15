@@ -50,5 +50,5 @@ rm -rf %{buildroot}
 /usr/sbin/*
 /usr/share/%{name}/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:2.00-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.00-0
 -	Initial build.	First version

@@ -89,8 +89,8 @@ rm -rf %{buildroot}/* %{_builddir}/*
 /usr/share/locale/*
 /var/db/Makefile
 %changelog
-*	Sun Mar 24 2013 GangGreene <GangGreene@bildanet.com> 2.17-1
+*	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 2.17-1
 -	Update version
 
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 2.16-1
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 2.16-1
 -	Initial build.	First version

@@ -55,8 +55,8 @@ rm -rf %{buildroot}
 /lib/modules/*
 /usr/share/doc/%{name}-%{version}/*
 %changelog
-*	Mon Apr  1  2013 GangGreene <GangGreene@bildanet.com> 0:3.8.4-1
+*	Mon Apr  1  2013 baho-utot <baho-utot@columbus.rr.com> 0:3.8.4-1
 -	Upgrade version to 3.8.4
 
-*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:3.8.1-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:3.8.1-1
 -	Upgrade version

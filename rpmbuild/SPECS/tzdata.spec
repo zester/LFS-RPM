@@ -41,11 +41,11 @@ rm -rf %{buildroot} %{_builddir}/*
 /etc/localtime
 /usr/share/zoneinfo/*
 %changelog
-*	Sun Mar 24 2013 GangGreene <GangGreene@bildanet.com> 2013b-1
+*	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 2013b-1
 -	Update version to 2013b
 
-*	Sun Mar 24 2013 GangGreene <GangGreene@bildanet.com> 2012j-1
+*	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 2012j-1
 -	Update version
 
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 2012e-1
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 2012e-1
 -	Initial build.	First version

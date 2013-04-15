@@ -38,5 +38,5 @@ rm -rf %{buildroot}
 /usr/share/%{name}/*
 /usr/share/man/*/*
 %changelog
-*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:1.22.2-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.22.2-1
 -	Upgrade version

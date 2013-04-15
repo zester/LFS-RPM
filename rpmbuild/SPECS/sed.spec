@@ -34,5 +34,5 @@ rm -rf %{buildroot}/*
 /bin/*
 /usr/share/man/*/*
 %changelog
-*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:4.2.1-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:4.2.1-1
 -	Upgrade version

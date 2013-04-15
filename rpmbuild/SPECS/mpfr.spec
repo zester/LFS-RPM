@@ -38,5 +38,5 @@ rm -rf %{buildroot}
 /usr/lib/*
 /usr/share/doc/%{name}-%{version}/*
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 3.1.1-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 3.1.1-0
 -	Initial build.	First version

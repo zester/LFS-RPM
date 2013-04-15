@@ -8,6 +8,11 @@ FAILURE
 /SOURCES/*.xz
 /SOURCES/*.patch
 /SOURCES/*.diff
+rpmbuild/TOOLS-LFS/DONE/[a-z]*
+rpmbuild/TOOLS-LFS/LOGS/[a-z]*
+rpmbuild/TOOLS-RPM/DONE/[a-z]*
+rpmbuild/TOOLS-RPM/LOGS/[a-z]*
+rpmbuild/SPECS/LOGS/[a-z]*
 SPECS/*.original
 7.2
 7.2/*

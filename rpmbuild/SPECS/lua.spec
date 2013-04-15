@@ -66,5 +66,5 @@ rm -rf %{buildroot}
 %doc /usr/share/man/man1/luac.1.gz
 
 %changelog
-*	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 0:5.1.5-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:5.1.5-0
 -	Initial build.	First version

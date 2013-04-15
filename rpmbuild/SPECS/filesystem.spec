@@ -253,5 +253,5 @@ if [ -e /bin/mknod ]; then
 [ -e /dev/null ]    || /bin/mknod -m 666 /dev/null c 1 3
 fi
 %changelog
-*	Wed Mar 21 2013 GangGreene <GangGreene@bildanet.com> 0:7.3-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:7.3-1
 -	Upgrade version
