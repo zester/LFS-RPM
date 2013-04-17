@@ -17,8 +17,8 @@ The Man-pages package contains over 1,900 man pages.
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-rm %{buildroot}%{_mandir}/man3/getspnam.3
-rm %{buildroot}%{_mandir}/man5/passwd.5
+rm -vf %{buildroot}%{_mandir}/man3/getspnam.3
+rm -vf %{buildroot}%{_mandir}/man5/passwd.5
 %clean
 rm -rf %{buildroot} %{_builddir}/*
 %files

@@ -7,8 +7,13 @@ export FAILURE="/rpmbuild/FAILURE"
 #	set correct file ownership
 chown root.root -R ../SOURCES
 chown root.root -R ../SPECS
+#	fix rpm macros
+find /tools/lib/rpm -name 'macros' -exec sed -i 's|%_prefix.*|%_prefix		/usr|' '{}' \;
+find /tools/lib/rpm -name 'macros' -exec sed -i sed -i 's|%_usr.*|%_usr		/usr|' '{}' \;
+#	Start of build process
 build=$(uname -m)
-list="filesystem linux-api-headers man-pages glibc tzdata adjust-tool-chain zlib file binutils gmp mpfr mpc gcc sed bzip2 pkg-config ncurses util-linux psmisc e2fsprogs shadow coreutils iana-etc m4 bison procps-ng grep readline bash libtool gdbm inetutils perl autoconf automake diffutils gawk findutils flex gettext groff xz grub less gzip iproute2 kbd kmod libpipeline make man-db patch sysklogd sysvinit tar texinfo udev vim bootscripts linux db elfutils nspr nss popt rpm" 
+list="filesystem linux-api-headers man-pages "
+#glibc tzdata adjust-tool-chain zlib file binutils gmp mpfr mpc gcc sed bzip2 pkg-config ncurses util-linux psmisc e2fsprogs shadow coreutils iana-etc m4 bison procps-ng grep readline bash libtool gdbm inetutils perl autoconf automake diffutils gawk findutils flex gettext groff xz grub less gzip iproute2 kbd kmod libpipeline make man-db patch sysklogd sysvinit tar texinfo udev vim bootscripts linux db elfutils nspr nss popt rpm" 
 # lua"
  
 die() {
@@ -33,10 +38,7 @@ installpkg() {
 	findpkg ${pkg}
 	printf "installpkg: $RPM\n"
 	[ -z $RPM ] && die "installation error: rpm package not found\n"
-	case ${pkg} in
-		glibc)	rpm -Uvh --nodeps ${RPM} || die "installation error: ${pkg} rpm barfed\n" ;;
-		    *)	rpm -Uvh --nodeps ${RPM} || die "installation error: ${pkg} rpm barfed\n" ;;
-	esac
+	rpm -Uvh --nodeps ${RPM} || die "installation error: ${pkg} rpm barfed\n"
 }
 for i in ${list}; do
 	[ -f ${FAILURE} ] && die "FAILURE: ${i}: detected exiting script\n"
@@ -48,6 +50,8 @@ for i in ${list}; do
 			[ -z $RPM ] && printf "Building --> ${i}\n" || printf "Skipping --> ${i}\n"
 			[ -z $RPM ] && buildpkg ${i} || continue
 			installpkg ${i}
+			rpm -ql ${i} > FILES/${i} 2>&1
+			findpkg ${i};rpm -qilp ${RPM} > INFO/${i} 2>&1
 		;;
 	esac
 done
