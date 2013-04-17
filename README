@@ -90,3 +90,8 @@ install this build on other computers.
 
 You can now remove build system if desired. rm -rf /rpmbuild and
 rm -rf /tools, to cleanup the root directory.
+
+After login as root to the newly built system do rpm -qa
+if it errors you will then need to do:
+rpmdb --rebuilddb
+That will fix the error with the dabase
