@@ -16,7 +16,7 @@ The Kmod package contains libraries and utilities for loading kernel modules
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
 	--bindir=/bin \
 	--libdir=/lib \
 	--sysconfdir=/etc \
@@ -26,7 +26,7 @@ The Kmod package contains libraries and utilities for loading kernel modules
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
-make DESTDIR=%{buildroot} pkgconfigdir=/usr/lib/pkgconfig install
+make DESTDIR=%{buildroot} pkgconfigdir=%{_libdir}/pkgconfig install
 install -vdm 755 %{buildroot}/sbin
 for target in depmod insmod modinfo modprobe rmmod; do
 	ln -sv ../bin/kmod %{buildroot}/sbin/$target
@@ -44,8 +44,8 @@ rm -rf %{buildroot}
 /bin/*
 /lib/*
 /sbin/*
-/usr/lib/pkgconfig/libkmod.pc
-/usr/include/*
+%{_libdir}/pkgconfig/libkmod.pc
+%{_includedir}/*
 #/usr/share/man/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:12-1

@@ -17,15 +17,15 @@ some programs to parse command-line options.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
-	--bindir=/usr/bin \
-	--libdir=/usr/lib
+	--prefix=%{_prefix} \
+	--bindir=%{_bindir} \
+	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}//usr/lib -name '*.a'  -delete
-find %{buildroot}//usr/lib -name '*.la' -delete
+find %{buildroot}%{_libdir} -name '*.a'  -delete
+find %{buildroot}%{_libdir} -name '*.la' -delete
 %find_lang %{name}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -35,10 +35,10 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files -f %{name}.lang
 %defattr(-,root,root)
-/usr/include/*
-/usr/lib/pkgconfig/popt.pc
-/usr/lib/*
-/usr/share/man/*/*
+%{_includedir}/*
+%{_libdir}/pkgconfig/popt.pc
+%{_libdir}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.16-0
 -	Initial build.	First version	

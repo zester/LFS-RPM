@@ -4,7 +4,7 @@ Version:	1.0.6
 Release:	1
 License:	BSD
 URL:		http://www.bzip.org/
-Group:		Applications/Archiving
+Group:		LFS/Base
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://www.bzip.org/%{version}/%{name}-%{version}.tar.gz
@@ -30,12 +30,12 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make PREFIX=%{buildroot}/usr install
-install -vdm 0755 %{buildroot}/lib
+install -vdm 0755 %{buildroot}/%{_lib}
 install -vdm 0755 %{buildroot}/bin
 cp -v bzip2-shared %{buildroot}/bin/bzip2
-cp -av libbz2.so* %{buildroot}/lib
-ln -sv ../../lib/libbz2.so.1.0 %{buildroot}/usr/lib/libbz2.so
-rm -v %{buildroot}/usr/bin/{bunzip2,bzcat}
+cp -av libbz2.so* %{buildroot}/%{_lib}
+ln -sv ../../lib/libbz2.so.1.0 %{buildroot}%{_libdir}/libbz2.so
+rm -v %{buildroot}%{_bindir}/{bunzip2,bzcat}
 ln -sv bzip2 %{buildroot}/bin/bunzip2
 ln -sv bzip2 %{buildroot}/bin/bzcat
 find %{buildroot} -name '*.a'  -delete
@@ -48,12 +48,12 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 /bin/*
-/lib/*
-/usr/bin/*
-/usr/lib/*
-/usr/include/*
-/usr/share/doc/%{name}-%{version}/*
-/usr/share/man/*/*
+%{_lib}/*
+%{_bindir}/*
+%{_libdir}/*
+%{_includedir}/*
+%{_defalutdocdir}/%{name}-%{version}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.0.6-0
 -	Initial build.	First version

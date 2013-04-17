@@ -16,7 +16,8 @@ The Less package contains a text file viewer
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
 	--sysconfdir=/etc
 make %{?_smp_mflags}
 %install
@@ -26,8 +27,8 @@ make DESTDIR=%{buildroot} install
 rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
-/usr/bin/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:451-1
 -	Upgrade version

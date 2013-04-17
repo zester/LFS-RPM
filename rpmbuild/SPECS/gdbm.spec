@@ -19,14 +19,15 @@ stored in a text file.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
 	--enable-libgdbm-compat
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}/usr/lib -name '*.la' -delete
-rm -rf %{buildroot}/usr/share/info
+find %{buildroot}%{_libdir} -name '*.la' -delete
+rm -rf %{buildroot}%{_infodir}
 %find_lang %{name}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -36,10 +37,10 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files -f %{name}.lang
 %defattr(-,root,root)
-/usr/bin/*
-/usr/lib/*
-/usr/include/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_libdir}/*
+%{_includedir}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.10-0
 -	Initial build.	First version

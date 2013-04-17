@@ -17,26 +17,27 @@ and formatting text.
 PAGE=letter ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr 
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
-install -vdm 755 /usr/share/doc/%{name}-1.22/pdf
+install -vdm 755 %{_defaultdocdir}/%{name}-1.22/pdf
 make DESTDIR=%{buildroot} install
-ln -sv eqn %{buildroot}/usr/bin/geqn
-ln -sv tbl %{buildroot}/usr/bin/gtbl
-rm -rf %{buildroot}/usr/share/info
+ln -sv eqn %{buildroot}%{_bindir}/geqn
+ln -sv tbl %{buildroot}%{_bindir}/gtbl
+rm -rf %{buildroot}%{_infodir}
 %clean
 rm -rf %{buildroot}
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-/usr/bin/*
-/usr/lib/*
-/usr/share/doc/%{name}-%{version}/*
-/usr/share/%{name}/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_libdir}/*
+%{_defaultdocdir}/%{name}-%{version}/*
+%{_datarootdir}/%{name}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.22.2-1
 -	Upgrade version

@@ -4,7 +4,7 @@ Version:	2.7
 Release:	1
 License:	GPLv3
 URL:		http://www.gnu.org/software/bison
-Group:		Development/Tools
+Group:		LFS/Base
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://ftp.gnu.org/gnu/bison/%{name}-%{version}.tar.xz
@@ -16,25 +16,26 @@ This package contains a parser generator
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr 
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir}
 echo '#define YYENABLE_NLS 1' >> lib/config.h
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-rm -rf %{buildroot}/usr/share/info
+rm -rf %{buildroot}%{_infodr}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
 rm -rf %{buildroot}
 %files 
 %defattr(-,root,root)
-/usr/bin/*
-/usr/lib/*
-/usr/share/%{name}/*
-/usr/share/aclocal/*
-/usr/share/locale/*
-/usr/share/man/*/*
+%{bindir}/*
+%{_libdir}/*
+%{_datarootdir}/%{name}/*
+%{_datarootdir}/aclocal/*
+%{_datarootdir}/locale/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.7-1
 -	Upgrade version

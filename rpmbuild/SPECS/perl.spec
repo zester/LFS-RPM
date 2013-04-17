@@ -22,27 +22,27 @@ sed -i -e "s|BUILD_ZLIB\s*= True|BUILD_ZLIB = False|" \
 export CFLAGS="%{optflags}"
 export CXXFLAGS="%{optflags}"
 sh Configure -des -Dprefix=/usr \
-	-Dvendorprefix=/usr \
-	-Dman1dir=/usr/share/man/man1 \
-	-Dman3dir=/usr/share/man/man3 \
+	-Dvendorprefix=%{_prefix} \
+	-Dman1dir=%{_mandir}/man1 \
+	-Dman3dir=%{_mandir}/man3 \
 	-Dpager="/usr/bin/less -isR" \
 	-Duseshrplib
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-chmod -R u+w %{buildroot}/usr/lib*
+chmod -R u+w %{buildroot}%{_libdir}/*
 %clean
 rm -rf %{buildroot}
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-/usr/bin/*
-/usr/lib/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_libdir}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 5.16.3-1
 -	Upgrade version 5.16.3
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:5.16.2-1
+*	Wed Mar  1 2013 baho-utot <baho-utot@columbus.rr.com> 0:5.16.2-1
 -	Upgrade version

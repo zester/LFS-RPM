@@ -17,7 +17,8 @@ file typically created by the diff program.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
@@ -28,8 +29,8 @@ make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
-/usr/bin/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_mandir}/*/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.7.1-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 2.7.1-1
 -	Upgrade version

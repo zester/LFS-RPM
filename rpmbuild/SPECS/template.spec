@@ -31,7 +31,7 @@ Patch0:
 	--bindir=%{_bindir} \
 	--sbindir=%{_sbindir} \
 	--sysconfdir=/etc \
-	--datadir=/%{_datadir} \
+	--datadir=/%{_datarootdir} \
 	--includedir=%{_includedir} \
 	--libdir=%{_libdir} \
 	--libexecdir=%{_libexecdir} \
@@ -85,7 +85,7 @@ exit 0
 %{_bindir}/*
 %{_libdir}/*
 %{_includedir}/*
-%{_datadir}/
+%{_datarootdir}/
 %{_docdir}/%{name}-%{version}/*
 %{_infodir}/*
 %{_mandir}/*/*

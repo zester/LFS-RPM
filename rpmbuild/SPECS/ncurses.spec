@@ -17,8 +17,9 @@ handling of character screens.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
-	--mandir=/usr/share/man \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
+	--mandir=%{_mandir} \
 	--with-shared \
 	--without-debug \
 	--enable-widec \
@@ -27,24 +28,23 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-install -vdm 755 %{buildroot}/lib/pkgconfig
-mv -v %{buildroot}/usr/lib/libncursesw.so.5* %{buildroot}/lib
-ln -sfv ../../lib/libncursesw.so.5 %{buildroot}/usr/lib/libncursesw.so
+install -vdm 755 %{buildroot}%{_libdir}/pkgconfig
+mv -v %{buildroot}%{_libdir}/libncursesw.so.5* %{buildroot}/lib
+ln -sfv ../../lib/libncursesw.so.5 %{buildroot}%{_libdir}/libncursesw.so
 for lib in ncurses form panel menu ; do \
-    rm -vf %{buildroot}/usr/lib/lib${lib}.so ; \
-    echo "INPUT(-l${lib}w)" > %{buildroot}/usr/lib/lib${lib}.so ; \
-    ln -sfv lib${lib}w.a %{buildroot}/usr/lib/lib${lib}.a ; \
-    ln -sfv ${lib}w.pc %{buildroot}/usr/lib/pkgconfig/${lib}.pc
+    rm -vf %{buildroot}%{_libdir}/lib${lib}.so ; \
+    echo "INPUT(-l${lib}w)" > %{buildroot}%{_libdir}/lib${lib}.so ; \
+    ln -sfv lib${lib}w.a %{buildroot}%{_libdir}/lib${lib}.a ; \
+    ln -sfv ${lib}w.pc %{buildroot}%{_libdir}/pkgconfig/${lib}.pc
 done
-ln -sfv libncurses++w.a %{buildroot}/usr/lib/libncurses++.a
-rm -vf %{buildroot}/usr/lib/libcursesw.so
-echo "INPUT(-lncursesw)" > %{buildroot}/usr/lib/libcursesw.so
-ln -sfv libncurses.so %{buildroot}/usr/lib/libcurses.so
-ln -sfv libncursesw.a %{buildroot}/usr/lib/libcursesw.a
-ln -sfv libncurses.a %{buildroot}/usr/lib/libcurses.a
-install -vdm 755  %{buildroot}/usr/share/doc/%{name}-%{version}
-cp -v -R doc/* %{buildroot}/usr/share/doc/%{name}-%{version}
-#find %{buildroot}/usr/lib -name '*.a'  -delete
+ln -sfv libncurses++w.a %{buildroot}%{_libdir}/libncurses++.a
+rm -vf %{buildroot}%{_libdir}/libcursesw.so
+echo "INPUT(-lncursesw)" > %{buildroot}%{_libdir}/libcursesw.so
+ln -sfv libncurses.so %{buildroot}%{_libdir}/libcurses.so
+ln -sfv libncursesw.a %{buildroot}%{_libdir}/libcursesw.a
+ln -sfv libncurses.a %{buildroot}%{_libdir}/libcurses.a
+install -vdm 755  %{buildroot}%{_defaultdocdir}/%{name}-%{version}
+cp -v -R doc/* %{buildroot}%{_defaultdocdir}/%{name}-%{version}
 %clean
 rm -rf %{buildroot}
 %post	-p /sbin/ldconfig
@@ -52,13 +52,13 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 /lib/*
-/usr/bin/*
-/usr/include/*
-/usr/lib/*
-/usr/share/doc/%{name}-%{version}/*
-/usr/share/man/*/*
-/usr/share/tabset/*
-/usr/share/terminfo/*
+%{_bindir}/*
+%{_includedir}/*
+%{_libdir}/*
+%{_defaultdocdir}/%{name}-%{version}/*
+%{_mandir}/*/*
+%{_datarootdir}/tabset/*
+%{_datarootdir}/terminfo/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:5.9-0
 -	Initial build.	First version

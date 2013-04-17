@@ -16,16 +16,17 @@ The MPFR package contains functions for multiple precision math.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
-	--docdir=/usr/share/doc/%{name}-%{version} \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
+	--docdir=%{_defaultdocdir}/%{name}-%{version} \
 	--enable-thread-safe
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}/usr/lib -name '*.a'  -delete
-find %{buildroot}/usr/lib -name '*.la' -delete
-rm -rf %{buildroot}/usr/share/info
+find %{buildroot}%{_libdir} -name '*.a'  -delete
+find %{buildroot}%{_libdir} -name '*.la' -delete
+rm -rf %{buildroot}%{_infodir}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
@@ -34,9 +35,9 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-/usr/include/*
-/usr/lib/*
-/usr/share/doc/%{name}-%{version}/*
+%{_includedir}/*
+%{_libdir}/*
+%{_datarootdir}/%{name}-%{version}/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 3.1.1-0
 -	Initial build.	First version

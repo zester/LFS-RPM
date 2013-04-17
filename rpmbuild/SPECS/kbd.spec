@@ -21,7 +21,8 @@ sed -i 's/resizecons.8 //' man/man8/Makefile.in
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
 	--datadir=/lib/kbd \
 	--disable-vlock
 make %{?_smp_mflags}
@@ -29,10 +30,10 @@ make %{?_smp_mflags}
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/bin
-install -vdm 755 %{buildroot}/usr/share/doc/%{name}-%{version}
+install -vdm 755 %{buildroot}%{_defaultdocdir}/%{name}-%{version}
 install -vdm 755 %{buildroot}/etc/ld.so.conf.d
-mv -v %{buildroot}/usr/bin/{kbd_mode,loadkeys,openvt,setfont} %{buildroot}/bin
-cp -R -v doc/* %{buildroot}/usr/share/doc/%{name}-%{version}
+mv -v %{buildroot}%{_bindir}/{kbd_mode,loadkeys,openvt,setfont} %{buildroot}/bin
+cp -R -v doc/* %{buildroot}%{_defaultdocdir}/%{name}-%{version}
 cat > %{buildroot}/etc/ld.so.conf.d/kbd.conf <<- "EOF"
 	/lib/kbd
 EOF
@@ -47,9 +48,9 @@ rm -rf %{buildroot}
 /etc/ld.so.conf.d/kbd.conf
 /bin/*
 /lib/kbd/*
-/usr/bin/*
-/usr/share/doc/%{name}-%{version}/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_defaultdocdir}/%{name}-%{version}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.15.5-1
 -	Upgrade version

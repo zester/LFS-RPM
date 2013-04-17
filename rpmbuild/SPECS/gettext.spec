@@ -18,14 +18,15 @@ messages in the user's native language.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
-	--docdir=/usr/share/doc/%{name}-%{version}
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
+	--docdir=%{_defaultdocdir}/%{name}-%{version}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}/usr/lib -name '*.la' -delete
-rm -rf %{buildroot}/usr/share/info
+find %{buildroot}%{_libdir} -name '*.la' -delete
+rm -rf %{buildroot}%{_infodir}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
@@ -34,14 +35,14 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-/usr/bin/*
-/usr/include/*
-/usr/lib/*
-/usr/share/aclocal/*
-/usr/share/doc/%{name}-%{version}/*
-/usr/share/%{name}/*
-/usr/share/locale/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_includedir}/*
+%{_libdir}/*
+%{_datarootdir}/aclocal/*
+%{_defaultdocdir}/%{name}-%{version}/*
+%{_datarootdir}/%{name}/*
+%{_datarootdir}/locale/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:0.18.2-1
 -	Upgrade version

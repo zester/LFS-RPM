@@ -216,7 +216,7 @@ EOF
 %config(noreplace) /etc/sysconfig/ifconfig.eth0
 %config(noreplace) /etc/sysconfig/network
 %dir /home
-%dir /lib
+%dir /%{_lib}
 %dir /media
 %dir /mnt
 %dir /opt

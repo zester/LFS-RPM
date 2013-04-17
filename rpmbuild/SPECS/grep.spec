@@ -16,13 +16,14 @@ The Grep package contains programs for searching through files.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
 	--bindir=/bin 
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-rm -rf %{buildroot}/usr/share/info
+rm -rf %{buildroot}%{_infodir}
 %find_lang %{name}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -31,7 +32,7 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 /bin/*
-/usr/share/man/*/*
+%{_mandir}/*/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.14-0
 -	Initial build.	First version

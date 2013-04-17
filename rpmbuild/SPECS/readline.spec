@@ -21,21 +21,21 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
 	--libdir=/lib
 make %{?_smp_mflags} SHLIB_LIBS=-lncurses
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-install -vdm 755 %{buildroot}/usr/lib
-mv -v %{buildroot}/lib/lib{readline,history}.a %{buildroot}/usr/lib
+install -vdm 755 %{buildroot}%{_libdir}
+mv -v %{buildroot}/lib/lib{readline,history}.a %{buildroot}%{_libdir}
 rm -v %{buildroot}/lib/lib{readline,history}.so
-ln -sfv ../../lib/libreadline.so.6	%{buildroot}/usr/lib/libreadline.so
-ln -sfv ../../lib/libhistory.so.6	%{buildroot}/usr/lib/libhistory.so
-install -vdm 755 %{buildroot}/usr/share/doc/%{name}-%{version}
+ln -sfv ../../lib/libreadline.so.6	%{buildroot}%{_libdir}/libreadline.so
+ln -sfv ../../lib/libhistory.so.6	%{buildroot}%{_libdir}/libhistory.so
+install -vdm 755 %{buildroot}%{_defaultdocdir}/%{name}-%{version}
 install -v -m644 doc/*.{ps,pdf,html,dvi} \
-		 %{buildroot}/usr/share/doc/%{name}-%{version}
-rm -rf %{buildroot}/usr/share/info
+		 %{buildroot}%{_defaultdocdir}/%{name}-%{version}
+rm -rf %{buildroot}%{_infodir}
 %clean
 rm -rf %{buildroot}
 %post	-p /sbin/ldconfig
@@ -43,11 +43,11 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 /lib/*
-/usr/include/*
-/usr/lib/*
-/usr/share/man/*/*
-/usr/share/doc/%{name}-%{version}/*
-/usr/share/%{name}/*
+%{_includedir}/*
+%{_libdir}/*
+%{_mandir}/*/*
+%{_defaultdocdir}/%{name}-%{version}/*
+%{_datarootdir}/%{name}/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:6.2-0
 -	Initial build.	First version

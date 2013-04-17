@@ -15,20 +15,22 @@ directory tree and to create, maintain, and search a database
 database has not been recently updated).
 %prep
 %setup -q
+%build
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
-	--libexecdir=/usr/lib \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir}
+	--libexecdir=%{_libexecdir} \
 	--localstatedir=/var/lib/locate
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/bin
-mv -v %{buildroot}/usr/bin/find %{buildroot}/bin
-sed -i 's/find:=${BINDIR}/find:=\/bin/' %{buildroot}/usr/bin/updatedb
-rm -rf %{buildroot}/usr/share/info
+mv -v %{buildroot}%{_bindir}/find %{buildroot}/bin
+sed -i 's/find:=${BINDIR}/find:=\/bin/' %{buildroot}%{_bindir}/updatedb
+rm -rf %{buildroot}%{_infodir}
 %find_lang %{name}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -39,9 +41,9 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 /bin/find
-/usr/bin/*
-/usr/lib/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_libdir}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:4.4.2-0
 -	Initial build.	First version

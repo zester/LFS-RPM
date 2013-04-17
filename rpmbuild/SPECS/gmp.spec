@@ -18,14 +18,16 @@ for arbitrary precision arithmetic.
 	ABI=32 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
 	--enable-cxx \
 	--enable-mpbsd
 %else
 	./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
 	--enable-cxx \
 	--enable-mpbsd
 %endif
@@ -33,12 +35,12 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
-install -vdm 755 %{buildroot}/usr/share/doc/%{name}-%{version}
+install -vdm 755 %{buildroot}%{_defaultdocdir}/%{name}-%{version}
 cp    -v doc/{isa_abi_headache,configuration} doc/*.html \
-	%{buildroot}/usr/share/doc/%{name}-%{version}
-find %{buildroot}/usr/lib -name '*.a'  -delete
-find %{buildroot}/usr/lib -name '*.la' -delete
-rm -rf %{buildroot}/usr/share/info
+	%{buildroot}%{_defaultdocdir}/%{name}-%{version}
+find %{buildroot}%{_libdir} -name '*.a'  -delete
+find %{buildroot}%{_libdir} -name '*.la' -delete
+rm -rf %{buildroot}%{_infodir}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
@@ -47,9 +49,9 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-/usr/lib/*
-/usr/include/*
-/usr/share/doc/%{name}-%{version}/*
+%{_libdir}/*
+%{_includedir}/*
+%{_defaultdocdir}/%{name}-%{version}/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:5.1.1-1
 -	Upgrade version

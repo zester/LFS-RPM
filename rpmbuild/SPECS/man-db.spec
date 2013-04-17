@@ -16,19 +16,20 @@ The Man-DB package contains programs for finding and viewing man pages.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
-	--libexecdir=/usr/lib \
-	--docdir=/usr/share/doc/%{name}-%{version} \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
+	--libexecdir=%{_libexecdir} \
+	--docdir=%{_defaultdocdir}/%{name}-%{version} \
 	--sysconfdir=/etc \
 	--disable-setuid \
-	--with-browser=/usr/bin/lynx \
-	--with-vgrind=/usr/bin/vgrind \
-	--with-grap=/usr/bin/grap
+	--with-browser=%{_bindir}/lynx \
+	--with-vgrind=%{_bindir}/vgrind \
+	--with-grap=%{_bindir}/grap
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}/usr/lib -name '*.la' -delete
+find %{buildroot}%{_libdir} -name '*.la' -delete
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
@@ -38,13 +39,13 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 /etc/*
-/usr/bin/*
-/usr/sbin/*
-/usr/lib/%{name}/*
-/usr/lib/*
-/usr/share/doc/%{name}-%{version}/*
-/usr/share/man/*/*
-/usr/share/locale/*
+%{_bindir}*
+%{_sbindir}/*
+%{_libdir}/%{name}/*
+%{_libdir}/*
+%{_defaultdocdir}/%{name}-%{version}/*
+%{_mandir}/*/*
+%{_datarootdir}/locale/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.6.3-1
 -	Upgrade version

@@ -17,7 +17,8 @@ sed -i -e '/gets is a/d' grub-core/gnulib/stdio.in.h
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
 	--sysconfdir=/etc \
 	--disable-grub-emu-usb \
 	--disable-efiemu \
@@ -26,7 +27,7 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-rm -rf %{buildroot}/usr/share/info
+rm -rf %{buildroot}%{_infodir}
 %find_lang %{name}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -45,10 +46,10 @@ rm -rf %{buildroot}
 %config(noreplace) /etc/grub.d/40_custom
 %config(noreplace) /etc/grub.d/41_custom
 %config(noreplace) /etc/grub.d/README
-/usr/bin/*
-/usr/lib/*
-/usr/sbin/*
-/usr/share/%{name}/*
+%{_bindir}/*
+%{_libdir}/*
+%{_sbindir}/*
+%{_datarootdir}/%{name}/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.00-0
 -	Initial build.	First version

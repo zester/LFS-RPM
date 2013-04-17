@@ -21,14 +21,15 @@ cd %{_builddir}/%{name}73
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
 	--enable-multibyte
 make %{?_smp_mflags}
 %install
 cd %{_builddir}/%{name}73
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-ln -sv %{buildroot}/usr/bin/vi
+ln -sv %{buildroot}%{_bindir}/vi
 install -vdm 755 %{buildroot}/etc
 cat > %{buildroot}/etc/vimrc << "EOF"
 " Begin /etc/vimrc
@@ -48,9 +49,9 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %config(noreplace) /etc/vimrc
-/usr/bin/*
-/usr/share/man/*/*
-/usr/share/vim
+%{_bindir}/*
+%{_mandir}/*/*
+%{_datarootdir}/vim
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:73-0
 -	Initial build.	First version

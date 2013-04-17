@@ -4,7 +4,7 @@ Version:	2.69
 Release:	1
 License:	GPLv2
 URL:		http://www.gnu.org/software/autoconf
-Group:		Development/Tools
+Group:		LFS/Base
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://ftp.gnu.org/gnu/autoconf/%{name}-%{version}.tar.xz
@@ -17,19 +17,20 @@ automatically configure source code.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr 
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-rm -rf %{buildroot}/usr/share/info
+rm -rf %{buildroot}%{_defaultdocdir}
 %clean
 rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
-/usr/bin/*
-/usr/share/man/man1/*
-/usr/share/autoconf/*
+%{_bindir}/*
+%{_mandir}/man1/*
+%{_datarootdir}/autoconf/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.69-0
 -	Initial build.	First version

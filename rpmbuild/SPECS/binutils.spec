@@ -4,7 +4,7 @@ Version:	2.23.2
 Release:	1
 License:	GPLv2
 URL:		http://www.gnu.org/software/binutils
-Group:		System Environment/Base
+Group:		LFS/Base
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source0:	http://ftp.gnu.org/gnu/binutils/%{name}-%{version}.tar.bz2
@@ -23,17 +23,17 @@ cd ../binutils-build
 CFLAGS="%{optflags}" \
 CXXFLAGS="%{optflags}" \
 ../%{name}-%{version}/configure \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
 	--enable-shared
 make %{?_smp_mflags} tooldir=/usr
 %install
 rm -rf %{buildroot}
 cd ../binutils-build
-make DESTDIR=%{buildroot} tooldir=/usr install
-cp -v ../%{name}-%{version}/include/libiberty.h %{buildroot}/usr/include
-find %{buildroot}/usr/lib -name '*.la' -delete
-# Don't remove libiberity.a find %{buildroot}/usr/lib -name '*.a' -delete
-rm -rf %{buildroot}/usr/share/info
+make DESTDIR=%{buildroot} tooldir=%{_usr} install
+cp -v ../%{name}-%{version}/include/libiberty.h %{buildroot}/%{_includedir}
+find %{buildroot} -name '*.la' -delete
+# Don't remove libiberity.a
+rm -rf %{buildroot}/%{_infodir}
 %check
 cd ../binutils-build
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -43,11 +43,11 @@ rm -rf %{buildroot}/*
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-/usr/bin/*
-/usr/lib
-/usr/include/*
-/usr/share/locale/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_libdir}/*
+%{_includedir}*
+%{_datarootdir}/locale/*
+%{_mandir}/*/*
 %changelog
 *	Mon Apr  1 2013 baho-utot <baho-utot@columbus.rr.com> 2.23.1-1
 -	Upgrade version

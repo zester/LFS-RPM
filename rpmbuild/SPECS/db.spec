@@ -4,7 +4,7 @@ Version:	5.3.21
 Release:	1
 License:	BSD
 URL:		http://download.oracle.com/berkeley-db/
-Group:		Applications/Databases
+Group:		LFS/Base
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source0:	http://download.oracle.com/berkeley-db/%{name}-%{version}.tar.gz
@@ -18,8 +18,8 @@ applications for database related functions.
 cd build_unix
 export CFLAGS="%{optflags} -fno-strict-aliasing " CXXFLAGS="%{optflags}"
 ../dist/configure \
-	--prefix=/usr \
-	--docdir=/usr/share/doc/%{name}-%{version} \
+	--prefix=%{_prefix} \
+	--docdir=%{_defaultdocdir}/%{name}-%{version} \
 	--enable-compat185 \
 	--enable-dbm \
 	--disable-static \
@@ -29,18 +29,18 @@ make %{?_smp_mflags} LIB=-lpthread
 %install
 rm -rf %{buildroot}
 cd build_unix
-make DESTDIR=%{buildroot} docdir=/usr/share/doc/%{name}-%{version} fmode=644 install
-find %{buildroot}//usr/lib -name '*.la' -delete
+make DESTDIR=%{buildroot} docdir=%{_defaultdocdir}/%{name}-%{version} fmode=644 install
+find %{buildroot}%{_libdir} -name '*.la' -delete
 %clean
 rm -rf %{buildroot}
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-%attr(555, root, root) /usr/bin/*
-/usr/lib/*
-/usr/include/*
-/usr/share/doc/%{name}-%{version}/*
+%attr(555, root, root) %{_bindir}/*
+%{_libdir}/*
+%{_includedr}/*
+%{_defaultdocdir}/%{name}-%{version}/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:5.3.21-1
 -	Initial build.	First version

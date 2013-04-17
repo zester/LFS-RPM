@@ -18,14 +18,15 @@ the result.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr 
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}/usr/lib -name '*.a'  -delete
-find %{buildroot}/usr/lib -name '*.la' -delete
-rm -rf %{buildroot}//usr/share/info
+find %{buildroot}%{_libdir} -name '*.a'  -delete
+find %{buildroot}%{_libdir} -name '*.la' -delete
+rm -rf %{buildroot}%{_infodir}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
@@ -34,8 +35,8 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-/usr/include/*
-/usr/lib/*
+%{_includedir}/*
+%{_libdir}/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.0.1-1
 -	Upgrade version

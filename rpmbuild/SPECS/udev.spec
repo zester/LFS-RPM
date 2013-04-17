@@ -38,10 +38,10 @@ rm -rf %{buildroot}
 %config /etc/udev/rules.d/83-cdrom-symlinks.rules
 /lib/*
 /sbin/*
-/usr/lib/*
-/usr/include/*
-/usr/share/doc/%{name}/*
-/usr/share/man/*/*
+%{_libdir}*
+%{_includedir}/*
+%{_defaultdocdir}/%{name}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:197-1
 -	Upgrade version

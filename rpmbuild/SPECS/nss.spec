@@ -7,7 +7,7 @@ URL:		http://ftp.mozilla.org/pub/mozilla.org/security/nss
 Group:		Applications/System
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source:		http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_14_RTM/src/%{name}-%{version}.tar.gz
+Source:		http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_14_3_RTM/src/nss-3.14.3.tar.gz
 Patch:		http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.14.3-standalone-1.patch
 %description
  The Network Security Services (NSS) package is a set of libraries
@@ -21,40 +21,39 @@ Patch:		http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.14.3-standalone-1
 rm -rf %{_builddir}/*
 %setup -q
 %patch -p1
-#patch -Np1 -i %{_sourcedir}/nss-3.14.3-standalone-1.patch
 %build
 cd mozilla/security/nss
 export CFLAGS="%{optflags}"
 export CXXFLAGS="%{optflags}"
 make nss_build_all BUILD_OPT=1 \
-	NSPR_INCLUDE_DIR=/usr/include/nspr \
+	NSPR_INCLUDE_DIR=%{_includedir}/nspr \
 	USE_SYSTEM_ZLIB=1 \
 	ZLIB_LIBS=-lz \
 	$([ $(uname -m) = x86_64 ] && echo USE_64=1) \
-	$([ -f /usr/include/sqlite3.h ] && echo NSS_USE_SYSTEM_SQLITE=1)
+	$([ -f %{_includedir}/sqlite3.h ] && echo NSS_USE_SYSTEM_SQLITE=1)
 %install
 rm -rf %{buildroot}
 cd mozilla/security/nss
 cd ../../dist
-install -vdm 755 %{buildroot}/usr/bin
-install -vdm 755 %{buildroot}/usr/include/nss
-install -vdm 755 %{buildroot}/usr/lib
-install -v -m755 Linux*/lib/*.so %{buildroot}/usr/lib
-install -v -m644 Linux*/lib/{*.chk,libcrmf.a} %{buildroot}/usr/lib
-cp -v -RL {public,private}/nss/* %{buildroot}/usr/include/nss
-chmod 644 %{buildroot}/usr/include/nss/*
-install -v -m755 Linux*/bin/{certutil,nss-config,pk12util} %{buildroot}/usr/bin
-install -vdm 755 %{buildroot}/usr/lib/pkgconfig
-install -vm 644 Linux*/lib/pkgconfig/nss.pc %{buildroot}/usr/lib/pkgconfig
-find %{buildroot}/usr/lib/ -name '*.a' -delete
+install -vdm 755 %{buildroot}%{_bindir}
+install -vdm 755 %{buildroot}%{_includedir}/nss
+install -vdm 755 %{buildroot}%{_includedir}%{_libdir}
+install -v -m755 Linux*/lib/*.so %{buildroot}%{_libdir}
+install -v -m644 Linux*/lib/{*.chk,libcrmf.a} %{buildroot}%{_libdir}
+cp -v -RL {public,private}/nss/* %{buildroot}%{_includedir}/nss
+chmod 644 %{buildroot}%{_includedir}/nss/*
+install -v -m755 Linux*/bin/{certutil,nss-config,pk12util} %{buildroot}%{_bindir}
+install -vdm 755 %{buildroot}%{_libdir}/pkgconfig
+install -vm 644 Linux*/lib/pkgconfig/nss.pc %{buildroot}%{_libdir}/pkgconfig
+find %{buildroot}%{_libdir} -name '*.a' -delete
 %clean
 rm -rf %{buildroot}
 %post	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-/usr/bin/*
-/usr/include/*
-/usr/lib/*
+%{_bindir}/*
+%{_includedir}/*
+%{_libdir}/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:3.14.3-1
 -	Upgrade version

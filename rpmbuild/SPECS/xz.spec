@@ -17,14 +17,14 @@ decompressing files
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
 	--libdir=/lib \
-	--docdir=/usr/share/doc/%{name}-%{version}
+	--docdir=%{_defaultdocdir}/%{name}-%{version}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
-make DESTDIR=%{buildroot} pkgconfigdir=/usr/lib/pkgconfig install
-find %{buildroot}/usr/lib -name '*.la' -delete
+make DESTDIR=%{buildroot} pkgconfigdir=%{_libdir}/pkgconfig install
+find %{buildroot}%{_libdir} -name '*.la' -delete
 %find_lang %{name}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -35,11 +35,11 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 /lib/*
-/usr/bin/*
-/usr/include/*
-/usr/share/doc/%{name}-%{version}/*
-/usr/share/man/*/*
-/usr/lib/pkgconfig/liblzma.pc
+%{_bindir}/*
+%{_includedir}/*
+%{_defaultdocdir}/%{name}-%{version}/*
+%{_mandir}/*/*
+%{_libdir}/pkgconfig/liblzma.pc
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:5.0.4-0
 -	Initial build.	First version

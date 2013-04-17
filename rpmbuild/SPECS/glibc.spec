@@ -21,10 +21,10 @@ cd %{_builddir}/%{name}-build
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
 	../%{name}-%{version}/configure \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
 	--disable-profile \
 	--enable-kernel=2.6.25 \
-	--libexecdir=/usr/lib/glibc
+	--libexecdir=%{_libexecdir}
 make %{?_smp_mflags}
 %check
 cd %{_builddir}/glibc-build
@@ -33,18 +33,18 @@ make -k check |& tee %{_specdir}/%{name}-check.log || true
 rm -rf %{_buildrootdir}/*
 cd %{_builddir}/glibc-build
 #	Create directories
-install -vdm 755 %{buildroot}/usr/lib/locale
+install -vdm 755 %{buildroot}%{_libdir}/locale
 install -vdm 755 %{buildroot}/etc/ld.so.conf.d
 make install_root=%{buildroot} install
-cp -v %{_builddir}/%{name}-%{version}/sunrpc/rpc/*.h	%{buildroot}/usr/include/rpc
-cp -v %{_builddir}/%{name}-%{version}/sunrpc/rpcsvc/*.h	%{buildroot}/usr/include/rpcsvc
-cp -v %{_builddir}/%{name}-%{version}/nis/rpcsvc/*.h	%{buildroot}/usr/include/rpcsvc
+cp -v %{_builddir}/%{name}-%{version}/sunrpc/rpc/*.h	%{buildroot}%{_includedir}/rpc
+cp -v %{_builddir}/%{name}-%{version}/sunrpc/rpcsvc/*.h	%{buildroot}%{_includedir}/rpcsvc
+cp -v %{_builddir}/%{name}-%{version}/nis/rpcsvc/*.h	%{buildroot}%{_includedir}/rpcsvc
 #	Install locale generation script and config file
-cp -v %{_sourcedir}/locale-gen.conf		%{buildroot}/etc
-cp -v %{_sourcedir}/locale-gen.sh		%{buildroot}/sbin
+cp -v %{_sourcedir}/locale-gen.conf	%{buildroot}/etc
+cp -v %{_sourcedir}/locale-gen.sh	%{buildroot}/sbin
 #	Remove unwanted cruft
-rm -rf %{buildroot}/usr/share/info
-find %{buildroot}/usr/lib -name '*.la' -delete
+rm -rf %{buildroot}%{_infodir}
+find %{buildroot}%{_libdir} -name '*.la' -delete
 #	Install configuration files
 cat > %{buildroot}/etc/nsswitch.conf <<- "EOF"
 #	Begin /etc/nsswitch.conf
@@ -81,13 +81,13 @@ rm -rf %{buildroot}/* %{_builddir}/*
 /etc/ld.so.cache
 /lib/*
 /sbin/*
-/usr/bin/*
-/usr/include/*
-/usr/lib/*
-/usr/sbin/*
-/usr/share/i18n/*
-/usr/share/locale/*
-/var/db/Makefile
+%{_bindir}/*
+%{_includedir}/*
+%{_libdir}/*
+%{_sbindir}/*
+%{_datarootdir}/i18n/*
+%{_datarootdir}/locale/*
+%{_var}/db/Makefile
 %changelog
 *	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 2.17-1
 -	Update version

@@ -17,9 +17,10 @@ sed -i -e '/gets is a/d' lib/stdio.in.h
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
-	--libexecdir=/usr/sbin \
-	--localstatedir=/var \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
+	--libexecdir=%{_sbindir} \
+	--localstatedir=%{_var} \
 	--disable-ifconfig \
 	--disable-logger \
 	--disable-syslogd \
@@ -30,8 +31,8 @@ make %{?_smp_mflags}
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/bin
-mv -v %{buildroot}/usr/bin/{hostname,ping,ping6,traceroute} %{buildroot}/bin
-rm -rf %{buildroot}/usr/share/info
+mv -v %{buildroot}%{_bindir}/{hostname,ping,ping6,traceroute} %{buildroot}/bin
+rm -rf %{buildroot}%{_infodir}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
@@ -39,8 +40,8 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 /bin/*
-/usr/bin/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.9.1-0
 -	Initial build.	First version

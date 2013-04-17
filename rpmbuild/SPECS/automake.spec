@@ -4,7 +4,7 @@ Version:	1.13.1
 Release:	1
 License:	GPLv2
 URL:		http://www.gnu.org/software/automake/
-Group:		Development/Tools
+Group:		LFS/Base
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://ftp.gnu.org/gnu/automake/%{name}-%{version}.tar.xz
@@ -16,23 +16,24 @@ Contains programs for generating Makefiles for use with Autoconf.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
-	--docdir=/usr/share/doc/%{name}-%{version}
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
+	--docdir=%{_defaultdocdir}/%{name}-%{version}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-rm -rf %{buildroot}/usr/share/info
+rm -rf %{buildroot}%{_infodir}
 %clean
 rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
-/usr/bin/*
-/usr/share/aclocal/README
-/usr/share/%{name}-1.13/*
-/usr/share/aclocal-1.13/*
-/usr/share/doc/%{name}-%{version}/*
-/usr/share/man/man1/*
+%{_bindir}/*
+%{_datarootdir}/aclocal/README
+%{_datarootdir}/%{name}-1.13/*
+%{_datarootdir}/aclocal-1.13/*
+%{_defaultdocdir}/%{name}-%{version}/*
+%{_mandir}/man1/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.13.1-1
 -	Upgrade version

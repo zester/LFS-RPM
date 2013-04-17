@@ -19,17 +19,18 @@ that recognize patterns in text.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
-	--docdir=/usr/share/doc/%{name}-%{version} \
-	--mandir=/usr/share/man \
-	--infodir=/usr/share/info
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir}
+	--docdir=%{_defaultdocdir}/%{name}-%{version} \
+	--mandir=%{_mandir} \
+	--infodir=%{_infodir}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-ln -sv libfl.a %{buildroot}/usr/lib/libl.a
-install -vdm 755   %{buildroot}/usr/share/doc/%{name}
-cp -v doc/flex.pdf %{buildroot}/usr/share/doc/%{name}
+ln -sv libfl.a %{buildroot}%{_libdir}/libl.a
+install -vdm 755   %{buildroot}%{_defaultdocdir}/%{name}
+cp -v doc/flex.pdf %{buildroot}%{_defaultdocdir}/%{name}
 cat > %{buildroot}/usr/bin/lex <<- "EOF"
 #!/bin/sh
 # Begin /usr/bin/lex
@@ -38,7 +39,7 @@ cat > %{buildroot}/usr/bin/lex <<- "EOF"
 
 # End /usr/bin/lex
 EOF
-rm -rf %{buildroot}/usr/share/info
+rm -rf %{buildroot}%{_infodir}
 %find_lang %{name}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -48,14 +49,14 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files -f %{name}.lang
 %defattr(-,root,root)
-/usr/bin/flex
-/usr/bin/flex++
-%attr(755,root,root) /usr/bin/lex
-/usr/lib/*
-/usr/include/*
-/usr/share/doc/%{name}/*
-/usr/share/doc/%{name}-%{version}/*
-/usr/share/man/*/*
+%{_bindir}/flex
+%{_bindir}/flex++
+%attr(755,root,root) %{_bindir}/lex
+%{_libdir}/*
+%{_includedir}/*
+%{_defaultdocdir}/%{name}/*
+%{_defaultdocdir}/%{name}-%{version}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.5.37-0
 -	Initial build.	First version

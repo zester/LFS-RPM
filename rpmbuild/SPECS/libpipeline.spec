@@ -19,12 +19,13 @@ PKG_CONFIG_PATH=/tools/lib/pkgconfig \
 	./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}/ -name '*.la' -delete
+find %{buildroot}/%{_libdir} -name '*.la' -delete
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
@@ -33,9 +34,9 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-/usr/include/*
-/usr/lib/*
-/usr/share/man/*/*
+%{_includedir}/*
+%{_libdir}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.2.2-1
 -	Upgrade version

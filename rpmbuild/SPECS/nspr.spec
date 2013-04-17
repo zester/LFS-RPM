@@ -21,9 +21,9 @@ cd mozilla/nsprpub
 CFLAGS="%{optflags}" \
 CXXFLAGS="%{optflags}" \
 ./configure \
-	--prefix=/usr \
-	--bindir=/usr/bin \
-	--libdir=/usr/lib \
+	--prefix=%{_prefix} \
+	--bindir=%{_bindir} \
+	--libdir=%{_libdir} \
 	--with-mozilla \
 	--with-pthreads \
 	$([ $(uname -m) = x86_64 ] && echo --enable-64bit)
@@ -38,10 +38,10 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-/usr/bin/*
-/usr/include/*
-/usr/lib/*
-/usr/share/aclocal/*
+%{_bindir}/*
+%{_includedir}/*
+%{_libdir}/*
+%{_datarootdir}/aclocal/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:4.9.5-1
 -	Upgrade version

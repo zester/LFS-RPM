@@ -21,18 +21,19 @@ sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--sysconfdir=/etc
+	--sysconfdir=/etc \
+	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/bin
-mv -v %{buildroot}/usr/bin/passwd %{buildroot}/bin
+mv -v %{buildroot}%{_bindir}/passwd %{buildroot}/bin
 sed -i 's/yes/no/' %{buildroot}/etc/default/useradd
 %find_lang %{name}
 %post
-/usr/sbin/pwconv
-/usr/sbin/grpconv
+%{_sbindir}/pwconv
+%{_sbindir}/grpconv
 %clean
 rm -rf %{buildroot}
 %files -f %{name}.lang
@@ -43,9 +44,9 @@ rm -rf %{buildroot}
 %config(noreplace) /etc/limits
 /bin/*
 /sbin/*
-/usr/bin/*
-/usr/sbin/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_sbindir}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:4.1.5.1-0
 -	Initial build.	First version

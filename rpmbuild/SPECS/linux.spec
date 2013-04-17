@@ -27,13 +27,13 @@ make %{?_smp_mflags}
 rm -rf %{buildroot}
 install -vdm 755 %{buildroot}/etc
 install -vdm 755 %{buildroot}/boot
-install -vdm 755 %{buildroot}/usr/share/doc/%{name}-%{version}
+install -vdm 755 %{buildroot}%{_defaultdocdir}/%{name}-%{version}
 install -vdm 755 %{buildroot}/etc/modprobe.d
 make INSTALL_MOD_PATH=%{buildroot} modules_install
 cp -v arch/x86/boot/bzImage	%{buildroot}/boot/vmlinuz-%{version}
 cp -v System.map		%{buildroot}/boot/System.map-%{version}
 cp -v .config			%{buildroot}/boot/config-%{version}
-cp -r Documentation/*		%{buildroot}/usr/share/doc/%{name}-%{version}
+cp -r Documentation/*		%{buildroot}%{_defaultdocdir}/%{name}-%{version}
 
 cat > %{buildroot}/etc/modprobe.d/usb.conf << "EOF"
 # Begin /etc/modprobe.d/usb.conf
@@ -53,9 +53,9 @@ rm -rf %{buildroot}
 %config(noreplace)/etc/modprobe.d/usb.conf
 /lib/firmware/*
 /lib/modules/*
-/usr/share/doc/%{name}-%{version}/*
+%{_defaultdocdir}/%{name}-%{version}/*
 %changelog
-*	Mon Apr  1  2013 baho-utot <baho-utot@columbus.rr.com> 0:3.8.4-1
+*	Mon Apr 1  2013 baho-utot <baho-utot@columbus.rr.com> 3.8.4-1
 -	Upgrade version to 3.8.4
 
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:3.8.1-1

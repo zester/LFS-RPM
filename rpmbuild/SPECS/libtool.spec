@@ -16,13 +16,14 @@ It wraps the complexity of using shared libraries in a consistent, portable inte
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr 
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}/usr/lib -name '*.la' -delete
-rm -rf %{buildroot}/usr/share/info
+find %{buildroot}%{_libdir} -name '*.la' -delete
+rm -rf %{buildroot}%{_infodir}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
@@ -31,12 +32,12 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-/usr/bin/*
-/usr/lib/*
-/usr/include/*
-/usr/share/aclocal/*
-/usr/share/%{name}/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_libdir}/*
+%{_includedir}/*
+%{_datarootdir}/aclocal/*
+%{_datarootdir}/%{name}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.4.2-0
 -	Initial build.	First version	

@@ -8,7 +8,7 @@ Group:		System Environment/Kernel
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://www.kernel.org/pub/linux/kernel/v3.x/linux-%{version}.tar.xz
-BuildArch: 	noarch
+BuildArch:	noarch
 %description
 The Linux API Headers expose the kernel's API for use by Glibc.
 %define pkgdir	%{_builddir}/linux-%{version}
@@ -23,13 +23,13 @@ cd %{_builddir}/linux-%{version}
 rm -rf %{buildroot}/*
 make INSTALL_HDR_PATH=dest headers_install
 find dest/include \( -name .install -o -name ..install.cmd \) -delete
-install -vdm 755 %{buildroot}/usr/include
-cp -rv dest/include/* %{buildroot}/usr/include
+install -vdm 755 %{buildroot}%{_includedir}
+cp -rv dest/include/* %{buildroot}%{_includedir}
 %clean
 rm -rf %{buildroot} %{_builddir}/*
 %files
 %defattr(-,root,root)
-/usr/include/*
+%{_includedir}/*
 %changelog
 *	Mon Apr  1 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.4-1
 -	Update version to 3.8.4

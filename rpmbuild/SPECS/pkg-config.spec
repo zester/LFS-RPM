@@ -17,10 +17,11 @@ to build tools during the configure and make file execution.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
 	--with-internal-glib \
 	--disable-host-tool \
-	--docdir=/usr/share/doc/%{name}-%{version} \
+	--docdir=%{_defaultdocdir}/%{name}-%{version} \
 	--disable-shared
 make %{?_smp_mflags}
 %install
@@ -32,10 +33,10 @@ make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 rm -rf %{buildroot}/*
 %files
 %defattr(-,root,root)
-/usr/bin/*
-/usr/share/aclocal/*
-/usr/share/doc/%{name}-%{version}/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_datarootdir}/aclocal/*
+%{_defaultdocdir}/%{name}-%{version}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:0.28-1
 -	Upgrade version

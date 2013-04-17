@@ -8,7 +8,7 @@ Group:		Development/Tools
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://ftp.gnu.org/gnu/make/%{name}-%{version}.tar.bz2
-Patch:		http://www.linuxfromscratch.org/patches/lfs/7.2/make-3.82-upstream_fixes-3.patch
+Patch:		http://www.linuxfromscratch.org/patches/lfs/development/make-3.82-upstream_fixes-3.patch
 %description
 The Make package contains a program for compiling packages.
 %prep
@@ -18,12 +18,13 @@ The Make package contains a program for compiling packages.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-rm -rf %{buildroot}/usr/share/info
+rm -rf %{buildroot}%{_infodir}
 %find_lang %{name}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -31,8 +32,8 @@ make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
-/usr/bin/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:3.82-0
 -	Initial build.	First version

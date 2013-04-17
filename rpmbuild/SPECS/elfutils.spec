@@ -27,9 +27,9 @@ symbols), readelf (to see the raw ELF file structures), and elflint
 %build
 #	CFLAGS+=" -g"  # required for test-suite success
 ./configure  CFLAGS="%{optflags} -g" CXXFLAGS="%{optflags} -g " \
-	--prefix=/usr \
-	--bindir=/usr/bin \
-	--libdir=/usr/lib \
+	--prefix=%{_prefix} \
+	--bindir=%{_bindir} \
+	--libdir=%{_libdir} \
 	--disable-werror \
 	--program-prefix="eu-" || {
 	cat config.log
@@ -39,12 +39,12 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make install DESTDIR=%{buildroot}
-chmod +x %{buildroot}/usr/lib/lib*.so*
-chmod +x %{buildroot}/usr/lib/elfutils/lib*.so*
+chmod +x %{buildroot}%{_libdir}/lib*.so*
+chmod +x %{buildroot}%{_libdir}/elfutils/lib*.so*
 #	XXX Nuke unpackaged files
 find %{buildroot} -name eu-ld -delete
-find %{buildroot}/usr/lib -name '*.la' -delete
-find %{buildroot}/usr/lib -name '*.a' -delete
+find %{buildroot}%{_libdir} -name '*.la' -delete
+find %{buildroot}%{_libdir} -name '*.a' -delete
 %find_lang %{name}
 %check
 make -s check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -54,10 +54,9 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files	 -f %{name}.lang
 %defattr(-,root,root)
-/usr/bin/*
-/usr/bin/*
-/usr/lib/*
-/usr/include/*
+%{_bindir}/*
+%{_libdir}/lib/*
+%{_includedir}/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:0.154-0
 -	Initial build.	First version

@@ -17,14 +17,15 @@ about running processes.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr 
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/bin
-mv -v %{buildroot}/usr/bin/fuser   %{buildroot}/bin
-mv -v %{buildroot}/usr/bin/killall %{buildroot}/bin
+mv -v %{buildroot}%{_bindir}/fuser   %{buildroot}/bin
+mv -v %{buildroot}%{_bindir}/killall %{buildroot}/bin
 %find_lang %{name}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -33,8 +34,8 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 /bin/*
-/usr/bin/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:22.20-1
 -	Upgrade version

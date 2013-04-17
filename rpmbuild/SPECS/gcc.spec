@@ -26,8 +26,8 @@ cd ../gcc-build
 CFLAGS="%{optflags}" \
 CXXFLAGS="%{optflags}" \
 ../%{name}-%{version}/configure \
-	--prefix=/usr \
-	--libexecdir=/usr/lib \
+	--prefix=%{_prefix} \
+	--libexecdir=%{_libexecdir} \
 	--enable-shared \
 	--enable-threads=posix \
 	--enable-__cxa_atexit \
@@ -45,10 +45,10 @@ make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/lib
 ln -sv ../usr/bin/cpp %{buildroot}/lib
 ln -sv gcc %{buildroot}/usr/bin/cc
-install -vdm 755 %{buildroot}/usr/share/gdb/auto-load/usr/lib
-mv -v %{buildroot}/usr/lib/*gdb.py %{buildroot}/usr/share/gdb/auto-load/usr/lib
-find %{buildroot}/usr/lib -name '*.la' -delete
-rm -rf %{buildroot}/usr/share/info
+install -vdm 755 %{buildroot}%{_datarootdir}/gdb/auto-load/usr/lib
+mv -v %{buildroot}/usr/lib/*gdb.py %{buildroot}%{_datarootdir}/gdb/auto-load/usr/lib
+find %{buildroot}%{_libdir} -name '*.la' -delete
+rm -rf %{buildroot}%{_infodir}
 %check
 cd ../gcc-build
 ulimit -s 32768
@@ -60,13 +60,13 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 /lib/cpp
-/usr/bin/*
-/usr/lib/*
-/usr/include/*
-/usr/share/%{name}-%{version}/*
-/usr/share/gdb/auto-load/usr/lib/libstdc++.so.6.0.18-gdb.py
-/usr/share/locale/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_libdir}/lib/*
+%{_includedir}/*
+%{_datarootdir}/%{name}-%{version}/*
+%{_datarootdir}/gdb/auto-load/usr/lib/libstdc++.so.6.0.18-gdb.py
+%{_datarootdir}/locale/*
+%{_mandir}/*/*
 %changelog
 *	Mon Apr  1 2013 baho-utot <baho-utot@columbus.rr.com> 4.8.0-1
 -	Upgrade version 4.8.0

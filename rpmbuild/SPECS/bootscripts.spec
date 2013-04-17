@@ -4,10 +4,10 @@ Version:	20130123
 Release:	1
 License:	GPLv3
 URL:		http://www.linuxfromscratch.org/lfs
-Group:		System Environment/Base
+Group:		LFS/Base
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source0:	http://www.linuxfromscratch.org/lfs/downloads/7.2/lfs-%{name}-%{version}.tar.bz2
+Source0:	lfs-%{name}-%{version}.tar.bz2
 %description
 The LFS-Bootscripts package contains a set of scripts to start/stop
 the LFS system at boot up/shutdown.
@@ -39,9 +39,9 @@ rm -rf %{buildroot}
 %config /etc/sysconfig/modules
 %config (noreplace) /etc/sysconfig/rc.site
 %config /etc/sysconfig/udev_retry
-/lib/*
+%{_lib}/*
 /sbin/*
-/usr/share/man/*/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:20130123-1
 -	Upgrade version

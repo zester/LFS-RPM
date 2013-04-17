@@ -17,13 +17,14 @@ and converting info pages.
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
-	--prefix=/usr
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-make DESTDIR=%{buildroot} TEXMF=/usr/share/texmf install-tex
-rm -rf %{buildroot}/usr/share/info
+make DESTDIR=%{buildroot} TEXMF=%{_datarootdir}/texmf install-tex
+rm -rf %{buildroot}%{_infodir}
 %find_lang %{name}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -31,11 +32,11 @@ make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
-/usr/bin/*
-/usr/share/locale/*
-/usr/share/man/*/*
-/usr/share/texinfo
-/usr/share/texmf
+%{_bindir}/*
+%{_datarootdir}/locale/*
+%{_mandir}/*/*
+%{_datarootdir}/texinfo
+%{_datarootdir}/texmf
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:5.0-1
 -	Upgrade version

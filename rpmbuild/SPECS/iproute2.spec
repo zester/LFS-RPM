@@ -24,8 +24,8 @@ make %{?_smp_mflags} DESTDIR=
 %install
 rm -rf %{buildroot}
 make	DESTDIR=%{buildroot} \
-	MANDIR=/usr/share/man \
-	DOCDIR=/usr/share/doc/%{name}-%{version} install
+	MANDIR=%{_mandir} \
+	DOCDIR=%{_defaultdocdir}/%{name}-%{version} install
 %clean
 rm -rf %{buildroot}
 %post	-p /sbin/ldconfig
@@ -34,9 +34,9 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 /etc/%{name}/*
 /sbin/*
-/usr/lib/*
-/usr/share/doc/%{name}-%{version}/*
-/usr/share/man/*/*
+%{_libdir}/*
+%{_defaultdocdir}/%{name}-%{version}/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:3.8.0-1
 -	Upgrade version

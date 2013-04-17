@@ -4,7 +4,7 @@ Version:	1.42.7
 Release:	1
 License:	GPLv2
 URL:		http://e2fsprogs.sourceforge.net
-Group:		Applications/System
+Group:		LFS/Base
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://prdownloads.sourceforge.net/e2fsprogs/%{name}-%{version}.tar.gz
@@ -19,7 +19,8 @@ cd build
 CFLAGS="%{optflags}" \
 CXXFLAGS="%{optflags}" \
 ../configure \
---prefix=/usr \
+--prefix=%{_prefix} \
+--libdir=%{_libdir} \
 --with-root-prefix='' \
 --enable-elf-shlibs \
 --disable-libblkid \
@@ -32,8 +33,8 @@ rm -rf %{buildroot}
 cd build
 make DESTDIR=%{buildroot} install
 make DESTDIR=%{buildroot} install-libs
-find %{buildroot}/usr/lib -name '*.a' -delete
-rm -rf %{buildroot}/usr/share/info
+find %{buildroot}%{_libdir} -name '*.a' -delete
+rm -rf %{buildroot}%{_infodir}
 %check
 cd build
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -44,16 +45,16 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 /etc/mke2fs.conf
-/lib/*
+%{_usr}/*
 /sbin/*
-/usr/bin/*
-/usr/sbin/*
-/usr/lib/*
-/usr/include/*
-/usr/share/locale/*
-/usr/share/et/*
-/usr/share/ss/*
-/usr/share/man/*/*
+%{_bindir}/*
+%{_sbindir}/*
+%{_libdir}*
+%{_includedir}/*
+%{_datarootdir}/locale/*
+%{_datarootdir}/et/*
+%{_datarootdir}/ss/*
+%{_mandir}/*/*
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.42.7-1
 -	Upgrade version
