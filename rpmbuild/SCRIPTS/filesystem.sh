@@ -36,6 +36,9 @@ ln 	-fsv /tools/lib/libstdc++.so{,.6}		$LFS/usr/lib
 ln	-fsv bash					$LFS/bin/sh
 #	Needed for rpm
 ln	-fsv /tools/bin/getconf				$LFS/usr/bin
+ln	-fsv /tools/bin/sed				$LFS/usr/bin
+ln	-fsv /tools/bin/rm				$LFS/usr/bin
+ln	-fsv /tools/bin/strip				$LFS/usr/bin
 #	Setup needed files
 touch $LFS/etc/mtab
 cat > $LFS/etc/passwd <<- "EOF"

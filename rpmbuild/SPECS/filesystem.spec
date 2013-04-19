@@ -8,6 +8,7 @@ Vendor:		Bildanet
 URL:		http://www.linuxfromscratch.org
 Distribution:	Octothorpe
 BuildArch: noarch
+%define		LIBDIR	"/lib"
 %description
 The filesystem package is one of the basic packages that is installed
 on a Linux system. Filesystem contains the basic directory
@@ -19,7 +20,7 @@ for the directories.
 rm -rf %{buildroot}
 #	Kernel required directories
 install -vdm 755 %{buildroot}/{dev,proc,sys}
-# 	Begin
+#	Begin
 install -vdm 755 %{buildroot}/{bin,boot,etc/{opt,sysconfig},home,lib,mnt,opt,run}
 install -vdm 755 %{buildroot}/{media/{floppy,cdrom},sbin,srv,var}
 install -vdm 0750 %{buildroot}/root
@@ -168,12 +169,12 @@ cat > %{buildroot}/etc/inputrc <<- "EOF"
 #	for Konsole
 	"\e[H": beginning-of-line
 	"\e[F": end-of-line
-#	End /etc/inputrc
+#       End /etc/inputrc
 EOF
 cat > %{buildroot}/etc/fstab <<- "EOF"
-#	Begin /etc/fstab
-#	hdparm -I /dev/sda | grep NCQ --> can use barrier
-#system    mnt-pt    type       options            dump fsck
+#       Begin /etc/fstab
+#       hdparm -I /dev/sda | grep NCQ --> can use barrier
+#system     mnt-pt   type       options            dump fsck
 #/dev/sdax  /        /ext3      defaults,barrier,noatime,noacl,data=ordered 1 1
 /dev/sdxx   /        ext3       defaults            1     1
 /dev/sdxx   /boot    ext3       defaults            1     2
@@ -216,7 +217,7 @@ EOF
 %config(noreplace) /etc/sysconfig/ifconfig.eth0
 %config(noreplace) /etc/sysconfig/network
 %dir /home
-%dir /%{_lib}
+%dir %{LIBDIR}
 %dir /media
 %dir /mnt
 %dir /opt
@@ -228,6 +229,7 @@ EOF
 %dir /sys
 %dir /tmp
 %dir /usr
+%dir %{_libdir}/locale
 %dir /var/cache
 %dir /var/lib
 %dir /var/local
@@ -240,7 +242,7 @@ EOF
 /var/log/wtmp
 #/var/run/utmp
 %attr(664,root,utmp)	/var/log/lastlog
-%attr(600,-,-)			/var/log/btmp
+%attr(600,-,-)		/var/log/btmp
 %ifarch x86_64
 %dir /lib64
 %dir /usr/lib64
@@ -253,5 +255,7 @@ if [ -e /bin/mknod ]; then
 [ -e /dev/null ]    || /bin/mknod -m 666 /dev/null c 1 3
 fi
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:7.3-1
+*	Fri Apr 19 2013 baho-utot <baho-utot@columbus.rr.com> 20130401-1
+-	Upgrade version
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 7.3-1
 -	Upgrade version
