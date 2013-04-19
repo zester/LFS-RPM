@@ -39,7 +39,6 @@ rm -rf %{buildroot}
 %attr(4755,root,root)	/bin/umount
 %attr(2755,root,tty)	%{_bindir}/wall
 /bin/*
-/lib/*
 /sbin/*
 %{_bindir}/*
 %{_includedir}/*

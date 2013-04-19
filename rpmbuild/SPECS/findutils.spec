@@ -20,7 +20,7 @@ database has not been recently updated).
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
 	--prefix=%{_prefix} \
-	--libdir=%{_libdir}
+	--libdir=%{_libdir} \
 	--libexecdir=%{_libexecdir} \
 	--localstatedir=/var/lib/locate
 make %{?_smp_mflags}
@@ -42,7 +42,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 /bin/find
 %{_bindir}/*
-%{_libdir}/*
+%{_libexecdir}/*
 %{_mandir}/*/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:4.4.2-0

@@ -41,7 +41,7 @@ rm -rf %{buildroot}
 /etc/*
 %{_bindir}*
 %{_sbindir}/*
-%{_libdir}/%{name}/*
+%{_libexecdir}/*
 %{_libdir}/*
 %{_defaultdocdir}/%{name}-%{version}/*
 %{_mandir}/*/*

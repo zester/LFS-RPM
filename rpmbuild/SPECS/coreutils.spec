@@ -48,7 +48,7 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 /bin/*
-%{_libdir}/*
+%{_libexecdir}/*
 %{_bindir}/*
 %{_sbindir}/*
 %{_mandir}/*/*

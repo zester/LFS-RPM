@@ -9,11 +9,10 @@ chown root.root -R ../SOURCES
 chown root.root -R ../SPECS
 #	fix rpm macros
 find /tools/lib/rpm -name 'macros' -exec sed -i 's|%_prefix.*|%_prefix		/usr|' '{}' \;
-find /tools/lib/rpm -name 'macros' -exec sed -i sed -i 's|%_usr.*|%_usr		/usr|' '{}' \;
+find /tools/lib/rpm -name 'macros' -exec sed -i 's|%_usr.*|%_usr		/usr|' '{}' \;
 #	Start of build process
 build=$(uname -m)
-list="filesystem linux-api-headers man-pages "
-#glibc tzdata adjust-tool-chain zlib file binutils gmp mpfr mpc gcc sed bzip2 pkg-config ncurses util-linux psmisc e2fsprogs shadow coreutils iana-etc m4 bison procps-ng grep readline bash libtool gdbm inetutils perl autoconf automake diffutils gawk findutils flex gettext groff xz grub less gzip iproute2 kbd kmod libpipeline make man-db patch sysklogd sysvinit tar texinfo udev vim bootscripts linux db elfutils nspr nss popt rpm" 
+list="filesystem linux-api-headers man-pages glibc tzdata adjust-tool-chain zlib file binutils gmp mpfr mpc gcc sed bzip2 pkg-config ncurses util-linux psmisc e2fsprogs shadow coreutils iana-etc m4 bison procps-ng grep readline bash libtool gdbm inetutils perl autoconf automake diffutils gawk findutils flex gettext groff xz grub less gzip iproute2 kbd kmod libpipeline make man-db patch sysklogd sysvinit tar texinfo udev vim bootscripts linux db elfutils nspr nss popt rpm" 
 # lua"
  
 die() {

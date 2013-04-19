@@ -48,11 +48,11 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 /bin/*
-%{_lib}/*
+/%{_lib}/*
 %{_bindir}/*
 %{_libdir}/*
 %{_includedir}/*
-%{_defalutdocdir}/%{name}-%{version}/*
+%{_defaultdocdir}/%{name}-%{version}/*
 %{_mandir}/*/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.0.6-0

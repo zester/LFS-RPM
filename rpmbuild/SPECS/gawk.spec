@@ -35,7 +35,7 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 %{_bindir}/*
-%{_libdir}/*
+%{_libexecdir}/*
 %{_datarootdir}/awk/*
 %{_defaultdocdir}/%{name}-%{version}/*
 %{_mandir}/*/*

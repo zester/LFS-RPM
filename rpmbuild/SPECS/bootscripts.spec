@@ -39,7 +39,7 @@ rm -rf %{buildroot}
 %config /etc/sysconfig/modules
 %config (noreplace) /etc/sysconfig/rc.site
 %config /etc/sysconfig/udev_retry
-%{_lib}/*
+/%{_lib}/*
 /sbin/*
 %{_mandir}/*/*
 %changelog

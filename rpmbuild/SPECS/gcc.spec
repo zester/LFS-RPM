@@ -61,7 +61,8 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 /lib/cpp
 %{_bindir}/*
-%{_libdir}/lib/*
+%{_libdir}/*
+%{_libexecdir}/*
 %{_includedir}/*
 %{_datarootdir}/%{name}-%{version}/*
 %{_datarootdir}/gdb/auto-load/usr/lib/libstdc++.so.6.0.18-gdb.py

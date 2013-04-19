@@ -23,7 +23,7 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-rm -rf %{buildroot}%{_defaultdocdir}
+rm -rf %{buildroot}%{_infodir}
 %clean
 rm -rf %{buildroot}
 %files

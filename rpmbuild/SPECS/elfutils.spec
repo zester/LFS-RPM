@@ -55,7 +55,7 @@ rm -rf %{buildroot}
 %files	 -f %{name}.lang
 %defattr(-,root,root)
 %{_bindir}/*
-%{_libdir}/lib/*
+%{_libdir}/*
 %{_includedir}/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:0.154-0

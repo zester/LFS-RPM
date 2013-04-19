@@ -84,6 +84,8 @@ rm -rf %{buildroot}/* %{_builddir}/*
 %{_bindir}/*
 %{_includedir}/*
 %{_libdir}/*
+%{_libexecdir}/pt_chown
+%{_libexecdir}/getconf/*
 %{_sbindir}/*
 %{_datarootdir}/i18n/*
 %{_datarootdir}/locale/*

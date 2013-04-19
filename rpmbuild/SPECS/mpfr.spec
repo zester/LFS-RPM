@@ -37,7 +37,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_includedir}/*
 %{_libdir}/*
-%{_datarootdir}/%{name}-%{version}/*
+%{_defaultdocdir}/%{name}-%{version}/*
 %changelog
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 3.1.1-0
 -	Initial build.	First version

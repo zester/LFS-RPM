@@ -37,7 +37,7 @@ cd mozilla/security/nss
 cd ../../dist
 install -vdm 755 %{buildroot}%{_bindir}
 install -vdm 755 %{buildroot}%{_includedir}/nss
-install -vdm 755 %{buildroot}%{_includedir}%{_libdir}
+install -vdm 755 %{buildroot}%{_libdir}
 install -v -m755 Linux*/lib/*.so %{buildroot}%{_libdir}
 install -v -m644 Linux*/lib/{*.chk,libcrmf.a} %{buildroot}%{_libdir}
 cp -v -RL {public,private}/nss/* %{buildroot}%{_includedir}/nss

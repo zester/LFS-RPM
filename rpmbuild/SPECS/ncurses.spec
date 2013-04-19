@@ -29,7 +29,8 @@ make %{?_smp_mflags}
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}%{_libdir}/pkgconfig
-mv -v %{buildroot}%{_libdir}/libncursesw.so.5* %{buildroot}/lib
+install -vdm 755 %{buildroot}/%{_lib}
+mv -v %{buildroot}%{_libdir}/libncursesw.so.5* %{buildroot}/%{_lib}
 ln -sfv ../../lib/libncursesw.so.5 %{buildroot}%{_libdir}/libncursesw.so
 for lib in ncurses form panel menu ; do \
     rm -vf %{buildroot}%{_libdir}/lib${lib}.so ; \

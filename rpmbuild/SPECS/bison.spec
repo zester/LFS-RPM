@@ -23,14 +23,14 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-rm -rf %{buildroot}%{_infodr}
+rm -rf %{buildroot}%{_infodir}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
 rm -rf %{buildroot}
 %files 
 %defattr(-,root,root)
-%{bindir}/*
+%{_bindir}/*
 %{_libdir}/*
 %{_datarootdir}/%{name}/*
 %{_datarootdir}/aclocal/*

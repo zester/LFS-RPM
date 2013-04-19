@@ -22,7 +22,7 @@ The package contains the Bourne-Again SHell
 	CXXFLAGS="%{optflags}" \
 	--prefix=%{_prefix} \
 	--bindir=/bin \
-	--libdir=%{libdir} \
+	--libdir=%{_libdir} \
 	--htmldir=%{_defaultdocdir}/%{name}-%{version} \
 	--without-bash-malloc \
 	--with-installed-readline

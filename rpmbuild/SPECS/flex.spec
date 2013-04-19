@@ -20,7 +20,7 @@ that recognize patterns in text.
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
 	--prefix=%{_prefix} \
-	--libdir=%{_libdir}
+	--libdir=%{_libdir} \
 	--docdir=%{_defaultdocdir}/%{name}-%{version} \
 	--mandir=%{_mandir} \
 	--infodir=%{_infodir}
