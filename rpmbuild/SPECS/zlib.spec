@@ -22,10 +22,10 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
-install -vdm 755 %{buildroot}/lib
-mv -v %{buildroot}%{_libdir}/libz.so.* %{buildroot}/lib
-ln -sfv ../../lib/libz.so.1.2.7 %{buildroot}%{_libdir}/libz.so
-find %{buildroot}%{_libdir} -name '*.a'  -delete
+install -vdm 755 %{buildroot}/%{_lib}
+mv -v %{buildroot}%{_libdir}/libz.so.* %{buildroot}/%{_lib}
+ln -sfv ../../%{_lib}/libz.so.1.2.7 %{buildroot}%{_libdir}/libz.so
+find %{buildroot}%{_libdir} -name '*.a' -delete
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %post	-p /sbin/ldconfig
@@ -34,10 +34,11 @@ make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
-/lib/*
-%{_includedir}/*
-%{_libdir}/*
-%{_mandir}/*/*
+/%{_lib}/*
+%{_includedir}/*.h
+%{_libdir}/libz.so
+%{_libdir}/pkgconfig/zlib.pc
+%{_mandir}/man3/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.2.7-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 1.2.7-1
 -	Initial build.	First version

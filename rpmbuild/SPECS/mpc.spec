@@ -24,7 +24,7 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}%{_libdir} -name '*.a'  -delete
+find %{buildroot}%{_libdir} -name '*.a' -delete
 find %{buildroot}%{_libdir} -name '*.la' -delete
 rm -rf %{buildroot}%{_infodir}
 %check
@@ -35,8 +35,9 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-%{_includedir}/*
-%{_libdir}/*
+%{_includedir}/*.h
+%{_libdir}/*.so
+%{_libdir}/*.so.*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.0.1-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 1.0.1-1
 -	Upgrade version

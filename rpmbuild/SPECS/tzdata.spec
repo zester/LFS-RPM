@@ -32,7 +32,7 @@ done
 cp -v zone.tab iso3166.tab $ZONEINFO
 zic -d $ZONEINFO -p America/New_York
 install -vdm 755 %{buildroot}/etc
-ln -s %{_datarootdir}/zoneinfo/America/New_York %{buildroot}/etc/localtime
+ln -sf %{_datarootdir}/zoneinfo/America/New_York %{buildroot}/etc/localtime
 %clean
 rm -rf %{buildroot} %{_builddir}/*
 %files
@@ -42,9 +42,7 @@ rm -rf %{buildroot} %{_builddir}/*
 %changelog
 *	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 2013b-1
 -	Update version to 2013b
-
 *	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 2012j-1
 -	Update version
-
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 2012e-1
 -	Initial build.	First version

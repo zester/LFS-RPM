@@ -38,7 +38,7 @@ make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}%{_defaultdocdir}/%{name}-%{version}
 cp    -v doc/{isa_abi_headache,configuration} doc/*.html \
 	%{buildroot}%{_defaultdocdir}/%{name}-%{version}
-find %{buildroot}%{_libdir} -name '*.a'  -delete
+find %{buildroot}%{_libdir} -name '*.a' -delete
 find %{buildroot}%{_libdir} -name '*.la' -delete
 rm -rf %{buildroot}%{_infodir}
 %check
@@ -49,9 +49,10 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-%{_libdir}/*
-%{_includedir}/*
+%{_includedir}/*.h
+%{_libdir}/*.so
+%{_libdir}/*.so.*
 %{_defaultdocdir}/%{name}-%{version}/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:5.1.1-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 5.1.1-1
 -	Upgrade version

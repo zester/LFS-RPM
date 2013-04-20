@@ -24,7 +24,7 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}%{_libdir} -name '*.a'  -delete
+find %{buildroot}%{_libdir} -name '*.a' -delete
 find %{buildroot}%{_libdir} -name '*.la' -delete
 rm -rf %{buildroot}%{_infodir}
 %check
@@ -35,9 +35,20 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files
 %defattr(-,root,root)
-%{_includedir}/*
-%{_libdir}/*
+%{_includedir}/*.h
+%{_libdir}/*.so
+%{_libdir}/*.so.*
 %{_defaultdocdir}/%{name}-%{version}/*
+%{_defaultdocdir}/%{name}-%{version}/AUTHORS
+%{_defaultdocdir}/%{name}-%{version}/BUGS
+%{_defaultdocdir}/%{name}-%{version}/COPYING
+%{_defaultdocdir}/%{name}-%{version}/COPYING.LESSER
+%{_defaultdocdir}/%{name}-%{version}/FAQ.html
+%{_defaultdocdir}/%{name}-%{version}/NEWS
+%{_defaultdocdir}/%{name}-%{version}/TODO
+%{_defaultdocdir}/%{name}-%{version}/examples/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 3.1.1-0
+*	Sat Apr 20 2013 baho-utot <baho-utot@columbus.rr.com> 3.1.2-1
+-	Upgrade version
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 3.1.1-1
 -	Initial build.	First version

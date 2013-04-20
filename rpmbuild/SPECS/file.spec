@@ -39,11 +39,9 @@ rm -rf %{buildroot}
 %{_mandir}/*/*
 %{_datarootdir}/misc/magic.mgc
 %changelog
-*	Mon Apr  1 2013 baho-utot <baho-utot@columbus.rr.com> 5.14-1
+*	Mon Apr 01 2013 baho-utot <baho-utot@columbus.rr.com> 5.14-1
 -	Upgrade version 5.14
-
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 5.13-1
 -	Upgrade version
-
 *	Wed Mar 19 2013 baho-utot <baho-utot@columbus.rr.com> 5.12-1
 -	Initial version
