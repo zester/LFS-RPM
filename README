@@ -34,13 +34,14 @@ Procedure for the setting up of the build:
 						- clone repository
 	ln -vfs LFS-RPM/rpmbuild		- create symlink
 	vi /mnt/lfs/rpmbuild/complete.sh	- edit flags/configuration
-	cd rpmbuild/SOURCES			- switch directory
+	pushd rpmbuild/SOURCES			- switch directory
 	wget -nc -i wget-list 			- fetch packages
 	wget -nc -i wget-list.rpm		- fetch packages
 	md5sum -c md5sums			- verify packages for lfs
 	md5sum -c md5sum.rpm			- verify packages for rpm
-	scripts/add.user.lfs.sh			- add lfs user
-	chown -R lfs.lfs rpmbuild/*		- fix perms
+	popd					- back to parrent
+	rpmbuild/SCRIPTS/add.user.lfs.sh	- add lfs user
+	chown -R lfs.lfs /mnt/lfs/*		- fix perms
 	find . -name '*.sh' -exec chmod +x '{}' \;
 						- add execute perms
 
