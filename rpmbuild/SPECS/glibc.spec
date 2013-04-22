@@ -145,12 +145,13 @@ while read locale charset; do \
 done < $LOCALEGEN
 echo "Generation complete."
 EOF
+%find_lang %{name} $RPM_BUILD_ROOT libc glibc.lang
 %post
 printf "Creating ldconfig cache\n";/sbin/ldconfig
 printf "Creating locale files\n";/sbin/locale-gen.sh
 %clean
 rm -rf %{buildroot}/* %{_builddir}/*
-%files
+%files -f %{name}.lang
 %defattr(-,root,root)
 #	Configuration
 %config(noreplace) /etc/ld.so.conf
