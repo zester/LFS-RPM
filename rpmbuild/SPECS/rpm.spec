@@ -1,6 +1,6 @@
 Summary:	Package manager
 Name:		rpm
-Version:	4.10.3.1
+Version:	4.11.0.1
 Release:	1
 License:	GPLv2
 URL:		http://rpm.org
