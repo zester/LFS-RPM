@@ -31,6 +31,7 @@ install -vdm 755 %{buildroot}/usr/{,local/}share/{misc,terminfo,zoneinfo}
 install -vdm 755 %{buildroot}/usr/{,local/}share/man/man{1..8}
 install -vdm 755 %{buildroot}/var/{log,mail,spool}
 install -vdm 755 %{buildroot}/var/{opt,cache,lib/{misc,locate},local}
+install -vdm 755 %{buildroot}/%{_libdir}/locale
 #	End
 %ifarch x86_64
 ln -sv lib %{buildroot}/lib64
@@ -256,6 +257,4 @@ if [ -e /bin/mknod ]; then
 fi
 %changelog
 *	Fri Apr 19 2013 baho-utot <baho-utot@columbus.rr.com> 20130401-1
--	Upgrade version
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 7.3-1
 -	Upgrade version

@@ -31,13 +31,14 @@ rm -rf %{buildroot} %{_builddir}/*
 %defattr(-,root,root)
 %{_includedir}/*
 %changelog
-*	Fri Apr 19 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.5-1
+*	Mon Apr  1 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.4-1
 -	Update version to 3.8.4
-*	Mon Apr 1 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.4-1
--	Update version to 3.8.4
+
 *	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.3-1
 -	Update version to 3.8.3
+
 *	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.1-1
 -	Update version
+
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 3.5.2-1
 -	Initial build.	First version

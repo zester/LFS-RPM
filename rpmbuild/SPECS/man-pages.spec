@@ -23,19 +23,14 @@ rm -vf %{buildroot}%{_mandir}/man5/passwd.5
 rm -rf %{buildroot} %{_builddir}/*
 %files
 %defattr(-,root,root)
-%{_mandir}/man1/*.gz
-%{_mandir}/man2/*.gz
-%{_mandir}/man3/*.gz
-%{_mandir}/man4/*.gz
-%{_mandir}/man5/*.gz
-%{_mandir}/man6/*.gz
-%{_mandir}/man7/*.gz
-%{_mandir}/man8/*.gz
+%{_mandir}/*/*
 %changelog
 *	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 3.50-1
 -	Update version to 3.50
+
 *	Sun Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 3.47-1
 -	Update version
+
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 3.42-1
 -	Initial build.	First version
 
