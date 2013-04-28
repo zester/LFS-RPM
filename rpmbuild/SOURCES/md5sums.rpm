@@ -7,3 +7,6 @@ d6f6e8c3bb23a60fab81244ac0461d01  nss-3.14.3-standalone-1.patch
 b326c2be8df277f62fb9c65fb3428148  nss-3.14.3.tar.gz
 3743beefa3dd6247a73f8f7a32c14c33  popt-1.16.tar.gz
 7be152323885f6e558bd581f021e5add  rpm-4.10.3.1.tar.bz2
+efbb645e897eae37cad4344ce8b0a614  lua-5.2.2.tar.gz
+8e088d75b30f46c99f43db1364bf391d  lua.pc
+01f34d4edc1b9fb7e308308e42edd4da  liblua.so.patch
