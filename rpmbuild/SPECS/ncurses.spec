@@ -61,5 +61,5 @@ rm -rf %{buildroot}
 %{_datarootdir}/tabset/*
 %{_datarootdir}/terminfo/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:5.9-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 5.9-1
 -	Initial build.	First version

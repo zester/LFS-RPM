@@ -22,8 +22,8 @@ make DESTDIR=%{buildroot} install
 rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
-/etc/protocols
-/etc/services
+%config /etc/protocols
+%config /etc/services
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.30-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 2.30-1
 -	Initial build.	First version

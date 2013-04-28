@@ -7,13 +7,13 @@ URL:		http://www.kernel.org/
 Group:		System Environment/Kernel
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source:		http://www.kernel.org/pub/linux/kernel/v3.x/linux-%{version}.tar.xz
+Source0:	http://www.kernel.org/pub/linux/kernel/v3.x/linux-%{version}.tar.xz
 BuildArch:	noarch
 %description
 The Linux API Headers expose the kernel's API for use by Glibc.
 %define pkgdir	%{_builddir}/linux-%{version}
 %prep
-tar xf %{_sourcedir}/linux-%{version}.tar.xz
+tar xf %{SOURCE0}
 %build
 cd %{_builddir}/linux-%{version}
 make mrproper
@@ -31,8 +31,8 @@ rm -rf %{buildroot} %{_builddir}/*
 %defattr(-,root,root)
 %{_includedir}/*
 %changelog
-*	Mon Apr  1 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.4-1
--	Update version to 3.8.4
+*	Mon Apr 1 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.5-1
+-	Update version to 3.8.5
 
 *	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.3-1
 -	Update version to 3.8.3

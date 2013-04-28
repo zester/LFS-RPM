@@ -38,15 +38,63 @@ rm -rf %{buildroot}
 %attr(4755,root,root)	/bin/mount
 %attr(4755,root,root)	/bin/umount
 %attr(2755,root,tty)	%{_bindir}/wall
-/bin/*
 /sbin/*
-%{_bindir}/*
+/bin/dmesg
+/bin/findmnt
+/bin/kill
+/bin/lsblk
+/bin/more
+/bin/mountpoint
+/bin/wdctl
+%{_bindir}/cal
+%{_bindir}/chrt
+%{_bindir}/col
+%{_bindir}/colcrt
+%{_bindir}/colrm
+%{_bindir}/column
+%{_bindir}/cytune
+%{_bindir}/eject
+%{_bindir}/fallocate
+%{_bindir}/flock
+%{_bindir}/getopt
+%{_bindir}/hexdump
+%{_bindir}/i386
+%{_bindir}/ionice
+%{_bindir}/ipcmk
+%{_bindir}/ipcrm
+%{_bindir}/ipcs
+%{_bindir}/isosize
+%{_bindir}/linux32
+%{_bindir}/linux64
+%{_bindir}/logger
+%{_bindir}/look
+%{_bindir}/lscpu
+%{_bindir}/lslocks
+%{_bindir}/mcookie
+%{_bindir}/namei
+%{_bindir}/pg
+%{_bindir}/prlimit
+%{_bindir}/rename
+%{_bindir}/renice
+%{_bindir}/rev
+%{_bindir}/script
+%{_bindir}/scriptreplay
+%{_bindir}/setarch
+%{_bindir}/setsid
+%{_bindir}/setterm
+%{_bindir}/tailf
+%{_bindir}/taskset
+%{_bindir}/ul
+%{_bindir}/unshare
+%{_bindir}/utmpdump
+%{_bindir}/uuidgen
+%{_bindir}/whereis
 %{_includedir}/*
 %{_libdir}/*
 %{_sbindir}/*
 %{_datarootdir}/getopt/*
 %{_mandir}/*/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.22.2-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 2.22.2-1
 -	Upgrade version
 

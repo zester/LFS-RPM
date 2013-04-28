@@ -22,7 +22,7 @@ RPM package manager
 	--bindir=%{_bindir} \
 	--libdir=%{_libdir} \
 	--disable-static \
-	--without-lua \
+	--with-lua \
 	--with-external-db
 make %{?_smp_mflags}
 %install

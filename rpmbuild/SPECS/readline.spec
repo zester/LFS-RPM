@@ -49,5 +49,5 @@ rm -rf %{buildroot}
 %{_defaultdocdir}/%{name}-%{version}/*
 %{_datarootdir}/%{name}/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:6.2-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 6.2-1
 -	Initial build.	First version

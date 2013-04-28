@@ -7,7 +7,7 @@ License:	GPLv3
 Group:		Applications/System
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source:		http://www.iana.org//time-zones/repository/releases/%{name}%{version}.tar.gz
+Source1:	http://www.iana.org//time-zones/repository/releases/%{name}%{version}.tar.gz
 BuildArch:	noarch
 %define blddir %{name}-%{version}
 %description
@@ -16,7 +16,7 @@ Sources for time zone and daylight saving time data
 rm -rf %{blddir}
 install -vdm 755 %{blddir}
 cd %{blddir}
-tar xf %{_sourcedir}/%{name}%{version}.tar.gz
+tar xf %{SOURCE1}
 %build
 %install
 cd %{blddir}
@@ -25,9 +25,9 @@ install -vdm 755 $ZONEINFO/{posix,right}
 for tz in etcetera southamerica northamerica europe africa antarctica  \
 	asia australasia backward pacificnew solar87 solar88 solar89 \
 	systemv; do
-	zic -L /dev/null   -d $ZONEINFO       -y "sh yearistype.sh" ${tz}
-	zic -L /dev/null   -d $ZONEINFO/posix -y "sh yearistype.sh" ${tz}
-	zic -L leapseconds -d $ZONEINFO/right -y "sh yearistype.sh" ${tz}
+	zic -L /dev/null	-d $ZONEINFO		-y "sh yearistype.sh" ${tz}
+	zic -L /dev/null	-d $ZONEINFO/posix	-y "sh yearistype.sh" ${tz}
+	zic -L leapseconds	-d $ZONEINFO/right	-y "sh yearistype.sh" ${tz}
 done
 cp -v zone.tab iso3166.tab $ZONEINFO
 zic -d $ZONEINFO -p America/New_York

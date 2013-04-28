@@ -35,5 +35,5 @@ rm -rf %{buildroot}/*
 /bin/*
 %{_mandir}/*/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:4.2.1-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 4.2.2-1
 -	Upgrade version

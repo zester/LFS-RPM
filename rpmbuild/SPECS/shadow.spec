@@ -48,5 +48,5 @@ rm -rf %{buildroot}
 %{_sbindir}/*
 %{_mandir}/*/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:4.1.5.1-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 4.1.5.1-1
 -	Initial build.	First version

@@ -38,6 +38,7 @@ ln -sv lib %{buildroot}/lib64
 ln -sv lib %{buildroot}/usr/lib64
 %endif
 #	Symlinks
+install -vdm 755 %{buildroot}/run/lock
 ln -sv /run %{buildroot}/var/run
 ln -sv /run/lock %{buildroot}/var/lock
 #	install configuration files
@@ -170,23 +171,23 @@ cat > %{buildroot}/etc/inputrc <<- "EOF"
 #	for Konsole
 	"\e[H": beginning-of-line
 	"\e[F": end-of-line
-#       End /etc/inputrc
+#	End /etc/inputrc
 EOF
 cat > %{buildroot}/etc/fstab <<- "EOF"
-#       Begin /etc/fstab
-#       hdparm -I /dev/sda | grep NCQ --> can use barrier
-#system     mnt-pt   type       options            dump fsck
-#/dev/sdax  /        /ext3      defaults,barrier,noatime,noacl,data=ordered 1 1
-/dev/sdxx   /        ext3       defaults            1     1
-/dev/sdxx   /boot    ext3       defaults            1     2
-#/dev/sdax  swap     swap       pri=1               0     0
-proc        /proc    proc       nosuid,noexec,nodev 0     0
-sysfs       /sys     sysfs      nosuid,noexec,nodev 0     0
-devpts      /dev/pts devpts     gid=5,mode=620      0     0
-tmpfs       /run     tmpfs      defaults            0     0
-devtmpfs    /dev     devtmpfs   mode=0755,nosuid    0     0
-#	My mount points
-tmpfs     /tmp       tmpfs	defaults            0     0
+#	Begin /etc/fstab
+#	hdparm -I /dev/sda | grep NCQ --> can use barrier
+#system		mnt-pt		type		options			dump fsck
+#/dev/sdax	/		/ext3	defaults,barrier,noatime,noacl,data=ordered 1 1
+/dev/sdxx	/		ext3		defaults		1 1
+/dev/sdxx	/boot		ext3		defaults		1 2
+#/dev/sdax	swap		swap		pri=1			0 0
+proc		/proc		proc		nosuid,noexec,nodev	0 0
+sysfs		/sys		sysfs		nosuid,noexec,nodev	0 0
+devpts		/dev/pts	devpts		gid=5,mode=620		0 0
+tmpfs		/run		tmpfs		defaults		0 0
+devtmpfs	/dev		devtmpfs	mode=0755,nosuid	0 0
+#	mount points
+tmpfs		/tmp		tmpfs		defaults		0 0
 #	End /etc/fstab
 EOF
 echo %{version} > %{buildroot}/etc/lfs-release
@@ -225,6 +226,7 @@ EOF
 %dir /proc
 %dir /root
 %dir /run
+%dir /run/lock
 %dir /sbin
 %dir /srv
 %dir /sys
@@ -240,10 +242,9 @@ EOF
 %dir /var/run
 %dir /var/spool
 %dir /var/tmp
-/var/log/wtmp
-#/var/run/utmp
-%attr(664,root,utmp)	/var/log/lastlog
-%attr(600,-,-)		/var/log/btmp
+%ghost /var/log/wtmp
+%ghost %attr(664,root,utmp)	/var/log/lastlog
+%ghost %attr(600,-,-)		/var/log/btmp
 %ifarch x86_64
 %dir /lib64
 %dir /usr/lib64

@@ -1,4 +1,4 @@
-Summary:	Shared libraries, portable interface.
+Summary:	Shared libraries, portable interface
 Name:		libtool
 Version:	2.4.2
 Release:	1
@@ -9,7 +9,8 @@ Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://ftp.gnu.org/gnu/libtool/%{name}-%{version}.tar.gz
 %description
-It wraps the complexity of using shared libraries in a consistent, portable interface.
+It wraps the complexity of using shared libraries in a 
+consistent, portable interface.
 %prep
 %setup -q
 %build
@@ -39,5 +40,5 @@ rm -rf %{buildroot}
 %{_datarootdir}/%{name}/*
 %{_mandir}/*/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.4.2-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 2.4.2-1
 -	Initial build.	First version	

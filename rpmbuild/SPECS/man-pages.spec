@@ -2,7 +2,7 @@ Summary:	Man pages
 Name:		man-pages
 Version:	3.50
 Release:	1
-License:	GPL
+License:	GPLv2
 URL:		http://www.kernel.org/doc/man-pages
 Group:		System Environment/Base
 Vendor:		Bildanet

@@ -11,8 +11,7 @@ Source:		http://www.bzip.org/%{version}/%{name}-%{version}.tar.gz
 Patch0:		http://www.linuxfromscratch.org/patches/lfs/7.2/bzip2-1.0.6-install_docs-1.patch
 %description
 The Bzip2 package contains programs for compressing and
-decompressing files.
-Compressing text files with bzip2 yields a much better
+decompressing files.  Compressing text files with bzip2 yields a much better
 compression percentage than with the traditional gzip.
 %prep
 %setup -q
@@ -55,5 +54,5 @@ rm -rf %{buildroot}
 %{_defaultdocdir}/%{name}-%{version}/*
 %{_mandir}/*/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.0.6-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 1.0.6-0
 -	Initial build.	First version
