@@ -32,5 +32,5 @@ rm -rf %{buildroot}
 %{_mandir}/man1/*
 %{_datarootdir}/autoconf/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.69-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 2.69-1
 -	Initial build.	First version

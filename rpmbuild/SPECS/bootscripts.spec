@@ -7,14 +7,14 @@ URL:		http://www.linuxfromscratch.org/lfs
 Group:		LFS/Base
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source0:	lfs-%{name}-%{version}.tar.bz2
+Source0:	http://www.linuxfromscratch.org/lfs/downloads/development/lfs-%{name}-%{version}.tar.bz2
 %description
 The LFS-Bootscripts package contains a set of scripts to start/stop
 the LFS system at boot up/shutdown.
 %prep
 rm -rf %{_builddir}/*
 cd %{_builddir}
-tar xvf %{_sourcedir}/lfs-%{name}-%{version}.tar.bz2
+tar xvf %{SOURCE0}
 cd %{_builddir}/lfs-%{name}-%{version}
 %build
 %install
@@ -43,5 +43,5 @@ rm -rf %{buildroot}
 /sbin/*
 %{_mandir}/*/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:20130123-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 20130123-1
 -	Upgrade version

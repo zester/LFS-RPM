@@ -45,5 +45,5 @@ rm -rf %{buildroot}
 %{_libexecdir}/*
 %{_mandir}/*/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:4.4.2-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 4.4.2-1
 -	Initial build.	First version

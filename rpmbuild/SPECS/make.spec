@@ -35,5 +35,5 @@ rm -rf %{buildroot}
 %{_bindir}/*
 %{_mandir}/*/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:3.82-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 3.82-1
 -	Initial build.	First version

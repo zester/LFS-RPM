@@ -38,5 +38,5 @@ rm -rf %{buildroot}
 %{_defaultdocdir}/%{name}-%{version}/*
 %{_mandir}/*/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:3.8.0-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.0-1
 -	Upgrade version

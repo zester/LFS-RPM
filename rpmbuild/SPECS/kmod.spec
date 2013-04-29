@@ -18,7 +18,7 @@ The Kmod package contains libraries and utilities for loading kernel modules
 	CXXFLAGS="%{optflags}" \
 	--prefix=%{_prefix} \
 	--bindir=/bin \
-	--libdir=/lib \
+	--libdir=/%{_lib} \
 	--sysconfdir=/etc \
 	--disable-manpages \
 	--with-xz \
@@ -32,7 +32,7 @@ for target in depmod insmod modinfo modprobe rmmod; do
 	ln -sv ../bin/kmod %{buildroot}/sbin/$target
 done
 ln -sv kmod %{buildroot}/bin/lsmod
-find %{buildroot}/lib -name '*.la' -delete
+find %{buildroot}/%{_lib} -name '*.la' -delete
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
@@ -42,11 +42,11 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 /bin/*
-/lib/*
+/%{_lib}/*
 /sbin/*
 %{_libdir}/pkgconfig/libkmod.pc
 %{_includedir}/*
 #/usr/share/man/*/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:12-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 12-1
 -	Upgrade version

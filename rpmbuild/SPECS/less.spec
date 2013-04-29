@@ -30,5 +30,5 @@ rm -rf %{buildroot}
 %{_bindir}/*
 %{_mandir}/*/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:451-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 451-1
 -	Upgrade version

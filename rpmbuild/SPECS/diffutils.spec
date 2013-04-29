@@ -31,10 +31,10 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %{_bindir}/*
-%{_mandir}/*
+%{_mandir}/man1/*
 %changelog
-*	Mon Apr  1 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.6.1-0
+*	Mon Apr 01 2013 baho-utot <baho-utot@columbus.rr.com> 3.3-1
 -	Initial build.	First version
 
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.6.1-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 2.6.1-1
 -	Initial build.	First version

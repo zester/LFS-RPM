@@ -3,8 +3,8 @@ Name:		patch
 Version:	2.7.1
 Release:	1
 License:	GPLv3
-URL:		http://savannah.gnu.org/projects/patch
-Source		http://ftp.gnu.org/gnu/patch/%{name}-%{version}.tar.xz
+URL:		http://www.gnu.org/software/%{name}
+Source		ftp://ftp.gnu.org/gnu/patch/%{name}-%{version}.tar.xz
 Group:		Development/Tools
 Vendor:		Bildanet
 Distribution:	Octothorpe

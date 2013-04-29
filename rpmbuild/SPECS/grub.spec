@@ -38,18 +38,18 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 %dir /etc/grub.d
-%config(noreplace) /etc/bash_completion.d/grub
-%config(noreplace) /etc/grub.d/00_header
-%config(noreplace) /etc/grub.d/10_linux
-%config(noreplace) /etc/grub.d/20_linux_xen
-%config(noreplace) /etc/grub.d/30_os-prober
-%config(noreplace) /etc/grub.d/40_custom
-%config(noreplace) /etc/grub.d/41_custom
-%config(noreplace) /etc/grub.d/README
+%config() /etc/bash_completion.d/grub
+%config() /etc/grub.d/00_header
+%config() /etc/grub.d/10_linux
+%config() /etc/grub.d/20_linux_xen
+%config() /etc/grub.d/30_os-prober
+%config() /etc/grub.d/40_custom
+%config() /etc/grub.d/41_custom
+%config() /etc/grub.d/README
 %{_bindir}/*
 %{_libdir}/*
 %{_sbindir}/*
 %{_datarootdir}/%{name}/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:2.00-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 2.00-1
 -	Initial build.	First version

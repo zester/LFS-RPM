@@ -23,7 +23,6 @@ sed -i 's/resizecons.8 //' man/man8/Makefile.in
 	CXXFLAGS="%{optflags}" \
 	--prefix=%{_prefix} \
 	--libdir=%{_libdir} \
-	--datadir=/lib/kbd \
 	--disable-vlock
 make %{?_smp_mflags}
 %install
@@ -34,23 +33,24 @@ install -vdm 755 %{buildroot}%{_defaultdocdir}/%{name}-%{version}
 install -vdm 755 %{buildroot}/etc/ld.so.conf.d
 mv -v %{buildroot}%{_bindir}/{kbd_mode,loadkeys,openvt,setfont} %{buildroot}/bin
 cp -R -v doc/* %{buildroot}%{_defaultdocdir}/%{name}-%{version}
-cat > %{buildroot}/etc/ld.so.conf.d/kbd.conf <<- "EOF"
-	/lib/kbd
-EOF
+rm -rf %{buildroot}/usr/share/locale/gr
+%find_lang %{name}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
 rm -rf %{buildroot}
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
-%files
+%files -f %{name}.lang
 %defattr(-,root,root)
-/etc/ld.so.conf.d/kbd.conf
 /bin/*
-/lib/kbd/*
 %{_bindir}/*
 %{_defaultdocdir}/%{name}-%{version}/*
+%{_datarootdir}/consolefonts/*
+%{_datarootdir}/consoletrans/*
+%{_datarootdir}/keymaps/*
+%{_datarootdir}/unimaps/*
 %{_mandir}/*/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.15.5-1
+*	Thu Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 1.15.5-1
 -	Upgrade version

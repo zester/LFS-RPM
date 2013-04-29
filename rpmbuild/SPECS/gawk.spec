@@ -17,6 +17,7 @@ The Gawk package contains programs for manipulating text files.
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
 	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
 	--libexecdir=%{_libexecdir}
 make %{?_smp_mflags}
 %install
@@ -40,5 +41,5 @@ rm -rf %{buildroot}
 %{_defaultdocdir}/%{name}-%{version}/*
 %{_mandir}/*/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:4.0.2-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 4.0.2-1
 -	Upgrade version

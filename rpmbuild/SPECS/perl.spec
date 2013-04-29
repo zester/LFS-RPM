@@ -8,7 +8,6 @@ Group:		Development/Languages
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source:		http://www.cpan.org/src/5.0/%{name}-%{version}.tar.bz2
-Provides:	perl
 %description
 The Perl package contains the Practical Extraction and
 Report Language.
@@ -44,5 +43,5 @@ rm -rf %{buildroot}
 %changelog
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 5.16.3-1
 -	Upgrade version 5.16.3
-*	Wed Mar  1 2013 baho-utot <baho-utot@columbus.rr.com> 0:5.16.2-1
+*	Wed Mar 1 2013 baho-utot <baho-utot@columbus.rr.com> 5.16.2-1
 -	Upgrade version

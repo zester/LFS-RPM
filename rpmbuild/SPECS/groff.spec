@@ -39,5 +39,5 @@ rm -rf %{buildroot}
 %{_datarootdir}/%{name}/*
 %{_mandir}/*/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.22.2-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 1.22.2-1
 -	Upgrade version

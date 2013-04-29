@@ -8,13 +8,14 @@ Group:		Applications/System
 Vendor:		Bildanet
 Distribution:	Octothorpe
 Source0:	http://www.freedesktop.org/software/systemd/systemd-200.tar.xz
+Source1:	http://anduin.linuxfromscratch.org/sources/other/udev-lfs-200-1.tar.bz2
 %description
 The Udev package contains programs for dynamic creation of device nodes.
 %prep
 rm -rf %{_builddir}/*
 cd %{_builddir}
-tar xvf %{_sourcedir}/systemd-200.tar.xz
-tar xvf %{_sourcedir}/udev-lfs-200-1.tar.bz2
+tar xvf %{SOURCE0}
+tar xvf %{SOURCE1}
 cd %{_builddir}/systemd-%{version}
 mv ../udev-lfs-%{version}-1 .
 %build
@@ -36,12 +37,12 @@ rm -rf %{buildroot}
 %config /etc/udev/rules.d/55-lfs.rules
 %config /etc/udev/rules.d/81-cdrom.rules
 %config /etc/udev/rules.d/83-cdrom-symlinks.rules
-/lib/*
+/%{_lib}/*
 /sbin/*
-%{_libdir}*
+%{_libdir}/*
 %{_includedir}/*
 %{_defaultdocdir}/%{name}/*
 %{_mandir}/*/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:197-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 200-1
 -	Upgrade version

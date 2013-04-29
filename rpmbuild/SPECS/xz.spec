@@ -41,5 +41,5 @@ rm -rf %{buildroot}
 %{_mandir}/*/*
 %{_libdir}/pkgconfig/liblzma.pc
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:5.0.4-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 5.0.4-1
 -	Initial build.	First version

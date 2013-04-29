@@ -59,5 +59,5 @@ rm -rf %{buildroot}
 /sbin/*
 /usr/share/man/*/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.5-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 1.5-1
 -	Initial build.	First version
