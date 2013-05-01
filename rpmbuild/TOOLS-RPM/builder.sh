@@ -3,7 +3,7 @@ set -o errexit	# exit if error
 set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 shopt -s -o pipefail
-list="zlib berkeley-db nspr nss popt readline elfutils rpm"
+list="zlib berkeley-db nspr nss popt readline elfutils lua rpm"
 trap 'echo Toolchain build failed...;touch ${FAILURE};exit 1' ERR
 die(){
 	touch ${FAILURE}

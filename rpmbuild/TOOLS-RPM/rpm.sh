@@ -22,17 +22,16 @@ function build() {
 	./configure \
 		--prefix=/tools \
 		--disable-static \
-		--without-lua \
 		--with-external-db
 	make
 	make -j1 install
 	sed -i 's|optflags: i386 -O2 -g -march=i386 -mtune=i686|optflags: i386 -O2 -march=i486 -mtune=i686 -pipe|'	/tools/lib/rpm/rpmrc
 	sed -i 's|optflags: i486 -O2 -g -march=i486|optflags: i486 -O2 -march=i486 -mtune=generic -pipe|'		/tools/lib/rpm/rpmrc
 	sed -i 's|optflags: i586 -O2 -g -march=i586|optflags: i586 -O2 -march=i586 -mtune=generic -pipe|'		/tools/lib/rpm/rpmrc
-	sed -i 's|optflags: i686 -O2 -g -march=i686|optflags: i686 -O2 -march=i486 -mtune=i686 -pipe|'		/tools/lib/rpm/rpmrc
+	sed -i 's|optflags: i686 -O2 -g -march=i686|optflags: i686 -O2 -march=i486 -mtune=i686 -pipe|'			/tools/lib/rpm/rpmrc
 	sed -i 's|optflags: athlon -O2 -g -march=athlon|optflags: athlon -O2 -march=athlon -mtune=generic -pipe|'	/tools/lib/rpm/rpmrc
-	sed -i 's|\${prefix}||'			/tools/lib/rpm/macros
-	sed -i 's|%{getenv:HOME}||'		/tools/lib/rpm/macros
+	sed -i 's|\${prefix}||'		/tools/lib/rpm/macros
+	sed -i 's|%{getenv:HOME}||'	/tools/lib/rpm/macros
 }
 clean;unpack;pushd ${srcdir};build;popd;clean
 

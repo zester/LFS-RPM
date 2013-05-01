@@ -24,7 +24,7 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}%{_libdir} -name '*.a'  -delete
+find %{buildroot}%{_libdir} -name '*.a' -delete
 find %{buildroot}%{_libdir} -name '*.la' -delete
 %find_lang %{name}
 %check
@@ -40,5 +40,5 @@ rm -rf %{buildroot}
 %{_libdir}/*
 %{_mandir}/*/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:1.16-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 1.16-1
 -	Initial build.	First version	

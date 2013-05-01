@@ -7,13 +7,14 @@ URL:		http://rpm.org
 Group:		Applications/System
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source:		http://rpm.org/releases/rpm-4.10.x/%{name}-%{version}.tar.bz2
+Source:		http://rpm.org/releases/rpm-4.11.x/%{name}-%{version}.tar.bz2
 %description
 RPM package manager
 %prep
 %setup -q
 %build
 #	LIBS=-'L/usr/lib' \
+./autogen.sh --noconfigure
 ./configure \
 	CFLAGS="%{optflags}" \
 	CXXFLAGS="%{optflags}" \
@@ -28,10 +29,10 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}%{_libdir} -name '*.a'  -delete
+find %{buildroot}%{_libdir} -name '*.a' -delete
 find %{buildroot}%{_libdir} -name '*.la' -delete
 %find_lang %{name}
-# 	Fix macros and prefix
+#	Fix macros and prefix
 sed -i 's|optflags: i386 -O2 -g -march=i386 -mtune=i686|optflags: i386 -O2 -march=i486 -mtune=i686 -pipe|' %{buildroot}%{_libdir}/rpm/rpmrc
 sed -i 's|optflags: i486 -O2 -g -march=i486|optflags: i486 -O2 -march=i486 -mtune=i686 -pipe|' %{buildroot}%{_libdir}/rpm/rpmrc
 sed -i 's|optflags: i586 -O2 -g -march=i586|optflags: i586 -O2 -march=i586 -mtune=i686 -pipe|' %{buildroot}%{_libdir}/rpm/rpmrc
@@ -49,8 +50,20 @@ rm -rf %{buildroot}
 %{_bindir}/*
 %{_includedir}/*
 %{_libdir}/%{name}/*
-%{_libdir}/*
-%{_mandir}/*/*
+%{_libdir}/*.so
+%{_libdir}/*.so.*
+%{_libdir}/pkgconfig/rpm.pc
+%{_libdir}/rpm-plugins/exec.so
+%{_mandir}/man1/*
+%{_mandir}/fr/man8/*.gz
+%{_mandir}/ja/man8/*.gz
+%{_mandir}/ko/man8/*.gz
+%{_mandir}/man8/*.gz
+%{_mandir}/pl/man1/*.gz
+%{_mandir}/pl/man8/*.gz
+%{_mandir}/ru/man8/*.gz
+%{_mandir}/sk/man8/*.gz
+
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:4.10.3.1-1
+*	Thu Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 4.11.0.1-1
 -	Upgrade version

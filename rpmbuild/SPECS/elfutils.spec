@@ -58,5 +58,5 @@ rm -rf %{buildroot}
 %{_libdir}/*
 %{_includedir}/*
 %changelog
-*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0:0.154-0
+*	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 0.155-1
 -	Initial build.	First version

@@ -55,5 +55,5 @@ rm -rf %{buildroot}
 %{_includedir}/*
 %{_libdir}/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:3.14.3-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 3.14.3-1
 -	Upgrade version

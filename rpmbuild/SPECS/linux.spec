@@ -7,7 +7,9 @@ URL:		http://www.kernel.org/
 Group:		System Environment/Kernel
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source:		http://www.kernel.org/pub/linux/kernel/v3.x/%{name}-%{version}.tar.xz
+Source0:	http://www.kernel.org/pub/linux/kernel/v3.x/%{name}-%{version}.tar.xz
+Source1:	config-%{version}-i686
+Source2:	config-%{version}-x86_64
 %description
 The Linux package contains the Linux kernel.
 %prep
@@ -15,10 +17,10 @@ The Linux package contains the Linux kernel.
 %build
 make mrproper
 %ifarch i386 i486 i586 i686
-cp %{_sourcedir}/config-%{version}-i686 .config
+cp %{SOURCE1} .config
 %endif
 %ifarch x86_64
-cp %{_sourcedir}/config-%{version}-x86_64 .config
+cp %{SOURCE2} .config
 %endif
 make LC_ALL= silentoldconfig
 #make LC=ALL= oldconfig
@@ -43,6 +45,9 @@ install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
 
 # End /etc/modprobe.d/usb.conf
 EOF
+#	Cleanup dangling symlinks
+rm -rf %{buildroot}/lib/modules/3.8.5/source
+rm -rf %{buildroot}/lib/modules/3.8.5/build
 %clean
 rm -rf %{buildroot}
 %files
@@ -55,8 +60,8 @@ rm -rf %{buildroot}
 /lib/modules/*
 %{_defaultdocdir}/%{name}-%{version}/*
 %changelog
-*	Mon Apr 1  2013 baho-utot <baho-utot@columbus.rr.com> 3.8.4-1
--	Upgrade version to 3.8.4
+*	Mon Apr 1  2013 baho-utot <baho-utot@columbus.rr.com> 3.8.5-1
+-	Upgrade version to 3.8.5
 
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 0:3.8.1-1
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.1-1
 -	Upgrade version
