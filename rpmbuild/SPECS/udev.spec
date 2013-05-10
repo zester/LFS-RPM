@@ -27,8 +27,8 @@ cd %{_builddir}/systemd-%{version}
 make -f udev-lfs-202-1/Makefile.lfs DESTDIR=%{buildroot} install
 #	Fix LFS devel issue
 install -vdm 755 %{buildroot}/%{_defaultdocdir}/%{name}-%{version}/html
-mv %{buildroot}/%{_defaultdocdir}/gtk-doc/html/* %{buildroot}/%{_defaultdocdir}/%{name}-%{version}/html
-rm -rf %{buildroot}/%{_defaultdocdir}/gtk-doc
+mv %{buildroot}/%{_datarootdir}/gtk-doc/html/* %{buildroot}/%{_defaultdocdir}/%{name}-%{version}/html
+rm -rf %{buildroot}/%{_datarootdir}/gtk-doc
 %clean
 rm -rf %{buildroot}
 %post
