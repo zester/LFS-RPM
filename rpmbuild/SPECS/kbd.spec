@@ -31,7 +31,6 @@ make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/bin
 install -vdm 755 %{buildroot}%{_defaultdocdir}/%{name}-%{version}
 install -vdm 755 %{buildroot}/etc/ld.so.conf.d
-mv -v %{buildroot}%{_bindir}/{kbd_mode,loadkeys,openvt,setfont} %{buildroot}/bin
 cp -R -v doc/* %{buildroot}%{_defaultdocdir}/%{name}-%{version}
 rm -rf %{buildroot}/usr/share/locale/gr
 %find_lang %{name}

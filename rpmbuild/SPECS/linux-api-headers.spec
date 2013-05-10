@@ -1,6 +1,6 @@
 Summary:	Linux Api header files
 Name:		linux-api-headers
-Version:	3.8.5
+Version:	3.9
 Release:	1
 License:	GPLv2
 URL:		http://www.kernel.org/
@@ -31,14 +31,13 @@ rm -rf %{buildroot} %{_builddir}/*
 %defattr(-,root,root)
 %{_includedir}/*
 %changelog
+*	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 3.9-1
+-	Update version to 3.9
 *	Mon Apr 1 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.5-1
 -	Update version to 3.8.5
-
 *	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.3-1
 -	Update version to 3.8.3
-
 *	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.1-1
 -	Update version
-
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 3.5.2-1
 -	Initial build.	First version

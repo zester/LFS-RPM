@@ -1,6 +1,6 @@
 Summary:	Contains a parser generator
 Name:		bison
-Version:	2.7
+Version:	2.7.1
 Release:	1
 License:	GPLv3
 URL:		http://www.gnu.org/software/bison
@@ -101,5 +101,7 @@ rm -rf %{buildroot}
 %lang(zh_TW) %{_datarootdir}/locale/zh_TW/LC_MESSAGES/bison.mo
 %{_mandir}/*/*
 %changelog
+*	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 2.7.1-1
+-	Update version to 2.7.2
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 2.7-1
 -	Upgrade version

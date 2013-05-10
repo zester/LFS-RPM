@@ -1,6 +1,6 @@
 Summary:	Utilities for file systems, consoles, partitions, and messages
 Name:		util-linux
-Version:	2.22.2
+Version:	2.23
 Release:	1
 URL:		http://www.kernel.org/pub/linux/utils/util-linux
 License:	GPLv2
@@ -46,55 +46,15 @@ rm -rf %{buildroot}
 /bin/more
 /bin/mountpoint
 /bin/wdctl
-%{_bindir}/cal
-%{_bindir}/chrt
-%{_bindir}/col
-%{_bindir}/colcrt
-%{_bindir}/colrm
-%{_bindir}/column
-%{_bindir}/cytune
-%{_bindir}/eject
-%{_bindir}/fallocate
-%{_bindir}/flock
-%{_bindir}/getopt
-%{_bindir}/hexdump
-%{_bindir}/i386
-%{_bindir}/ionice
-%{_bindir}/ipcmk
-%{_bindir}/ipcrm
-%{_bindir}/ipcs
-%{_bindir}/isosize
-%{_bindir}/linux32
-%{_bindir}/linux64
-%{_bindir}/logger
-%{_bindir}/look
-%{_bindir}/lscpu
-%{_bindir}/lslocks
-%{_bindir}/mcookie
-%{_bindir}/namei
-%{_bindir}/pg
-%{_bindir}/prlimit
-%{_bindir}/rename
-%{_bindir}/renice
-%{_bindir}/rev
-%{_bindir}/script
-%{_bindir}/scriptreplay
-%{_bindir}/setarch
-%{_bindir}/setsid
-%{_bindir}/setterm
-%{_bindir}/tailf
-%{_bindir}/taskset
-%{_bindir}/ul
-%{_bindir}/unshare
-%{_bindir}/utmpdump
-%{_bindir}/uuidgen
-%{_bindir}/whereis
+%{_bindir}/*
 %{_includedir}/*
 %{_libdir}/*
 %{_sbindir}/*
 %{_datarootdir}/getopt/*
 %{_mandir}/*/*
 %changelog
+*	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 2.23-1
+-	Update version to 2.23
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 2.22.2-1
 -	Upgrade version
 

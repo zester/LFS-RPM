@@ -1,6 +1,6 @@
 Summary:	Library for manipulating pipelines
 Name:		libpipeline
-Version:	1.2.2
+Version:	1.2.3
 Release:	1
 License:	GPLv3
 URL:		http://libpipeline.nongnu.org
@@ -38,5 +38,7 @@ rm -rf %{buildroot}
 %{_libdir}/*
 %{_mandir}/*/*
 %changelog
+*	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 1.2.3-1
+-	Update version to 1.2.3
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 1.2.2-1
 -	Upgrade version

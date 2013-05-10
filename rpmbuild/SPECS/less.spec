@@ -1,6 +1,6 @@
 Summary:	Text file viewer
 Name:		less
-Version:	451
+Version:	458
 Release:	1
 License:	GPLv3
 URL:		http://www.greenwoodsoftware.com/less
@@ -30,5 +30,7 @@ rm -rf %{buildroot}
 %{_bindir}/*
 %{_mandir}/*/*
 %changelog
+*	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 458-1
+-	Update version to 458
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 451-1
 -	Upgrade version

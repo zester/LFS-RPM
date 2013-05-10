@@ -3,7 +3,7 @@ set -o errexit	# exit if error
 set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 pkgname=linux
-pkgver=3.8.5
+pkgver=3.9.0
 srcname="../SOURCES/${pkgname}-${pkgver}.tar.xz"
 srcdir=${pkgname}-${pkgver}
 

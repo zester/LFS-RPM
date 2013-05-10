@@ -1,6 +1,6 @@
 Summary:	Utilities for loading kernel modules
 Name:		kmod
-Version:	12
+Version:	13
 Release:	1
 License:	GPLv2
 URL:		http://www.kernel.org/pub/linux/utils/kernel/kmod
@@ -48,5 +48,7 @@ rm -rf %{buildroot}
 %{_includedir}/*
 #/usr/share/man/*/*
 %changelog
+*	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 13-1
+-	Update version to 13
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 12-1
 -	Upgrade version

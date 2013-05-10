@@ -1,14 +1,14 @@
 Summary:	Programs for dynamic creation of device nodes
 Name:		udev
-Version:	200
+Version:	202
 Release:	1
 License:	GPLv2
 URL:		http://www.freedesktop.org/wiki/Software/systemd/
 Group:		Applications/System
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source0:	http://www.freedesktop.org/software/systemd/systemd-200.tar.xz
-Source1:	http://anduin.linuxfromscratch.org/sources/other/udev-lfs-200-1.tar.bz2
+Source0:	http://www.freedesktop.org/software/systemd/systemd-%{version}.tar.xz
+Source1:	http://anduin.linuxfromscratch.org/sources/other/udev-lfs-%{version}-1.tar.bz2
 %description
 The Udev package contains programs for dynamic creation of device nodes.
 %prep
@@ -20,11 +20,11 @@ cd %{_builddir}/systemd-%{version}
 mv ../udev-lfs-%{version}-1 .
 %build
 cd %{_builddir}/systemd-%{version}
-make %{?_smp_mflags} -f udev-lfs-200-1/Makefile.lfs
+make %{?_smp_mflags} -f udev-lfs-202-1/Makefile.lfs
 %install
 rm -rf %{buildroot}
 cd %{_builddir}/systemd-%{version}
-make -f udev-lfs-200-1/Makefile.lfs DESTDIR=%{buildroot} install
+make -f udev-lfs-202-1/Makefile.lfs DESTDIR=%{buildroot} install
 %clean
 rm -rf %{buildroot}
 %post
@@ -44,5 +44,7 @@ rm -rf %{buildroot}
 %{_defaultdocdir}/%{name}/*
 %{_mandir}/*/*
 %changelog
+*	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 202-1
+-	Update version to 202
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 200-1
 -	Upgrade version

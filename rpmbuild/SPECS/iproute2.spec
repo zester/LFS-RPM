@@ -1,6 +1,6 @@
 Summary:	Basic and advanced IPV4-based networking
 Name:		iproute2
-Version:	3.8.0
+Version:	3.9.0
 Release:	1
 License:	GPLv2
 URL:		http://www.kernel.org/pub/linux/utils/net/iproute2
@@ -38,5 +38,7 @@ rm -rf %{buildroot}
 %{_defaultdocdir}/%{name}-%{version}/*
 %{_mandir}/*/*
 %changelog
+*	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 3.9.0-1
+-	Upgrade version 3.9.0
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.0-1
 -	Upgrade version

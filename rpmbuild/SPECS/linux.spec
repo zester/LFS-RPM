@@ -1,6 +1,6 @@
 Summary:	Kernel
 Name:		linux
-Version:	3.8.5
+Version:	3.9
 Release:	1
 License:	GPLv2
 URL:		http://www.kernel.org/
@@ -22,8 +22,8 @@ cp %{SOURCE1} .config
 %ifarch x86_64
 cp %{SOURCE2} .config
 %endif
-make LC_ALL= silentoldconfig
-#make LC=ALL= oldconfig
+#make LC_ALL= silentoldconfig
+make LC=ALL= oldconfig
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
@@ -60,8 +60,9 @@ rm -rf %{buildroot}
 /lib/modules/*
 %{_defaultdocdir}/%{name}-%{version}/*
 %changelog
+*	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 3.9-1
+-	Update version to 3.9
 *	Mon Apr 1  2013 baho-utot <baho-utot@columbus.rr.com> 3.8.5-1
 -	Upgrade version to 3.8.5
-
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.1-1
 -	Upgrade version

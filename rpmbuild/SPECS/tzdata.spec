@@ -1,6 +1,6 @@
 Summary:	Time zone data
 Name:		tzdata
-Version:	2013b
+Version:	2013c
 Release:	1
 URL:		http://www.iana.org/time-zones
 License:	GPLv3
@@ -40,11 +40,11 @@ rm -rf %{buildroot} %{_builddir}/*
 /etc/localtime
 %{_datarootdir}/zoneinfo/*
 %changelog
+*	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 2013c-1
+-	Update version to 2013c
 *	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 2013b-1
 -	Update version to 2013b
-
 *	Sun Mar 24 2013 baho-utot <baho-utot@columbus.rr.com> 2012j-1
 -	Update version
-
 *	Wed Jan 30 2013 baho-utot <baho-utot@columbus.rr.com> 2012e-1
 -	Initial build.	First version
