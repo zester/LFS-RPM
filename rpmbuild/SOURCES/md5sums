@@ -58,7 +58,7 @@ e053094e8103165f98ddafe828f6ae4b  sysklogd-1.5.tar.gz
 eeacbfdd2556acd899a2d0ffdb446185  util-linux-2.22.2.tar.xz
 5b9510a17074e2b37d8bb38ae09edbf2  vim-7.3.tar.bz2
 161015c4a65b1f293d31810e1df93090  xz-5.0.4.tar.xz
-2ab442d169156f34c379c968f3f482dd  zlib-1.2.7.tar.bz2
+44d667c142d7cda120332623eab69f40  zlib-1.2.8.tar.gz
 419f95c173596aea47a23d922598977a  bash-4.2-fixes-12.patch
 6a5ac7e89b791aae556de0f745916f7f  bzip2-1.0.6-install_docs-1.patch
 ada0ea6e1c00c4b7e0d634f49827943e  coreutils-8.21-i18n-1.patch

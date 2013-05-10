@@ -59,7 +59,7 @@ http://anduin.linuxfromscratch.org/sources/other/udev-lfs-200-1.tar.bz2
 http://www.kernel.org/pub/linux/utils/util-linux/v2.22/util-linux-2.22.2.tar.xz
 ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2
 http://tukaani.org/xz/xz-5.0.4.tar.xz
-http://www.zlib.net/zlib-1.2.7.tar.bz2
+http://www.zlib.net/zlib-1.2.8.tar.gz
 http://www.linuxfromscratch.org/patches/lfs/development/bash-4.2-fixes-12.patch
 http://www.linuxfromscratch.org/patches/lfs/development/bzip2-1.0.6-install_docs-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/coreutils-8.21-i18n-1.patch
