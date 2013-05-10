@@ -4,7 +4,7 @@ set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 shopt -s -o pipefail
 pkgname=zlib
-pkgver=1.2.7
+pkgver=1.2.8
 srcname="../SOURCES/${pkgname}-${pkgver}.tar.bz2"
 srcdir=${pkgname}-${pkgver}
 
