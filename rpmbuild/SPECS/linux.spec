@@ -62,7 +62,9 @@ rm -rf %{buildroot}
 %changelog
 *	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 3.9-1
 -	Update version to 3.9
+
 *	Mon Apr 1  2013 baho-utot <baho-utot@columbus.rr.com> 3.8.5-1
 -	Upgrade version to 3.8.5
+
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.1-1
 -	Upgrade version
