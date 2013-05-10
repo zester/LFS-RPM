@@ -5,7 +5,7 @@ set +h		# disable hashall
 shopt -s -o pipefail
 pkgname=zlib
 pkgver=1.2.8
-srcname="../SOURCES/${pkgname}-${pkgver}.tar.bz2"
+srcname="../SOURCES/${pkgname}-${pkgver}.tar.xz"
 srcdir=${pkgname}-${pkgver}
 
 function unpack() {
