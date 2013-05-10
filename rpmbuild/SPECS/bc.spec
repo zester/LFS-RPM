@@ -25,7 +25,7 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-rm %{buildroot}/%{_infodir}
+rm -rf %{buildroot}/usr/info
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %post
