@@ -46,10 +46,11 @@ rm -rf %{buildroot}
 /bin/more
 /bin/mountpoint
 /bin/wdctl
-%{_bindir}/*
+#%{_bindir}/*
 %{_includedir}/*
 %{_libdir}/*
 %{_sbindir}/*
+%{_datarootdir}/bash-completion/*
 %{_datarootdir}/getopt/*
 %{_mandir}/*/*
 %changelog
