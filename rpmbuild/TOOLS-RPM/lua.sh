@@ -5,7 +5,7 @@ set +h		# disable hashall
 shopt -s -o pipefail
 pkgname=lua
 pkgver=5.1.5
-srcname="../../SOURCES/${pkgname}-${pkgver}.tar.gz"
+srcname="../SOURCES/${pkgname}-${pkgver}.tar.gz"
 srcdir=${pkgname}-${pkgver}
 function unpack() {
 	tar xf ${srcname}
