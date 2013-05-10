@@ -41,7 +41,7 @@ rm -rf %{buildroot}
 /sbin/*
 %{_libdir}/*
 %{_includedir}/*
-%{_defaultdocdir}/%{name}/*
+#%{_defaultdocdir}/%{name}/*
 %{_mandir}/*/*
 %changelog
 *	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 202-1
