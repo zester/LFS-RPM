@@ -14,8 +14,8 @@ function clean() {
 	rm -rf ${srcdir}
 }
 function build() {
-	patch -p1 -i "../../../SOURCES/lua-arch.patch"
-	patch -p1 -i "../../../SOURCES/lua-5.1-cflags.diff"
+	patch -p1 -i "../../SOURCES/lua-arch.patch"
+	patch -p1 -i "../../SOURCES/lua-5.1-cflags.diff"
 	export CFLAGS="$CFLAGS -fPIC"
 	make INSTALL_DATA="cp -d" \
 		TO_LIB="liblua.a liblua.so liblua.so.5.1" \
