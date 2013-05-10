@@ -25,6 +25,9 @@ make %{?_smp_mflags} -f udev-lfs-202-1/Makefile.lfs
 rm -rf %{buildroot}
 cd %{_builddir}/systemd-%{version}
 make -f udev-lfs-202-1/Makefile.lfs DESTDIR=%{buildroot} install
+install -vdm 755 %{buildroot}/%{_defaultdocdir}/%{name|-%{version}/html
+mv %{buildroot}/%{_defaultdocdir}/gtk-doc/html/* %{buildroot}/%{_defaultdocdir}/%{name|-%{version}/html
+rm -rf %{buildroot}/%{_defaultdocdir}/gtk-doc
 %clean
 rm -rf %{buildroot}
 %post
@@ -41,7 +44,7 @@ rm -rf %{buildroot}
 /sbin/*
 %{_libdir}/*
 %{_includedir}/*
-#%{_defaultdocdir}/%{name}/*
+%{_defaultdocdir}/%{name}-%{version}/*
 %{_mandir}/*/*
 %changelog
 *	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 202-1
