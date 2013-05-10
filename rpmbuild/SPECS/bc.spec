@@ -25,8 +25,6 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-find %{buildroot}/%{_libdir} -name '*.a'  -delete
-find %{buildroot}/%{_libdir} -name '*.la' -delete
 rm %{buildroot}/%{_infodir}/dir
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
@@ -38,13 +36,8 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 
-#%{_bindir}/*
-#%{_libdir}/*
-#%{_includedir}/*
-#%{_datarootdir}/
-#%{_docdir}/%{name}-%{version}/*
-#%{_infodir}/*
-#%{_mandir}/*/*
+%{_bindir}/*
+%{_mandir}/man1/*
 %changelog
 *	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 1.06.95-1
 -	Initial build.	First version
