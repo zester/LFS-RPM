@@ -7,7 +7,7 @@ License:	MIT
 Group:		Applications/System
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source:		http://www.zlib.net/%{name}-%{version}.tar.bz2
+Source:		http://www.zlib.net/%{name}-%{version}.tar.xz
 %description
 Compression and decompression routines
 %prep
