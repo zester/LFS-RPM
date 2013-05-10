@@ -1,6 +1,6 @@
 Summary:	precision numeric processing language
 Name:		bc
-Version:	1.0.6.95
+Version:	1.06.95
 Release:	1
 License:	GPLv2
 URL:		http://alpha.gnu.org/gnu/bc/
