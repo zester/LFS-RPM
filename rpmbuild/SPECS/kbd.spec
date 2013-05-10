@@ -42,7 +42,6 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 %files -f %{name}.lang
 %defattr(-,root,root)
-/bin/*
 %{_bindir}/*
 %{_defaultdocdir}/%{name}-%{version}/*
 %{_datarootdir}/consolefonts/*
