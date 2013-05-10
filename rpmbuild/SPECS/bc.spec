@@ -33,7 +33,7 @@ make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %clean
 rm -rf %{buildroot}
 
-%files -f %{name}.lang
+%files
 %defattr(-,root,root)
 
 %{_bindir}/*
