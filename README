@@ -38,7 +38,7 @@ Procedure for the setting up of the build:
 	wget -nc -i wget-list 			- fetch packages
 	wget -nc -i wget-list.rpm		- fetch packages
 	md5sum -c md5sums			- verify packages for lfs
-	md5sum -c md5sum.rpm			- verify packages for rpm
+	md5sum -c md5sums.rpm			- verify packages for rpm
 	popd					- back to parrent
 	rpmbuild/SCRIPTS/add.user.lfs.sh	- add lfs user
 	chown -R lfs.lfs /mnt/lfs/*		- fix perms
