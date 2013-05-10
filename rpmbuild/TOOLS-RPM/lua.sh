@@ -27,6 +27,7 @@ function build() {
 		INSTALL_TOP="/tools" \
 		INSTALL_MAN="/tools/share/man/man1" \
 		install
+	sed -i 's|usr|tools|' etc/lua.pc
 	install -D -m644 etc/lua.pc /tools/lib/pkgconfig/lua.pc
 }
 clean;unpack;pushd ${srcdir};build;popd;clean
