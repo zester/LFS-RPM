@@ -7,23 +7,18 @@ URL:		http://www.lua.org
 Group:		Development/Tools
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source0:	%{tarball}
+Source0:	ttp://www.lua.org/ftp/%{name}-%{version}.tar.gz
 Patch0:		lua-arch.patch
 Patch1:		lua-5.1-cflags.diff
 %description
 Lua is a powerful, light-weight programming language designed for extending
 applications. Lua is also frequently used as a general-purpose, stand-alone
 language. Lua is free software
-%define tarball	%{name}-%{version}.tar.gz
-%define pkgdir	%{_builddir}/%{name}-%{version}
 %prep
-rm -rf %{pkgdir}
 %setup -q
-cd %{pkgdir}
-patch -Np1 -i %{_sourcedir}/lua-arch.patch
-patch -Np1 -i %{_sourcedir}/lua-5.1-cflags.diff
+patch0 -p1
+patch1 -p1
 %build
-cd %{pkgdir}
 export CFLAGS="%{optflags} -fPIC"
 export CXXFLAGS="%{optflags} -fPIC"
 make %{?_smp_mflags} \
@@ -32,15 +27,15 @@ make %{?_smp_mflags} \
 	INSTALL_TOP="%{buildroot}/usr" \
 	INSTALL_MAN="%{buildroot}/usr/share/man/man1" \
 	linux
+%install
 make %{?_smp_mflags} \
 	INSTALL_DATA="cp -d" \
-	TO_LIB="liblua.a liblua.so liblua.so.5.1 liblua.so.%{version}" \
+	TO_LIB="liblua.a liblua.so liblua.so.5.1 liblua.so.5.1" \
 	INSTALL_TOP="%{buildroot}/usr" \
 	INSTALL_MAN="%{buildroot}/usr/share/man/man1" \
 	install
 install -D -m644 etc/lua.pc "%{buildroot}/usr/lib/pkgconfig/lua.pc"
 find %{buildroot}//usr/lib -name '*.a' -delete
-%install
 %clean
 rm -rf %{buildroot}
 %post	-p /sbin/ldconfig
@@ -48,23 +43,22 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 #	Binaries
-/usr/bin/lua
-/usr/bin/luac
+%{_bindir}/lua
+%{_bindir}/luac
 #	Headers	
-/usr/include/lauxlib.h
-/usr/include/lua.h
-/usr/include/lua.hpp
-/usr/include/luaconf.h
-/usr/include/lualib.h
+%{_includedir}/lauxlib.h
+%{_includedir}/lua.h
+%{_includedir}/lua.hpp
+%{_includedir}/luaconf.h
+%{_includedir}/lualib.h
 #	Libraries
-/usr/lib/liblua.so
-/usr/lib/liblua.so.5.1
-/usr/lib/liblua.so.5.1.5
-/usr/lib/pkgconfig/lua.pc
+%{_libdir}/liblua.so
+%{_libdir}/liblua.so.5.1
+%{_libdir}/liblua.so.5.1.5
+%{_libdir}/pkgconfig/lua.pc
 #	Documentation
-%doc /usr/share/man/man1/lua.1.gz
-%doc /usr/share/man/man1/luac.1.gz
-
+%{_mandir}/man1/lua.1.gz
+%{_mandir}/man1/luac.1.gz
 %changelog
 *	Wed Jan 30 2013 GangGreene <GangGreene@bildanet.com> 5.1.5-1
 -	Initial build.	First version
