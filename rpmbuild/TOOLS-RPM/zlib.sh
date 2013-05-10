@@ -15,6 +15,7 @@ function clean() {
 	rm -rf ${srcdir}
 }
 function build() {
+	export PKG_CONFIG_PATH='/tools/lib/pkgconfig'
 	CFLAGS="${CFLAGS} -fPIC" ./configure --prefix=/tools
 	make
 	make -j1 install

@@ -14,6 +14,7 @@ function clean() {
 	rm -rf ${srcdir}
 }
 function build() {
+	export PKG_CONFIG_PATH='/tools/lib/pkgconfig'
 	patch -p1 -i "../../SOURCES/lua-arch.patch"
 	patch -p1 -i "../../SOURCES/lua-5.1-cflags.diff"
 	export CFLAGS="$CFLAGS -fPIC"
@@ -27,7 +28,7 @@ function build() {
 		INSTALL_TOP="/tools" \
 		INSTALL_MAN="/tools/share/man/man1" \
 		install
-	sed -i 's|usr|tools|' etc/lua.pc
 	install -D -m644 etc/lua.pc /tools/lib/pkgconfig/lua.pc
+	sed -i 's|usr|tools|' /tools/lib/pkgconfig/lua.pc
 }
 clean;unpack;pushd ${srcdir};build;popd;clean

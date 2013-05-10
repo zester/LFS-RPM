@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set +h
 LFS=/mnt/lfs
-PART=/dev/sda7
+PART=/dev/sdxx
 fsck.ext4 ${PART}
 install -vdm 777 ${LFS}
 mount ${PART} ${LFS}
@@ -19,7 +19,7 @@ pushd ${LFS}
 		md5sum -c md5sums || true
 		md5sum -c md5sums.rpm || true
 	popd
-	chown -R lfs.lfs rpmbuild/*
+	chown -R lfs.lfs ${LFS}
 	find . -name '*.sh' -exec chmod +x '{}' \;
 	
 popd

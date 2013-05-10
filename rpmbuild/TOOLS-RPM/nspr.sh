@@ -18,6 +18,7 @@ function build() {
 	cd mozilla/nsprpub
 	sed -ri 's#^(RELEASE_BINS =).*#\1#' pr/src/misc/Makefile.in
 	sed -i 's#$(LIBRARY) ##' config/rules.mk
+	export PKG_CONFIG_PATH='/tools/lib/pkgconfig'	
 	./configure --prefix=/tools \
 		--disable-static \
 		--with-mozilla \

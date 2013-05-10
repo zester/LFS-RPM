@@ -15,6 +15,7 @@ function clean() {
 	rm -rf ${srcdir}
 }
 function build() {
+	export PKG_CONFIG_PATH='/tools/lib/pkgconfig'
 	./configure --prefix=/tools --disable-static
 	make
 	make -j1 install
