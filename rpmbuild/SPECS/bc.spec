@@ -25,7 +25,9 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
-rm -rf %{buildroot}/usr/info
+install -vdm 755 %{buildroot}/%{_mandir}
+cp -r %{buildroot}/usr/man/* %{buildroot}/%{_mandir}
+rm -rf %{buildroot}/usr/info rm -rf %{buildroot}/usr/man
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}
 %post
