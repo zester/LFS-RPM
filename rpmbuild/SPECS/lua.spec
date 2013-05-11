@@ -42,7 +42,7 @@ make %{?_smp_mflags} \
 install -D -m644 etc/lua.pc "%{buildroot}/usr/lib/pkgconfig/lua.pc"
 install -D -m644 etc/lua.pc "%{buildroot}/usr/lib/pkgconfig/lua5.1.pc"
 # fixups
-ln -s liblua5.1.so "%{buildroot}/usr/lib/liblua.so.5.1"
+#ln -s liblua5.1.so "%{buildroot}/usr/lib/liblua.so.5.1"
 ln -s liblua5.1.so "$pkgdir/usr/lib/liblua.so.%{version}"   
 find %{buildroot}//usr/lib -name '*.a' -delete
 %clean
