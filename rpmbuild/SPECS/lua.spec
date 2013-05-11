@@ -21,8 +21,8 @@ patch -Np1 -i %{_sourcedir}/lua-5.1-cflags.diff
 %build
 export CFLAGS="%{optflags} -fPIC"
 export CXXFLAGS="%{optflags} -fPIC"
-sed -e 's:llua:llua5.1:' -e 's:/include:/include/lua5.1:' -i etc/lua.pc
-sed -r -e '/^LUA_(SO|A|T)=/ s/lua/lua5.1/' -e '/^LUAC_T=/ s/luac/luac5.1/' -i src/Makefile
+#sed -e 's:llua:llua5.1:' -e 's:/include:/include/lua5.1:' -i etc/lua.pc
+#sed -r -e '/^LUA_(SO|A|T)=/ s/lua/lua5.1/' -e '/^LUAC_T=/ s/luac/luac5.1/' -i src/Makefile
 make %{?_smp_mflags} MYCFLAGS="$CFLAGS" MYLDFLAGS="$LDFLAGS" linux
 #make %{?_smp_mflags} \
 #	TO_BIN="lua5.1 luac5.1" \
