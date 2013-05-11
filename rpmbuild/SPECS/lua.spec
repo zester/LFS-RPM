@@ -22,8 +22,9 @@ patch -Np1 -i %{_sourcedir}/lua-5.1-cflags.diff
 export CFLAGS="%{optflags} -fPIC"
 export CXXFLAGS="%{optflags} -fPIC"
 make %{?_smp_mflags} \
+	TO_BIN="lua5.1 luac5.1" \
+	TO_LIB="liblua5.1.a liblua5.1.so liblua5.1.so.5.1 liblua5.1.so.5" \
 	INSTALL_DATA="cp -d" \
-	TO_LIB="liblua.a liblua.so liblua.so.5.1" \
 	INSTALL_TOP="%{buildroot}/usr" \
 	INSTALL_MAN="%{buildroot}/usr/share/man/man1" \
 	linux
@@ -32,9 +33,14 @@ make %{?_smp_mflags} \
 	INSTALL_DATA="cp -d" \
 	TO_LIB="liblua.a liblua.so liblua.so.5.1 liblua.so.5.1.5" \
 	INSTALL_TOP="%{buildroot}/usr" \
+	INSTALL_INC="%{buildroot}/usr/include/lua5.1" \
 	INSTALL_MAN="%{buildroot}/usr/share/man/man1" \
 	install
 install -D -m644 etc/lua.pc "%{buildroot}/usr/lib/pkgconfig/lua.pc"
+install -D -m644 etc/lua.pc "%{buildroot}/usr/lib/pkgconfig/lua5.1.pc"
+# fixups
+    ln -s liblua5.1.so "%{buildroot}/usr/lib/liblua.so.5.1"
+    ln -s liblua5.1.so "%{buildroot}/usr/lib/liblua.so.5"
 find %{buildroot}//usr/lib -name '*.a' -delete
 %clean
 rm -rf %{buildroot}
