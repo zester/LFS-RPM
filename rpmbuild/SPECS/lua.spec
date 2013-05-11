@@ -36,13 +36,12 @@ make %{?_smp_mflags} \
 	INSTALL_DATA="cp -d" \
 	TO_LIB="liblua.a liblua.so liblua.so.5.1 liblua.so.%{version}" \
 	INSTALL_TOP="%{buildroot}/usr" \
-	INSTALL_INC="%{buildroot}/usr/include/lua5.1" \
+	INSTALL_INC="%{buildroot}/usr/include/" \
 	INSTALL_MAN="%{buildroot}/usr/share/man/man1" \
 	install
 install -D -m644 etc/lua.pc "%{buildroot}/usr/lib/pkgconfig/lua.pc"
 install -D -m644 etc/lua.pc "%{buildroot}/usr/lib/pkgconfig/lua5.1.pc"
 # fixups
-#ln -s liblua5.1.so "%{buildroot}/usr/lib/liblua.so.5.1"
 ln -s liblua5.1.so "$pkgdir/usr/lib/liblua.so.%{version}"   
 find %{buildroot}//usr/lib -name '*.a' -delete
 %clean
