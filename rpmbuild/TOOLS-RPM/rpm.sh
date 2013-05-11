@@ -18,7 +18,7 @@ function clean() {
 function build() {
 	export PKG_CONFIG_PATH='/tools/lib/pkgconfig'
 	export LIBS='-L/tools/lib'
-	export CPPFLAGS='-I/tools/include -I/tools/include/nspr
+	export CPPFLAGS='-I/tools/include -I/tools/include/nspr'
 	./autogen.sh --noconfigure
 	./configure \
 		--prefix=/tools \
