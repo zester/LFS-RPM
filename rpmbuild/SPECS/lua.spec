@@ -16,8 +16,6 @@ applications. Lua is also frequently used as a general-purpose, stand-alone
 language. Lua is free software
 %prep
 %setup -q
-#%patch0 -p1
-#%patch1 -p1
 patch -Np1 -i %{_sourcedir}/lua-arch.patch
 patch -Np1 -i %{_sourcedir}/lua-5.1-cflags.diff
 %build
@@ -56,7 +54,7 @@ rm -rf %{buildroot}
 #	Libraries
 %{_libdir}/liblua.so
 %{_libdir}/liblua.so.5.1
-%{_libdir}/liblua.so.5.1.5
+#%{_libdir}/liblua.so.5.1.5
 %{_libdir}/pkgconfig/lua.pc
 #	Documentation
 %{_mandir}/man1/lua.1.gz
