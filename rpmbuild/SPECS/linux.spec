@@ -66,5 +66,5 @@ rm -rf %{buildroot}
 *	Mon Apr 1  2013 baho-utot <baho-utot@columbus.rr.com> 3.8.5-1
 -	Upgrade version to 3.8.5
 
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.1-1
+*	Thu Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.1-1
 -	Upgrade version
