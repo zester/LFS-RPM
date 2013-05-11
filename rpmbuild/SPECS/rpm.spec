@@ -13,7 +13,6 @@ RPM package manager
 %prep
 %setup -q
 %build
-#	LIBS=-'L/usr/lib' \
 ./autogen.sh --noconfigure
 ./configure \
 	CFLAGS="%{optflags}" \
@@ -23,8 +22,8 @@ RPM package manager
 	--bindir=%{_bindir} \
 	--libdir=%{_libdir} \
 	--disable-static \
-	--with-lua \
-	--with-external-db
+	--with-lua 
+#	--with-external-db
 make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}

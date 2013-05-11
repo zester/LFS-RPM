@@ -22,8 +22,8 @@ function build() {
 	./autogen.sh --noconfigure
 	./configure \
 		--prefix=/tools \
-		--disable-static \
-		--with-external-db
+		--disable-static 
+	#	--with-external-db
 	make
 	make -j1 install
 	sed -i 's|optflags: i386 -O2 -g -march=i386 -mtune=i686|optflags: i386 -O2 -march=i486 -mtune=i686 -pipe|'	/tools/lib/rpm/rpmrc
