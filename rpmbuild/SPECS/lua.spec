@@ -30,7 +30,7 @@ make %{?_smp_mflags} \
 %install
 make %{?_smp_mflags} \
 	INSTALL_DATA="cp -d" \
-	TO_LIB="liblua.a liblua.so liblua.so.5.1 liblua.so.5.1" \
+	TO_LIB="liblua.a liblua.so liblua.so.5.1 liblua.so.5.1.5" \
 	INSTALL_TOP="%{buildroot}/usr" \
 	INSTALL_MAN="%{buildroot}/usr/share/man/man1" \
 	install
