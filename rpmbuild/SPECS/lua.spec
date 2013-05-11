@@ -16,8 +16,8 @@ applications. Lua is also frequently used as a general-purpose, stand-alone
 language. Lua is free software
 %prep
 %setup -q
-patch0 -p1
-patch1 -p1
+%patch0 -p1
+%patch1 -p1
 %build
 export CFLAGS="%{optflags} -fPIC"
 export CXXFLAGS="%{optflags} -fPIC"
