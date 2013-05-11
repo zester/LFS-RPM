@@ -54,6 +54,7 @@ rm -rf %{buildroot}
 #	Libraries
 %{_libdir}/liblua.so
 %{_libdir}/liblua.so.5.1
+%{_libdir}/liblua.so.5.1.5
 %{_libdir}/pkgconfig/lua.pc
 #	Documentation
 %{_mandir}/man1/lua.1.gz
