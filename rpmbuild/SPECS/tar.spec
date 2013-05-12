@@ -23,7 +23,7 @@ FORCE_UNSAFE_CONFIGURE=1  ./configure \
 	--libexecdir=%{_sbindir}
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 install -vdm 755 %{buildroot}%{_sbindir}
 make DESTDIR=%{buildroot} install
 make DESTDIR=%{buildroot} -C doc install-html docdir=%{_defaultdocdir}/%{name}-%{version}

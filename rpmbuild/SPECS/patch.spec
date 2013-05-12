@@ -21,7 +21,7 @@ file typically created by the diff program.
 	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}

@@ -22,7 +22,7 @@ The Sed package contains a stream editor.
 	--htmldir=%{_defaultdocdir}/%{name}-%{version}
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}/*
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 rm -rf %{buildroot}%{_infodir}
 %find_lang %{name}

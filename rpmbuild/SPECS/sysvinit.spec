@@ -19,7 +19,7 @@ sed -i -e '/mountpoint/d' \
 %build
 make %{?_smp_mflags} CC="%{__cc}" CFLAGS="%{optflags} -D_GNU_SOURCE" LDFLAGS="-lcrypt" -C src
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make -C src ROOT=%{buildroot} \
 	MANDIR=/usr/share/man \
 	STRIP=/bin/true \

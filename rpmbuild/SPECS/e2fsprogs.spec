@@ -29,7 +29,7 @@ CXXFLAGS="%{optflags}" \
 --disable-fsck
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 cd build
 make DESTDIR=%{buildroot} install
 make DESTDIR=%{buildroot} install-libs

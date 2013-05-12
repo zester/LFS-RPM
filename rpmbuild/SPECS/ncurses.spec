@@ -26,7 +26,7 @@ handling of character screens.
 	--enable-pc-files
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}%{_libdir}/pkgconfig
 install -vdm 755 %{buildroot}/%{_lib}

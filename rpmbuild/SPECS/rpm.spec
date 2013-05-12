@@ -7,11 +7,13 @@ URL:		http://rpm.org
 Group:		Applications/System
 Vendor:		Bildanet
 Distribution:	Octothorpe
-Source:		http://rpm.org/releases/rpm-4.11.x/%{name}-%{version}.tar.bz2
+Source0:	http://rpm.org/releases/rpm-4.11.x/%{name}-%{version}.tar.bz2
+Source1:	http://download.oracle.com/berkeley-db/db-5.3.21.tar.gz
 %description
 RPM package manager
 %prep
 %setup -q
+ln -vs ../db-5.3.21 %{name}-%{version}/db
 %build
 ./autogen.sh --noconfigure
 ./configure \
@@ -26,7 +28,7 @@ RPM package manager
 #	--with-external-db
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 find %{buildroot}%{_libdir} -name '*.a' -delete
 find %{buildroot}%{_libdir} -name '*.la' -delete

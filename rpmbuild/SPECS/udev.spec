@@ -1,6 +1,6 @@
 Summary:	Programs for dynamic creation of device nodes
 Name:		udev
-Version:	202
+Version:	204
 Release:	1
 License:	GPLv2
 URL:		http://www.freedesktop.org/wiki/Software/systemd/
@@ -20,16 +20,11 @@ cd %{_builddir}/systemd-%{version}
 mv ../udev-lfs-%{version}-1 .
 %build
 cd %{_builddir}/systemd-%{version}
-make %{?_smp_mflags} -f udev-lfs-202-1/Makefile.lfs
+make %{?_smp_mflags} -f udev-lfs-204-1/Makefile.lfs
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 cd %{_builddir}/systemd-%{version}
-make -f udev-lfs-202-1/Makefile.lfs DESTDIR=%{buildroot} install
-#LFS dev fix - repair on 204 upgrade
-mv %{buildroot}/usr/share/gtk-doc/html/{,lib}udev
-install -vdm 755 %{buildroot}/%{_defaultdocdir}/%{name}-%{version}/html
-mv %{buildroot}/%{_datarootdir}/gtk-doc/html/* %{buildroot}/%{_defaultdocdir}/%{name}-%{version}/html
-rm -rf %{buildroot}/%{_datarootdir}/gtk-doc
+make -f udev-lfs-204-1/Makefile.lfs DESTDIR=%{buildroot} install
 %clean
 rm -rf %{buildroot}
 %post
@@ -47,8 +42,11 @@ rm -rf %{buildroot}
 %{_libdir}/*
 %{_includedir}/*
 %{_defaultdocdir}/%{name}-%{version}/*
+%{_defaultdocdir}/gtk-doc/html/libudev/*
 %{_mandir}/*/*
 %changelog
+*	Sat May 11 2013 baho-utot <baho-utot@columbus.rr.com> 204-1
+-	Update version to 204
 *	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 202-1
 -	Update version to 202
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 200-1

@@ -37,7 +37,7 @@ symbols), readelf (to see the raw ELF file structures), and elflint
 	}
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make install DESTDIR=%{buildroot}
 chmod +x %{buildroot}%{_libdir}/lib*.so*
 chmod +x %{buildroot}%{_libdir}/elfutils/lib*.so*

@@ -27,7 +27,7 @@ CFLAGS="%{optflags}" \
 CXXFLAGS="%{optflags}" \
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make PREFIX=%{buildroot}/usr install
 install -vdm 0755 %{buildroot}/%{_lib}
 install -vdm 0755 %{buildroot}/bin

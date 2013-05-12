@@ -26,6 +26,7 @@ cd %{_builddir}/%{name}73
 	--enable-multibyte
 make %{?_smp_mflags}
 %install
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 cd %{_builddir}/%{name}73
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install

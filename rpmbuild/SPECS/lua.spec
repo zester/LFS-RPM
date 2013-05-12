@@ -23,7 +23,7 @@ export CFLAGS="%{optflags} -fPIC"
 export CXXFLAGS="%{optflags} -fPIC"
 make %{?_smp_mflags} MYCFLAGS="$CFLAGS" MYLDFLAGS="$LDFLAGS" linux
 %install
-rm -rf %{buildroot}/*
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make %{?_smp_mflags} \
 	INSTALL_DATA="cp -d" \
 	TO_LIB="liblua.a liblua.so liblua.so.5.1 liblua.so.%{version}" \

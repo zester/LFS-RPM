@@ -19,6 +19,7 @@ cd %{blddir}
 tar xf %{SOURCE1}
 %build
 %install
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 cd %{blddir}
 ZONEINFO=%{buildroot}%{_datarootdir}/zoneinfo
 install -vdm 755 $ZONEINFO/{posix,right}

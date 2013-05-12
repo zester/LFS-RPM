@@ -27,7 +27,7 @@ The Man-DB package contains programs for finding and viewing man pages.
 	--with-grap=%{_bindir}/grap
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 find %{buildroot}%{_libdir} -name '*.la' -delete
 %check

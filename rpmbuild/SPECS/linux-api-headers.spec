@@ -1,6 +1,6 @@
 Summary:	Linux Api header files
 Name:		linux-api-headers
-Version:	3.9
+Version:	3.9.1
 Release:	1
 License:	GPLv2
 URL:		http://www.kernel.org/
@@ -19,6 +19,7 @@ cd %{_builddir}/linux-%{version}
 make mrproper
 make headers_check
 %install
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 cd %{_builddir}/linux-%{version}
 rm -rf %{buildroot}/*
 make INSTALL_HDR_PATH=dest headers_install
@@ -31,6 +32,8 @@ rm -rf %{buildroot} %{_builddir}/*
 %defattr(-,root,root)
 %{_includedir}/*
 %changelog
+*	Sat May 11 2013 baho-utot <baho-utot@columbus.rr.com> 3.9.1-1
+-	Update version to 3.9.1
 *	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 3.9-1
 -	Update version to 3.9
 *	Mon Apr 1 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.5-1

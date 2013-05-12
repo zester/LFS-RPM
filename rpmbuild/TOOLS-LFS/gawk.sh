@@ -3,7 +3,7 @@ set -o errexit	# exit if error
 set -o nounset	# exit if variable not initalized
 set +h		# disable hashall
 pkgname=gawk
-pkgver=4.0.2
+pkgver=4.1.0
 srcname="../SOURCES/${pkgname}-${pkgver}.tar.xz"
 srcdir=${pkgname}-${pkgver}
 

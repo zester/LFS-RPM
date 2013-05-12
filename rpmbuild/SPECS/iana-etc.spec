@@ -16,7 +16,7 @@ The Iana-Etc package provides data for network services and protocols.
 %build
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 %clean
 rm -rf %{buildroot}

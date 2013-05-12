@@ -33,7 +33,7 @@ make %{?_smp_mflags}
 cd %{_builddir}/glibc-build
 make -k check |& tee %{_specdir}/%{name}-check.log || true
 %install
-rm -rf %{_buildrootdir}/*
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 cd %{_builddir}/glibc-build
 #	Create directories
 install -vdm 755 %{buildroot}%{_libdir}/locale

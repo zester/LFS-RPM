@@ -17,7 +17,7 @@ for the directories.
 %prep
 %build
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 #	Kernel required directories
 install -vdm 755 %{buildroot}/{dev,proc,sys}
 #	Begin

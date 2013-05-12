@@ -28,7 +28,7 @@ sh Configure -des -Dprefix=/usr \
 	-Duseshrplib
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 chmod -R u+w %{buildroot}%{_libdir}/*
 %clean

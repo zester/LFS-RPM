@@ -21,7 +21,7 @@ The Less package contains a text file viewer
 	--sysconfdir=/etc
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 %clean
 rm -rf %{buildroot}

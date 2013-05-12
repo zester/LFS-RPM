@@ -21,7 +21,7 @@ sed -i -e '/gets is a/d' lib/stdio.in.h
 	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 rm -rf %{buildroot}%{_infodir}
 %check

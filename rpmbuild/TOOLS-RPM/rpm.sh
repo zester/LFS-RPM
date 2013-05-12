@@ -7,13 +7,17 @@ pkgname=rpm
 #pkgver=4.10.3.1
 pkgver=4.11.0.1
 srcname="../SOURCES/${pkgname}-${pkgver}.tar.bz2"
+dbname="../SOURCES/db-5.3.21.tar.gz"
 srcdir=${pkgname}-${pkgver}
 
 function unpack() {
 	tar xf ${srcname}
+	tar xf ${srcname}
+	ln -vs ../db-5.3.21 ${srcdir}/db
 }
 function clean() {
-	rm -rf ${srcdir} 
+	rm -rf ${srcdir}
+	rm -rf db-5.3.21
 }
 function build() {
 	export PKG_CONFIG_PATH='/tools/lib/pkgconfig'

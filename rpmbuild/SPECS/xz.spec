@@ -22,7 +22,7 @@ decompressing files
 	--docdir=%{_defaultdocdir}/%{name}-%{version}
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} pkgconfigdir=%{_libdir}/pkgconfig install
 find %{buildroot}%{_libdir} -name '*.la' -delete
 %find_lang %{name}

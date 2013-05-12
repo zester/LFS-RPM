@@ -21,7 +21,7 @@ Contains programs for generating Makefiles for use with Autoconf.
 	--docdir=%{_defaultdocdir}/%{name}-%{version}
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 rm -rf %{buildroot}%{_infodir}
 %clean

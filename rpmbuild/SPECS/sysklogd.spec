@@ -16,7 +16,7 @@ such as those given by the kernel when unusual things happen.
 %build
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 install -vdm 755 %{buildroot}/etc/logrotate.d
 install -vdm 755 %{buildroot}/usr/bin
 install -vdm 755 %{buildroot}/usr/share/man/man{5,8}

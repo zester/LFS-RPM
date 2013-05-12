@@ -32,7 +32,7 @@ make nss_build_all BUILD_OPT=1 \
 	$([ $(uname -m) = x86_64 ] && echo USE_64=1) \
 	$([ -f %{_includedir}/sqlite3.h ] && echo NSS_USE_SYSTEM_SQLITE=1)
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 cd mozilla/security/nss
 cd ../../dist
 install -vdm 755 %{buildroot}%{_bindir}

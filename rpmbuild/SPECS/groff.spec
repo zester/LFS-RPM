@@ -21,7 +21,7 @@ PAGE=letter ./configure \
 	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 install -vdm 755 %{_defaultdocdir}/%{name}-1.22/pdf
 make DESTDIR=%{buildroot} install
 ln -sv eqn %{buildroot}%{_bindir}/geqn

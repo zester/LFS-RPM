@@ -42,7 +42,7 @@ Patch0:
 make %{?_smp_mflags}
 
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 #make PREFIX=%{buildroot}/usr install
 find %{buildroot}/%{_libdir} -name '*.a'  -delete

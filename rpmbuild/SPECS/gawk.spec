@@ -1,6 +1,6 @@
 Summary:	Contains programs for manipulating text files
 Name:		gawk
-Version:	4.0.2
+Version:	4.1.0
 Release:	1
 License:	GPLv3
 URL:		http://www.gnu.org/software/gawk
@@ -21,7 +21,7 @@ The Gawk package contains programs for manipulating text files.
 	--libexecdir=%{_libexecdir}
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}%{_defaultdocdir}/%{name}-%{version}
 cp -v doc/{awkforai.txt,*.{eps,pdf,jpg}} %{buildroot}%{_defaultdocdir}/%{name}-%{version}
@@ -41,5 +41,7 @@ rm -rf %{buildroot}
 %{_defaultdocdir}/%{name}-%{version}/*
 %{_mandir}/*/*
 %changelog
+*	Sat May 11 2013 baho-utot <baho-utot@columbus.rr.com> 4.1.0-1
+-	Upgrade version
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 4.0.2-1
 -	Upgrade version

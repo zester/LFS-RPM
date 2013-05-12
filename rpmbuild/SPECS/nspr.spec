@@ -29,7 +29,7 @@ CXXFLAGS="%{optflags}" \
 	$([ $(uname -m) = x86_64 ] && echo --enable-64bit)
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 cd mozilla/nsprpub
 make DESTDIR=%{buildroot} install
 %clean

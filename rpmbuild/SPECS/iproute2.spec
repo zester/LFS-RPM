@@ -22,7 +22,7 @@ export CFLAGS="%{optflags}"
 sed -i "s/CCOPTS = -O2/CCOPTS = %{optflags}/" Makefile
 make %{?_smp_mflags} DESTDIR=
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make	DESTDIR=%{buildroot} \
 	MANDIR=%{_mandir} \
 	DOCDIR=%{_defaultdocdir}/%{name}-%{version} install

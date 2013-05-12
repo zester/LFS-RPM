@@ -14,10 +14,10 @@ a1ec22ef003688dae9f76c74881b22b9  e2fsprogs-1.42.7.tar.gz
 c26625f1d6773ad4bc5a87c0e315632c  file-5.14.tar.gz
 351cc4adb07d54877fa15f75fb77d39f  findutils-4.4.2.tar.gz
 c75940e1fc25108f2a7b3ef42abdae06  flex-2.5.37.tar.bz2
-8a9b2f1170ac9dcd3eb13716b5ec4021  gawk-4.0.2.tar.xz
+b18992ff8faf3217dab55d2d0aa7d707  gawk-4.1.0.tar.xz
 e6040024eb9e761c3bea348d1fa5abb0  gcc-4.8.0.tar.bz2
 88770493c2559dc80b561293e39d3570  gdbm-1.10.tar.gz
-0c86e5af70c195ab8bd651d17d783928  gettext-0.18.2.tar.gz
+034c8103b14654ebd300fadac44d6f14  gettext-0.18.2.1.tar.gz
 87bf675c8ee523ebda4803e8e1cec638  glibc-2.17.tar.xz
 485b1296e6287fa381e6015b19767989  gmp-5.1.1.tar.xz
 d4a3f03849d1e17ce56ab76aa5a24cab  grep-2.14.tar.xz
@@ -33,7 +33,7 @@ d5aba43b9370cd52f3cb35e82a1aa595  kmod-13.tar.xz
 df08d6b8b0be952a551a98386b8713a9  lfs-bootscripts-20130123.tar.bz2
 f4866aa3a84f2852c78f87ff619dfc60  libpipeline-1.2.3.tar.gz
 d2f3b7d4627e69e13514a40e72a24d50  libtool-2.4.2.tar.gz
-4348c9b6b2eb3144d601e87c19d5d909  linux-3.9.tar.xz
+913bbf85c65f3e587a5000763374b4aa  linux-3.9.1.tar.xz
 8a7cef47fecab6272eb86a6be6363b2f  m4-1.4.16.tar.bz2
 1a11100f3c63fcf5753818e59d63088f  make-3.82.tar.bz2
 a593a095599ae97bcacf8d038659a146  man-db-2.6.3.tar.xz
@@ -55,8 +55,8 @@ e053094e8103165f98ddafe828f6ae4b  sysklogd-1.5.tar.gz
 573aa5fe678e9185ef2b3c56b24658d3  tcl8.6.0-src.tar.gz
 b5062217a2dea6823dd69b4dda97b249  tzdata2013c.tar.gz
 52ee905a3b705020d2a1b6ec36d53ca6  texinfo-5.1.tar.xz
-3136c6912d3ee1f6d4deb16234783731  systemd-202.tar.xz
-1a93f3c21e0aed75c612dc4305b813da  udev-lfs-202-1.tar.bz2
+a07619bb19f48164fbf0761d12fd39a8  systemd-204.tar.xz
+015a9c242a26eb47a62e568fcc942186  udev-lfs-204-1.tar.bz2
 cf5e9bb402371beaaffc3a5f276d5783  util-linux-2.23.tar.xz
 5b9510a17074e2b37d8bb38ae09edbf2  vim-7.3.tar.bz2
 161015c4a65b1f293d31810e1df93090  xz-5.0.4.tar.xz

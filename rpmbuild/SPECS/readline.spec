@@ -25,7 +25,7 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install
 	--libdir=/lib
 make %{?_smp_mflags} SHLIB_LIBS=-lncurses
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}%{_libdir}
 mv -v %{buildroot}/lib/lib{readline,history}.a %{buildroot}%{_libdir}

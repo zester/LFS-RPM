@@ -27,7 +27,7 @@ CXXFLAGS="%{optflags}" \
 	--enable-shared
 make %{?_smp_mflags} tooldir=/usr
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 cd ../binutils-build
 make DESTDIR=%{buildroot} tooldir=%{_usr} install
 cp -v ../%{name}-%{version}/include/libiberty.h %{buildroot}/%{_includedir}

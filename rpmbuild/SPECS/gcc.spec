@@ -39,7 +39,7 @@ CXXFLAGS="%{optflags}" \
 	--with-system-zlib
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}/*
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 cd ../gcc-build
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/lib

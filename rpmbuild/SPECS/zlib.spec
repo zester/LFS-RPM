@@ -20,7 +20,7 @@ CFLAGS="%{optflags}" \
 	--libdir=%{_libdir}
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}/*
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/%{_lib}
 mv -v %{buildroot}%{_libdir}/libz.so.* %{buildroot}/%{_lib}

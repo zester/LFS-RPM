@@ -25,7 +25,7 @@ The Kmod package contains libraries and utilities for loading kernel modules
 	--with-zlib
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} pkgconfigdir=%{_libdir}/pkgconfig install
 install -vdm 755 %{buildroot}/sbin
 for target in depmod insmod modinfo modprobe rmmod; do

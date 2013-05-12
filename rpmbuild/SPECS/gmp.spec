@@ -33,7 +33,7 @@ for arbitrary precision arithmetic.
 %endif
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}/*
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}%{_defaultdocdir}/%{name}-%{version}
 cp    -v doc/{isa_abi_headache,configuration} doc/*.html \

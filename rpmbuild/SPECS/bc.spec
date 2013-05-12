@@ -23,7 +23,7 @@ The Bc package contains an arbitrary precision numeric processing language.
 	--with-readline
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/%{_mandir}
 cp -r %{buildroot}/usr/man/* %{buildroot}/%{_mandir}

@@ -18,8 +18,8 @@ tar xvf %{SOURCE0}
 cd %{_builddir}/lfs-%{name}-%{version}
 %build
 %install
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 cd %{_builddir}/lfs-%{name}-%{version}
-rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
 %clean
 rm -rf %{buildroot}

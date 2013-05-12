@@ -25,7 +25,7 @@ The Procps package contains programs for monitoring processes.
 	--disable-kill
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 install -vdm 755 %{buildroot}/lib
 mv -v %{buildroot}%{_libdir}/libprocps.so.* %{buildroot}/lib

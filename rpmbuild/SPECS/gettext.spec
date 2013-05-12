@@ -1,6 +1,6 @@
 Summary:	Utilities for internationalization and localization
 Name:		gettext
-Version:	0.18.2
+Version:	0.18.2.1
 Release:	1
 License:	GPLv3
 URL:		http://www.gnu.org/software/gettext
@@ -23,10 +23,10 @@ messages in the user's native language.
 	--docdir=%{_defaultdocdir}/%{name}-%{version}
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 find %{buildroot}%{_libdir} -name '*.la' -delete
-rm -rf %{buildroot}/usr/share/doc/gettext-0.18.2/examples
+rm -rf %{buildroot}/usr/share/doc/gettext-%{version}/examples
 rm -rf %{buildroot}%{_infodir}
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}

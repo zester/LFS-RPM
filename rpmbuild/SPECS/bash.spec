@@ -28,7 +28,7 @@ The package contains the Bourne-Again SHell
 	--with-installed-readline
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 %find_lang %{name}
 rm -rf %{buildroot}/%{_infodir}

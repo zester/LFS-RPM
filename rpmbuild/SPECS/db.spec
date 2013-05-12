@@ -27,7 +27,7 @@ export CFLAGS="%{optflags} -fno-strict-aliasing " CXXFLAGS="%{optflags}"
 	--disable-atomicsupport
 make %{?_smp_mflags} LIB=-lpthread
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 cd build_unix
 make DESTDIR=%{buildroot} docdir=%{_defaultdocdir}/%{name}-%{version} fmode=644 install
 find %{buildroot}%{_libdir} -name '*.la' -delete

@@ -21,7 +21,7 @@ This package contains a parser generator
 echo '#define YYENABLE_NLS 1' >> lib/config.h
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 rm -rf %{buildroot}%{_infodir}
 %check

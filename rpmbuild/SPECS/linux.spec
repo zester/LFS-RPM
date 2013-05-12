@@ -1,6 +1,6 @@
 Summary:	Kernel
 Name:		linux
-Version:	3.9
+Version:	3.9.1
 Release:	1
 License:	GPLv2
 URL:		http://www.kernel.org/
@@ -26,7 +26,7 @@ cp %{SOURCE2} .config
 make LC=ALL= oldconfig
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 install -vdm 755 %{buildroot}/etc
 install -vdm 755 %{buildroot}/boot
 install -vdm 755 %{buildroot}%{_defaultdocdir}/%{name}-%{version}
@@ -46,8 +46,8 @@ install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
 # End /etc/modprobe.d/usb.conf
 EOF
 #	Cleanup dangling symlinks
-rm -rf %{buildroot}/lib/modules/3.8.5/source
-rm -rf %{buildroot}/lib/modules/3.8.5/build
+rm -rf %{buildroot}/lib/modules/%{version}/source
+rm -rf %{buildroot}/lib/modules/%{version}/build
 %clean
 rm -rf %{buildroot}
 %files
@@ -60,11 +60,11 @@ rm -rf %{buildroot}
 /lib/modules/*
 %{_defaultdocdir}/%{name}-%{version}/*
 %changelog
+*	Sat May 11 2013 baho-utot <baho-utot@columbus.rr.com> 3.9.1-1
+-	Update version to 3.9.1
 *	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 3.9-1
 -	Update version to 3.9
-
 *	Mon Apr 1  2013 baho-utot <baho-utot@columbus.rr.com> 3.8.5-1
 -	Upgrade version to 3.8.5
-
 *	Thu Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 3.8.1-1
 -	Upgrade version

@@ -25,7 +25,7 @@ to build tools during the configure and make file execution.
 	--disable-shared
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}/*
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 %check
 make -k check |& tee %{_specdir}/%{name}-check-log || %{nocheck}

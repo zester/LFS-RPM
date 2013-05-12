@@ -26,7 +26,7 @@ that recognize patterns in text.
 	--infodir=%{_infodir}
 make %{?_smp_mflags}
 %install
-rm -rf %{buildroot}
+[ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
 ln -sv libfl.a %{buildroot}%{_libdir}/libl.a
 install -vdm 755   %{buildroot}%{_defaultdocdir}/%{name}
