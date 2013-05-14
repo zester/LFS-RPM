@@ -14,7 +14,7 @@ RPM package manager
 %prep
 %setup -q
 %setup -q -T -D -a 1
-ln -vs ../db-5.3.21 %{name}-%{version}/db
+mv db-5.3.21 db
 %build
 ./autogen.sh --noconfigure
 ./configure \
