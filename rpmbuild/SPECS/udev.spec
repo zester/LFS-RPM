@@ -42,7 +42,7 @@ rm -rf %{buildroot}
 %{_libdir}/*
 %{_includedir}/*
 %{_defaultdocdir}/%{name}-%{version}/*
-%{_defaultrootdir}/gtk-doc/html/udev/*
+%{_datarootdir}/gtk-doc/html/udev/*
 %{_mandir}/*/*
 %changelog
 *	Sat May 11 2013 baho-utot <baho-utot@columbus.rr.com> 204-1
