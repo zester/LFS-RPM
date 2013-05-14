@@ -12,7 +12,7 @@ srcdir=${pkgname}-${pkgver}
 
 function unpack() {
 	tar xf ${srcname}
-	tar xf ${srcname}
+	tar xf ${dbname}
 	ln -vs ../db-5.3.21 ${srcdir}/db
 }
 function clean() {
