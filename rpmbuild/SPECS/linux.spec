@@ -1,6 +1,6 @@
 Summary:	Kernel
 Name:		linux
-Version:	3.9.1
+Version:	3.9.2
 Release:	1
 License:	GPLv2
 URL:		http://www.kernel.org/
@@ -60,6 +60,8 @@ rm -rf %{buildroot}
 /lib/modules/*
 %{_defaultdocdir}/%{name}-%{version}/*
 %changelog
+*	Wed May 15 2013 baho-utot <baho-utot@columbus.rr.com> 3.9.2-1
+-	Update version to 3.9.2
 *	Sat May 11 2013 baho-utot <baho-utot@columbus.rr.com> 3.9.1-1
 -	Update version to 3.9.1
 *	Fri May 10 2013 baho-utot <baho-utot@columbus.rr.com> 3.9-1

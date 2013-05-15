@@ -21,7 +21,7 @@ for the directories.
 #	Kernel required directories
 install -vdm 755 %{buildroot}/{dev,proc,sys}
 #	Begin
-install -vdm 755 %{buildroot}/{bin,boot,etc/{opt,sysconfig},home,lib,mnt,opt,run}
+install -vdm 755 %{buildroot}/{bin,boot,etc/{opt,sysconfig},home,lib,opt,run}
 install -vdm 755 %{buildroot}/{media/{floppy,cdrom},sbin,srv,var}
 install -vdm 0750 %{buildroot}/root
 install -vdm 1777 %{buildroot}/tmp %{buildroot}/var/tmp
@@ -41,6 +41,7 @@ ln -sv lib %{buildroot}/usr/lib64
 install -vdm 755 %{buildroot}/run/lock
 ln -sv /run %{buildroot}/var/run
 ln -sv /run/lock %{buildroot}/var/lock
+ln -sv /proc/self/mounts %{buildroot}/etc/mtab
 #	install configuration files
 touch %{buildroot}/etc/mtab
 touch %{buildroot}/var/log/{btmp,lastlog,wtmp}
