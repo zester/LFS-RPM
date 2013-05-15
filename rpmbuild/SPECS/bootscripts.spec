@@ -43,7 +43,7 @@ rm -rf %{buildroot}
 /sbin/*
 %{_mandir}/*/*
 %changelog
-*	Wed May 15 09:19:29 EDT 2013 baho-utot <baho-utot@columbus.rr.com> 20130511-1
+*	Wed May 15 2013 baho-utot <baho-utot@columbus.rr.com> 20130511-1
 -	Upgrade version to 20130511
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 20130123-1
 -	Upgrade version
