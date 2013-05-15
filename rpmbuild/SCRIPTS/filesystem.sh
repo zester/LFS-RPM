@@ -12,7 +12,7 @@ install -vdm 755 $LFS/{dev,proc,sys}
 su -c "mknod	-m 600 $LFS/dev/console c 5 1"
 su -c "mknod	-m 600 $LFS/dev/null c 1 3"
 #	build filesystem on $LFS
-install -vdm 755 $LFS/{bin,boot,etc/{opt,sysconfig},home,lib,opt,run}
+install -vdm 755 $LFS/{bin,boot,etc/{opt,sysconfig},home,lib,mnt,opt,run}
 install -vdm 755 $LFS/{media/{floppy,cdrom},sbin,srv,var}
 install -vdm 0750 $LFS/root
 install -vdm 1777 $LFS/tmp $LFS/var/tmp
