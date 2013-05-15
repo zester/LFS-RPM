@@ -30,10 +30,10 @@ http://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-3.9.0.tar.xz
 http://ftp.altlinux.org/pub/people/legion/kbd/kbd-1.15.5.tar.gz
 http://www.kernel.org/pub/linux/utils/kernel/kmod/kmod-13.tar.xz
 http://www.greenwoodsoftware.com/less/less-458.tar.gz
-http://www.linuxfromscratch.org/lfs/downloads/development/lfs-bootscripts-20130123.tar.bz2
+http://www.linuxfromscratch.org/lfs/downloads/development/lfs-bootscripts-20130511.tar.bz2
 http://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.2.3.tar.gz
 http://ftp.gnu.org/gnu/libtool/libtool-2.4.2.tar.gz
-http://www.kernel.org/pub/linux/kernel/v3.x/linux-3.9.1.tar.xz
+http://www.kernel.org/pub/linux/kernel/v3.x/linux-3.9.2.tar.xz
 http://ftp.gnu.org/gnu/m4/m4-1.4.16.tar.bz2
 http://ftp.gnu.org/gnu/make/make-3.82.tar.bz2
 http://download.savannah.gnu.org/releases/man-db/man-db-2.6.3.tar.xz

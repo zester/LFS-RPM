@@ -30,10 +30,10 @@ fd9db28e4f411a1e74de65c919ae590f  iproute2-3.9.0.tar.xz
 34c71feead8ab9c01ec638acea8cd877  kbd-1.15.5.tar.gz
 d5aba43b9370cd52f3cb35e82a1aa595  kmod-13.tar.xz
 935b38aa2e73c888c210dedf8fd94f49  less-458.tar.gz
-df08d6b8b0be952a551a98386b8713a9  lfs-bootscripts-20130123.tar.bz2
+cb3b90e74af2ff08c699090c7b3f8297  lfs-bootscripts-20130511.tar.bz2
 f4866aa3a84f2852c78f87ff619dfc60  libpipeline-1.2.3.tar.gz
 d2f3b7d4627e69e13514a40e72a24d50  libtool-2.4.2.tar.gz
-913bbf85c65f3e587a5000763374b4aa  linux-3.9.1.tar.xz
+e406cc1bb5618a4ea88470f4d3d3d6e1  linux-3.9.2.tar.xz
 8a7cef47fecab6272eb86a6be6363b2f  m4-1.4.16.tar.bz2
 1a11100f3c63fcf5753818e59d63088f  make-3.82.tar.bz2
 a593a095599ae97bcacf8d038659a146  man-db-2.6.3.tar.xz
