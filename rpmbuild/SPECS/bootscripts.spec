@@ -1,6 +1,6 @@
 Summary:	Scripts for booting system
 Name:		bootscripts
-Version:	20130511
+Version:	20130515
 Release:	1
 License:	GPLv3
 URL:		http://www.linuxfromscratch.org/lfs
@@ -43,6 +43,8 @@ rm -rf %{buildroot}
 /sbin/*
 %{_mandir}/*/*
 %changelog
+*	Thu May 16 2013 baho-utot <baho-utot@columbus.rr.com> 20130515-1
+-	Upgrade version to 20130515
 *	Wed May 15 2013 baho-utot <baho-utot@columbus.rr.com> 20130511-1
 -	Upgrade version to 20130511
 *	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 20130123-1
