@@ -10,3 +10,4 @@ b35f5359e0d4494d7b11e8d0c1512a0d  rpm-4.11.0.1.tar.bz2
 2e115fe26e435e33b0d5c022e4490567  lua-5.1.5.tar.gz
 249582bf1fd861ccf492d2c35a9fe732  lua-5.1-cflags.diff
 fa25feb70ef9fec975b1c20da5098b3c  lua-arch.patch
+f01f36a25bf372712ff6b1e4aad8d89c  Module-ScanDeps-1.10.tar.gz
