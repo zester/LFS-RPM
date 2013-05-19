@@ -4,15 +4,7 @@ FIX:
 
 -	rpmlint binary rpm files
 
--	Chapter 6 glibc locale generation
-	- add note to run /sbin/locale-gen.sh on first login new system
-
--	Rpm database needs rebuilt on newly built system
-	-	rpmdb --rebuilddb fixes this for now
-	
 -	executables and libraries are not stripped even when /tools/bin/strip
 	is run when building rpm package.
 	
--	New version rpm is out
-
 -	Create split packages ie devel rpms for includes and static libs
