@@ -11,10 +11,31 @@ die() {
 	printf "Installation failed: ${msg}\n"
 	exit 1
 }
+mnt_kernel_filesystem () {
+if ! mountpoint ${PARTITION}/dev >/dev/null; then
+	mount -v --bind /dev "${PARTITION}"
+fi
+if ! mountpoint ${PARTITION}/dev/pts >/dev/null; then
+	mount -vt devpts devpts "${PARTITION}/dev/pts"
+fi
+if [ -h /dev/shm ]; then
+   rm -f ${PARTITION}/dev/shm
+   mkdir ${PARTITION}/dev/shm
+fi
+if ! mountpoint ${PARTITION}/dev/shm >/dev/null; then
+	mount -vt tmpfs shm "${PARTITION}/dev/shm"
+fi
+if ! mountpoint ${PARTITION}/proc	>/dev/null; then
+	mount -vt proc proc "${PARTITION}/proc"
+fi
+if ! mountpoint ${PARTITION}/sys	>/dev/null; then
+	mount -vt sysfs sysfs "${PARTITION}/sys"
+fi
+}
 #	Mount partition
 [ -d ${PARTITION} ] || install -vdm 777 ${PARTITION}
 mount ${DEVICE} ${PARTITION} || die "Can not mount PARTITION\n"
-mount the /sys partition see complete.sh
+mnt_kernel_filesystem || die "Can not mount kernel filesystems\n"
 #	Install base packages
 rpm --initdb --dbpath ${PARTITION}/var/lib/rpm
 rpm -Uvh --nodeps --noscripts --root ${PARTITION} RPMS/noarch/* RPMS/i686/*
