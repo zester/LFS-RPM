@@ -3,7 +3,7 @@ set -o errexit	# exit if error
 set +h		# disable hashall
 shopt -s -o pipefail
 
-DEVICE=/dev/sdax
+DEVICE=/dev/sda6
 PARTITION=/mnt/installation
 
 die() {
@@ -12,12 +12,15 @@ die() {
 	exit 1
 }
 #	Mount partition
-[ -d ${PARTITION } || install -vdm 777 ${PARTITION}
+[ -d ${PARTITION} ] || install -vdm 777 ${PARTITION}
 mount ${DEVICE} ${PARTITION} || die "Can not mount PARTITION\n"
+mount the /sys partition see complete.sh
 #	Install base packages
 rpm --initdb --dbpath ${PARTITION}/var/lib/rpm
-rpm -Uvh --nodeps --root ${PARTITION} RPMS/noarch/*
-rpm -Uvh --nodeps --root ${PARTITION} RPMS/i686/*
+rpm -Uvh --nodeps --noscripts --root ${PARTITION} RPMS/noarch/* RPMS/i686/*
+#	Create device nodes
+/bin/mknod -m 600 ${PARTITION}/dev/console c 5 1
+/bin/mknod -m 666 ${PARTITION}/dev/null c 1 3
 #	Configuration
 LIST=(/etc/sysconfig/clock /etc/sysconfig/console /etc/profile /etc/sysconfig/network /etc/hosts /etc/fstab /etc/sysconfig/ifconfig.eth0 /etc/resolv.conf /etc/passwd /etc/lsb-release /etc/sysconfig/rc.site)
 for i in ${LIST[@]}; do
@@ -39,10 +42,12 @@ cat > ${PARTITION}/finish.sh <<- "EOF"
 	/sbin/udevadm hwdb --update
 EOF
 chmod +x ${PARTITION}/finish.sh
-su -c 'chroot "${PARTITION}" /usr/bin/env -i \
+printf "Enter chroot to run finish.sh\n"
+su -c 'chroot /mnt/installation /usr/bin/env -i \
 	HOME=/root TERM="$TERM" PS1="\u:\w\$ " \
 	PATH=/bin:/usr/bin:/sbin:/usr/sbin \
 	/bin/bash --login -c /finish.sh' root
 rm ${PARTITION}/finish.sh
+umount ${PARTITION}
 #	Completed
 printf "Installation completed\n"

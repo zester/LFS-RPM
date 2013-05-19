@@ -41,8 +41,8 @@ rm -rf %{buildroot}
 %{_defaultdocdir}/%{name}-%{version}/*
 %{_mandir}/*/*
 %changelog
-*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 4.2-1
--	Upgrade version
 *	Sun May 19 2013 baho-utot <baho-utot@columbus.rr.com> 4.2-2
 -	Added /bin/sh symlink
+*	Wed Mar 21 2013 baho-utot <baho-utot@columbus.rr.com> 4.2-1
+-	Upgrade version
 
