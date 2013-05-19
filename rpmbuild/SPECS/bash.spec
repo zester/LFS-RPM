@@ -30,6 +30,7 @@ make %{?_smp_mflags}
 %install
 [ %{buildroot} != "/"] && rm -rf %{buildroot}/*
 make DESTDIR=%{buildroot} install
+ln -s bash %{buildroot}/bin/sh
 %find_lang %{name}
 rm -rf %{buildroot}/%{_infodir}
 %clean
